@@ -1,4 +1,6 @@
 // RehabPrint IA — App Logic
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuekn9HYI4cPeLj7Lj5T-YYMsAF7N59dzCJCvqkPW42P8PuXhhMNackUcbfK_nNWxHpA/exec';
+
 let currentView = 'dashboard';
 let selectedSolicitud = null;
 let filterEstado = 'todos';
@@ -6,6 +8,52 @@ let filterArea = 'todos';
 let filterResponsable = 'todos';
 let searchQuery = '';
 let activeModerator = 'Fabian';
+
+// ─── CLOUD SYNC (Google Sheets compartido) ─────────────────────────────────
+
+async function cloudGetInventory() {
+  try {
+    const res = await fetch(`${APPS_SCRIPT_URL}?action=getInventory`);
+    const json = await res.json();
+    if (json.ok && json.data && json.data.length > 0) {
+      inventory = json.data;
+      saveInventoryToStorage();
+      return true;
+    }
+  } catch(e) { console.warn('Cloud inventory unavailable, using local cache'); }
+  return false;
+}
+
+async function cloudSaveInventory() {
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        action: 'updateInventory',
+        inventory: inventory.map(i => ({ ...i, modifiedBy: activeModerator }))
+      })
+    });
+    showToast('☁️ Inventario sincronizado con Google Sheets', 'success');
+  } catch(e) { showToast('⚠️ Sin conexión — cambios guardados localmente', ''); }
+}
+
+async function cloudSaveState(id, estado, responsable) {
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'updateState', id, estado, responsable, moderator: activeModerator })
+    });
+  } catch(e) { console.warn('Estado guardado solo localmente'); }
+}
+
+async function cloudGetStates() {
+  try {
+    const res = await fetch(`${APPS_SCRIPT_URL}?action=getStates`);
+    const json = await res.json();
+    if (json.ok && json.data) return json.data;
+  } catch(e) { console.warn('No se pudo obtener estados de la nube'); }
+  return {};
+}
 
 // ─── NAVIGATION ───────────────────────────────────────
 function toggleSidebar() {
@@ -476,6 +524,8 @@ function changeSolicitudEstado(newEstado) {
 
   saveLocalState(s.id, s);
   pushSyncChange(s.id, 'estado', newEstado, oldState);
+  // ☁️ Guardar en la nube (compartido con Valentina y Alexis)
+  cloudSaveState(s.id, newEstado, s.responsableActual);
   openDetail(s.id);
   updateNavBadges();
   showToast(`✅ Estado actualizado a: ${newEstado}`, 'success');
@@ -613,12 +663,25 @@ function setFilterResponsable(val) { filterResponsable = val; renderSolicitudes(
 function setSearch(val) { searchQuery = val; renderSolicitudes(); }
 
 // ─── INIT ─────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   navigate('dashboard');
   updateNavBadges();
   if (typeof loadLiveData === 'function') {
     loadLiveData();
   }
+  // Cargar inventario compartido desde la nube
+  await cloudGetInventory();
+  // Cargar estados compartidos desde la nube y aplicarlos
+  const cloudStates = await cloudGetStates();
+  Object.keys(cloudStates).forEach(id => {
+    const s = solicitudes.find(x => x.id === id);
+    if (s && cloudStates[id].estado) {
+      s.estadoCaso = cloudStates[id].estado;
+      s.responsableActual = cloudStates[id].responsable || s.responsableActual;
+    }
+  });
+  updateNavBadges();
+  if (currentView === 'dashboard') renderDashboard();
 });
 
 // 🔹 Persistencia local + cola de sincronización
@@ -861,8 +924,9 @@ function changeStock(itemId, delta) {
   if (!item) return;
 
   item.stock = Math.max(0, item.stock + delta);
-  // Guardar inmediatamente en localStorage
+  // Guardar en localStorage Y en la nube (compartido con todo el equipo)
   saveInventoryToStorage();
+  cloudSaveInventory();
 
   // Re-renderizar sin recargar desde localStorage para no perder cambios
   const grid = document.getElementById('inventory-grid');
