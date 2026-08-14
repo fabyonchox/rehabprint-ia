@@ -731,28 +731,28 @@ function exportInventoryCSV() {
   showToast('📥 Inventario exportado en formato CSV para Google Sheets', 'success');
 }
 
-function loadInventory() {
+function loadInventory(forceReload = false) {
+  if (inventory.length > 0 && !forceReload) return;
   const saved = localStorage.getItem('rehabprint_inventory');
   if (saved) {
     try {
       const parsed = JSON.parse(saved);
-      const hasNewItems = parsed.some(i => i.nombre && (i.nombre.includes('Adulto') || i.nombre.includes('Infantil')));
-      if (!hasNewItems || parsed.length < 30) {
-        inventory = DEFAULT_INVENTORY.map(def => {
-          const match = parsed.find(p => p.nombre === def.nombre);
-          return match ? { ...def, stock: match.stock } : { ...def };
-        });
-        saveInventoryToStorage();
-      } else {
-        inventory = parsed;
-      }
+      inventory = DEFAULT_INVENTORY.map(def => {
+        const match = parsed.find(p => p.id === def.id || p.nombre === def.nombre);
+        return match ? { ...def, stock: match.stock, minStock: match.minStock || def.minStock } : { ...def };
+      });
+      parsed.forEach(p => {
+        if (!inventory.some(i => i.id === p.id || i.nombre === p.nombre)) {
+          inventory.push(p);
+        }
+      });
     } catch (e) {
-      inventory = DEFAULT_INVENTORY;
+      inventory = DEFAULT_INVENTORY.map(i => ({ ...i }));
     }
   } else {
-    inventory = DEFAULT_INVENTORY;
-    saveInventoryToStorage();
+    inventory = DEFAULT_INVENTORY.map(i => ({ ...i }));
   }
+  saveInventoryToStorage();
 }
 
 function saveInventoryToStorage() {
