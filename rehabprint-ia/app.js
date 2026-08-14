@@ -21,7 +21,7 @@ async function cloudGetInventory() {
     const res = await fetch(`${APPS_SCRIPT_URL}?action=getInventory`, { redirect: 'follow' });
     const json = await res.json();
     if (json.ok && json.data && json.data.length > 0) {
-      inventory = json.data;
+      inventory = cleanDeduplicateInventory(json.data);
       saveInventoryToStorage();
       return true;
     }
@@ -852,6 +852,7 @@ const DEFAULT_INVENTORY = [
 function resetInventoryToZero() {
   inventory = DEFAULT_INVENTORY.map(i => ({ ...i, stock: 0 }));
   saveInventoryToStorage();
+  cloudSaveInventory();
   renderInventory();
   showToast('🧹 Inventario restablecido: Todas las piezas quedaron en 0 unidades', 'info');
 }
@@ -873,27 +874,65 @@ function exportInventoryCSV() {
   showToast('📥 Inventario exportado en formato CSV para Google Sheets', 'success');
 }
 
-function loadInventory(forceReload = false) {
-  if (inventory.length > 0 && !forceReload) return;
-  const saved = localStorage.getItem('rehabprint_inventory');
-  if (saved) {
-    try {
-      const parsed = JSON.parse(saved);
-      inventory = DEFAULT_INVENTORY.map(def => {
-        const match = parsed.find(p => p.id === def.id || p.nombre === def.nombre);
-        return match ? { ...def, stock: match.stock, minStock: match.minStock || def.minStock } : { ...def };
-      });
-      parsed.forEach(p => {
-        if (!inventory.some(i => i.id === p.id || i.nombre === p.nombre)) {
-          inventory.push(p);
+function cleanDeduplicateInventory(rawItems = []) {
+  const map = new Map();
+  DEFAULT_INVENTORY.forEach(def => {
+    map.set(def.id, { ...def });
+  });
+
+  if (Array.isArray(rawItems)) {
+    rawItems.forEach(item => {
+      if (!item) return;
+      const cleanName = item.nombre ? String(item.nombre).trim().toLowerCase() : '';
+      const cleanId = item.id ? String(item.id).trim() : '';
+
+      let foundKey = null;
+      for (const [k, v] of map.entries()) {
+        if ((cleanId && k === cleanId) || (cleanName && v.nombre.trim().toLowerCase() === cleanName)) {
+          foundKey = k;
+          break;
         }
-      });
-    } catch (e) {
-      inventory = DEFAULT_INVENTORY.map(i => ({ ...i }));
-    }
-  } else {
-    inventory = DEFAULT_INVENTORY.map(i => ({ ...i }));
+      }
+
+      if (foundKey) {
+        const prev = map.get(foundKey);
+        const stockNum = typeof item.stock === 'number' ? item.stock : parseInt(item.stock, 10);
+        const minStockNum = typeof item.minStock === 'number' ? item.minStock : parseInt(item.minStock, 10);
+        map.set(foundKey, {
+          ...prev,
+          stock: !isNaN(stockNum) ? stockNum : (prev.stock || 0),
+          minStock: !isNaN(minStockNum) ? minStockNum : (prev.minStock || 2),
+          categoria: item.categoria || prev.categoria
+        });
+      } else if (cleanName || cleanId) {
+        const newId = cleanId || `INV-${String(map.size + 1).padStart(3, '0')}`;
+        const stockNum = parseInt(item.stock, 10);
+        const minStockNum = parseInt(item.minStock, 10);
+        map.set(newId, {
+          id: newId,
+          nombre: item.nombre || 'Item Personalizado',
+          categoria: item.categoria || 'General',
+          stock: !isNaN(stockNum) ? stockNum : 0,
+          minStock: !isNaN(minStockNum) ? minStockNum : 2
+        });
+      }
+    });
   }
+
+  return Array.from(map.values());
+}
+
+function loadInventory(forceReload = false) {
+  if (inventory.length > 0 && !forceReload) {
+    inventory = cleanDeduplicateInventory(inventory);
+    return;
+  }
+  const saved = localStorage.getItem('rehabprint_inventory');
+  let parsed = [];
+  if (saved) {
+    try { parsed = JSON.parse(saved); } catch (e) { parsed = []; }
+  }
+  inventory = cleanDeduplicateInventory(parsed);
   saveInventoryToStorage();
 }
 
