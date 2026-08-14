@@ -13,7 +13,7 @@ let activeModerator = 'Fabian';
 
 async function cloudGetInventory() {
   try {
-    const res = await fetch(`${APPS_SCRIPT_URL}?action=getInventory`);
+    const res = await fetch(`${APPS_SCRIPT_URL}?action=getInventory`, { redirect: 'follow' });
     const json = await res.json();
     if (json.ok && json.data && json.data.length > 0) {
       inventory = json.data;
@@ -26,21 +26,24 @@ async function cloudGetInventory() {
 
 async function cloudSaveInventory() {
   try {
-    await fetch(APPS_SCRIPT_URL, {
+    // no-cors: fire-and-forget, evita bloqueo de CORS preflight
+    fetch(APPS_SCRIPT_URL, {
       method: 'POST',
+      mode: 'no-cors',
       body: JSON.stringify({
         action: 'updateInventory',
         inventory: inventory.map(i => ({ ...i, modifiedBy: activeModerator }))
       })
     });
-    showToast('☁️ Inventario sincronizado con Google Sheets', 'success');
+    showToast('☁️ Inventario guardado en la nube', 'success');
   } catch(e) { showToast('⚠️ Sin conexión — cambios guardados localmente', ''); }
 }
 
 async function cloudSaveState(id, estado, responsable) {
   try {
-    await fetch(APPS_SCRIPT_URL, {
+    fetch(APPS_SCRIPT_URL, {
       method: 'POST',
+      mode: 'no-cors',
       body: JSON.stringify({ action: 'updateState', id, estado, responsable, moderator: activeModerator })
     });
   } catch(e) { console.warn('Estado guardado solo localmente'); }
@@ -48,7 +51,7 @@ async function cloudSaveState(id, estado, responsable) {
 
 async function cloudGetStates() {
   try {
-    const res = await fetch(`${APPS_SCRIPT_URL}?action=getStates`);
+    const res = await fetch(`${APPS_SCRIPT_URL}?action=getStates`, { redirect: 'follow' });
     const json = await res.json();
     if (json.ok && json.data) return json.data;
   } catch(e) { console.warn('No se pudo obtener estados de la nube'); }
@@ -90,40 +93,45 @@ function navigate(view) {
 }
 
 // ─── ACTUALIZACIÓN DE ESTADOS Y DATOS EN TIEMPO REAL ─────────────────
-function actualizarDatosYEstados(silencioso = false) {
+async function actualizarDatosYEstados(silencioso = false) {
   const icon = document.getElementById('update-spin-icon');
   if (icon) {
     icon.style.transform = 'rotate(360deg)';
     setTimeout(() => { icon.style.transform = 'rotate(0deg)'; }, 600);
   }
 
-  let reloaded = false;
-  if (typeof loadLiveData === 'function') {
-    reloaded = loadLiveData();
-  }
+  if (typeof loadLiveData === 'function') loadLiveData();
 
-  // Re-aplicar cambios locales de estado guardados en localStorage
-  const localStates = JSON.parse(localStorage.getItem('rehabprint_states') || '{}');
-  const localAssignees = JSON.parse(localStorage.getItem('rehabprint_assignees') || '{}');
-
+  // 1️⃣ Obtener estados desde la NUBE (compartido entre Fabían, Valentina y Alexis)
+  const cloudStates = await cloudGetStates();
   solicitudes.forEach(s => {
-    if (localStates[s.id]) {
-      s.estadoCaso = localStates[s.id];
-    }
-    if (localAssignees[s.id]) {
-      s.responsableActual = localAssignees[s.id];
+    if (cloudStates[s.id]) {
+      s.estadoCaso   = cloudStates[s.id].estado || s.estadoCaso;
+      s.responsableActual = cloudStates[s.id].responsable || s.responsableActual;
     }
   });
 
-  updateNavBadges();
+  // 2️⃣ Aplicar adicionalmente cambios locales (por si no hay internet)
+  const localStates   = JSON.parse(localStorage.getItem('rehabprint_states')   || '{}');
+  const localAssignees = JSON.parse(localStorage.getItem('rehabprint_assignees') || '{}');
+  solicitudes.forEach(s => {
+    // La nube tiene prioridad sobre lo local
+    if (!cloudStates[s.id] && localStates[s.id])   s.estadoCaso       = localStates[s.id];
+    if (!cloudStates[s.id] && localAssignees[s.id]) s.responsableActual = localAssignees[s.id];
+  });
 
-  if (currentView === 'dashboard') renderDashboard();
+  // 3️⃣ Actualizar inventario desde la nube
+  await cloudGetInventory();
+
+  updateNavBadges();
+  if (currentView === 'dashboard')   renderDashboard();
   else if (currentView === 'solicitudes') renderSolicitudes();
-  else if (currentView === 'historial') renderHistorial();
+  else if (currentView === 'historial')   renderHistorial();
+  else if (currentView === 'inventario')  renderInventory();
   else if (currentView === 'detail' && selectedSolicitud) openDetail(selectedSolicitud.id);
 
   if (!silencioso) {
-    showToast(`✅ ${solicitudes.length} solicitudes y estados actualizados en vivo.`, 'success');
+    showToast(`☁️ ${solicitudes.length} solicitudes y estados sincronizados con la nube.`, 'success');
   }
 }
 
