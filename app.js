@@ -760,7 +760,7 @@ function saveInventoryToStorage() {
 }
 
 function renderInventory() {
-  loadInventory();
+  loadInventory(false);
 
   const filterCat = document.getElementById('inv-filter-categoria')?.value || 'todos';
   const filterEst = document.getElementById('inv-filter-estado')?.value || 'todos';
@@ -778,6 +778,14 @@ function renderInventory() {
   }
 
   // KPIs
+  updateInventoryKPIs();
+
+  const grid = document.getElementById('inventory-grid');
+  if (!grid) return;
+  renderInventoryGrid(list);
+}
+
+function updateInventoryKPIs() {
   const totalTipos = inventory.length;
   const totalPiezas = inventory.reduce((acc, i) => acc + i.stock, 0);
   const bajoStock = inventory.filter(i => i.stock > 0 && i.stock <= i.minStock).length;
@@ -789,7 +797,9 @@ function renderInventory() {
   setEl('inv-kpi-bajas', bajoStock);
   setEl('inv-kpi-agotadas', agotadas);
   setEl('badge-inventario', totalPiezas);
+}
 
+function renderInventoryGrid(list) {
   const grid = document.getElementById('inventory-grid');
   if (!grid) return;
 
@@ -845,13 +855,32 @@ function renderInventory() {
 }
 
 function changeStock(itemId, delta) {
-  loadInventory();
+  // Si inventory está vacío (primera carga), leer desde localStorage
+  if (inventory.length === 0) loadInventory(true);
   const item = inventory.find(i => i.id === itemId);
   if (!item) return;
 
   item.stock = Math.max(0, item.stock + delta);
+  // Guardar inmediatamente en localStorage
   saveInventoryToStorage();
-  renderInventory();
+
+  // Re-renderizar sin recargar desde localStorage para no perder cambios
+  const grid = document.getElementById('inventory-grid');
+  if (grid) {
+    const filterCat = document.getElementById('inv-filter-categoria')?.value || 'todos';
+    const filterEst = document.getElementById('inv-filter-estado')?.value || 'todos';
+    const searchQ = (document.getElementById('inv-search')?.value || '').toLowerCase();
+    let list = [...inventory];
+    if (filterCat !== 'todos') list = list.filter(i => i.categoria === filterCat);
+    if (filterEst !== 'todos') {
+      if (filterEst === 'disponible') list = list.filter(i => i.stock > i.minStock);
+      else if (filterEst === 'bajo') list = list.filter(i => i.stock > 0 && i.stock <= i.minStock);
+      else if (filterEst === 'agotado') list = list.filter(i => i.stock === 0);
+    }
+    if (searchQ) list = list.filter(i => i.nombre.toLowerCase().includes(searchQ) || i.categoria.toLowerCase().includes(searchQ));
+    updateInventoryKPIs();
+    renderInventoryGrid(list);
+  }
 
   if (delta < 0) {
     showToast(`📦 Entregada 1 unidad de '${item.nombre}'. Stock actual: ${item.stock}`, 'info');
