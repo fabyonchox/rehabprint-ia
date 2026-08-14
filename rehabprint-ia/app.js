@@ -1,5 +1,10 @@
 // RehabPrint IA — App Logic
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuekn9HYI4cPeLj7Lj5T-YYMsAF7N59dzCJCvqkPW42P8PuXhhMNackUcbfK_nNWxHpA/exec';
+const GITHUB_REPO    = 'fabyonchox/rehabprint-ia';
+const GITHUB_WORKFLOW = 'sync.yml';
+// ⚠️ Reemplaza con tu GitHub Personal Access Token (scope: workflow)
+// Créalo en: https://github.com/settings/tokens/new → marca "workflow"
+const GITHUB_PAT     = 'REEMPLAZAR_CON_TU_TOKEN';
 
 let currentView = 'dashboard';
 let selectedSolicitud = null;
@@ -56,6 +61,60 @@ async function cloudGetStates() {
     if (json.ok && json.data) return json.data;
   } catch(e) { console.warn('No se pudo obtener estados de la nube'); }
   return {};
+}
+
+// ─── TRIGGER AGENTES IA EN LA NUBE (GitHub Actions) ────────────────────────
+async function triggerIASync() {
+  const btn  = document.getElementById('btn-sync-ia');
+  const icon = document.getElementById('sync-ia-icon');
+  const text = document.getElementById('sync-ia-text');
+
+  if (GITHUB_PAT === 'REEMPLAZAR_CON_TU_TOKEN') {
+    showToast('⚠️ Configura tu GitHub Token en app.js para usar esta función', 'error');
+    return;
+  }
+
+  // UI: estado "procesando"
+  btn.disabled = true;
+  icon.textContent = '⏳';
+  text.textContent = 'Procesando...';
+
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GITHUB_REPO}/actions/workflows/${GITHUB_WORKFLOW}/dispatches`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${GITHUB_PAT}`,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ref: 'master' })
+      }
+    );
+
+    if (res.status === 204 || res.ok) {
+      icon.textContent = '🤖';
+      text.textContent = 'Sincronizando...';
+      showToast('🤖 Agentes IA activados — los nuevos pedidos aparecerán en ~60 segundos', 'success');
+      // Esperar 65 segundos y luego actualizar la vista
+      setTimeout(async () => {
+        await actualizarDatosYEstados(true);
+        icon.textContent = '✅';
+        text.textContent = 'Sincronizar IA';
+        btn.disabled = false;
+        showToast('✅ Sincronización completada — datos actualizados', 'success');
+        setTimeout(() => { icon.textContent = '🤖'; }, 3000);
+      }, 65000);
+    } else {
+      throw new Error(`Status ${res.status}`);
+    }
+  } catch(e) {
+    icon.textContent = '🤖';
+    text.textContent = 'Sincronizar IA';
+    btn.disabled = false;
+    showToast('❌ Error al activar los agentes. Verifica tu token de GitHub.', 'error');
+  }
 }
 
 // ─── NAVIGATION ───────────────────────────────────────

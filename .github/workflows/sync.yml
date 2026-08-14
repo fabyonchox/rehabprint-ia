@@ -1,0 +1,49 @@
+name: 🤖 RehabPrint IA — Sincronizar Agentes
+
+on:
+  # Permite activarlo manualmente desde GitHub.com o desde la plataforma web
+  workflow_dispatch:
+  # Sincronización automática cada 30 minutos
+  schedule:
+    - cron: '*/30 * * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Descargar código
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Instalar dependencias
+        run: |
+          pip install google-auth google-auth-httplib2 google-api-python-client
+
+      - name: 🔑 Restaurar credenciales Google
+        run: |
+          echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
+
+      - name: 🤖 Ejecutar Agentes IA — Sincronizar Google Sheets
+        run: |
+          python sync_sheets.py
+
+      - name: 📤 Publicar datos actualizados en Vercel
+        run: |
+          git config user.name  "RehabPrint Bot"
+          git config user.email "bot@rehabprint-ia.app"
+          cp rehabprint-ia/live_data.js  live_data.js
+          cp rehabprint-ia/live_data.json live_data.json
+          git add live_data.js live_data.json rehabprint-ia/live_data.js rehabprint-ia/live_data.json
+          if git diff --staged --quiet; then
+            echo "Sin cambios nuevos en Google Sheets."
+          else
+            git commit -m "🤖 Sync automático [$(date '+%d/%m/%Y %H:%M')] — Agentes IA"
+            git push
+          fi

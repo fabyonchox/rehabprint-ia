@@ -59,7 +59,13 @@
         <!-- BOTÓN PRINCIPAL DE ACTUALIZACIÓN DE ESTADOS Y DATOS -->
         <button class="btn btn-primary btn-sm" id="btn-update-header" onclick="actualizarDatosYEstados()" style="gap:6px;font-weight:600;box-shadow:var(--shadow-sm)" title="Actualizar y recalcular datos y estados">
           <span id="update-spin-icon" style="display:inline-block;transition:transform 0.5s ease">🔄</span>
-          <span>Actualizar Estados</span>
+          <span>Actualizar</span>
+        </button>
+
+        <!-- BOTÓN SINCRONIZAR AGENTES IA EN LA NUBE -->
+        <button class="btn btn-sm" id="btn-sync-ia" onclick="triggerIASync()" style="gap:6px;font-weight:600;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;box-shadow:var(--shadow-sm)" title="Ejecutar los Agentes IA en la nube para procesar nuevos pedidos del formulario">
+          <span id="sync-ia-icon">🤖</span>
+          <span id="sync-ia-text">Sincronizar IA</span>
         </button>
 
         <div class="filter-group" style="flex-direction:row;align-items:center;gap:6px">
