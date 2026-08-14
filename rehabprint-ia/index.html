@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RehabPrint IA — Team 3D</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-logo">
+        <div class="brand-icon">R</div>
+        <div class="brand-text">
+          <span class="brand-name">RehabPrint IA</span>
+          <span class="brand-sub">Medicina Física y Rehabilitación</span>
+        </div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Principal</div>
+      <div class="nav-item active" data-view="dashboard" onclick="navigate('dashboard')">
+        <span class="nav-icon">🏠</span> Dashboard
+      </div>
+      <div class="nav-item" data-view="solicitudes" onclick="navigate('solicitudes')">
+        <span class="nav-icon">📋</span> Solicitudes
+        <span class="nav-badge" id="badge-nuevas">3</span>
+      </div>
+      <div class="nav-item" data-view="inventario" onclick="navigate('inventario')">
+        <span class="nav-icon">📦</span> Inventario Stock
+        <span class="nav-badge blue" id="badge-inventario" style="background:#E0F2FE;color:var(--color-primary-light)">0</span>
+      </div>
+      <div class="nav-item" data-view="historial" onclick="navigate('historial')">
+        <span class="nav-icon">📚</span> Historial
+        <span class="nav-badge green" id="badge-entregadas">0</span>
+      </div>
+      <div class="nav-section-label" style="margin-top:12px">Sistema</div>
+      <div class="nav-item" data-view="agentes" onclick="navigate('agentes')">
+        <span class="nav-icon">🤖</span> Agentes IA
+      </div>
+    </nav>
+    <div class="sidebar-footer">RehabPrint IA v1.0 MVP</div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main-content">
+    <header class="app-header">
+      <div>
+        <div class="header-title" id="header-title">Dashboard</div>
+      </div>
+      <div class="header-actions">
+        <!-- BOTÓN PRINCIPAL DE ACTUALIZACIÓN DE ESTADOS Y DATOS -->
+        <button class="btn btn-primary btn-sm" id="btn-update-header" onclick="actualizarDatosYEstados()" style="gap:6px;font-weight:600;box-shadow:var(--shadow-sm)" title="Actualizar y recalcular datos y estados">
+          <span id="update-spin-icon" style="display:inline-block;transition:transform 0.5s ease">🔄</span>
+          <span>Actualizar Estados</span>
+        </button>
+
+        <div class="filter-group" style="flex-direction:row;align-items:center;gap:6px">
+          <span class="filter-label" style="color:var(--text-secondary);font-size:11px;margin-bottom:0">Moderador:</span>
+          <select class="filter-select" id="active-moderator" onchange="setActiveModerator(this.value)" style="padding:4px 8px;font-size:12px;border-radius:4px;background:#fff;border-color:var(--border-color)">
+            <option value="Fabian">Fabián</option>
+            <option value="Valentina">Valentina</option>
+            <option value="Alexis">Alexis</option>
+          </select>
+        </div>
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Buscar solicitud..." id="global-search" oninput="setSearch(this.value)">
+        </div>
+        <div class="avatar" id="moderator-avatar">F</div>
+      </div>
+    </header>
+
+    <!-- DASHBOARD -->
+    <div class="page active" id="page-dashboard">
+      <div class="kpi-grid">
+        <div class="kpi-card red" onclick="handleKpiClick('nuevas')">
+          <div class="kpi-icon">🆕</div>
+          <div class="kpi-value" id="kpi-nuevas">0</div>
+          <div class="kpi-label">Sin revisar</div>
+        </div>
+        <div class="kpi-card blue" onclick="handleKpiClick('proceso')">
+          <div class="kpi-icon">⚙️</div>
+          <div class="kpi-value" id="kpi-proceso">0</div>
+          <div class="kpi-label">En proceso</div>
+        </div>
+        <div class="kpi-card green" onclick="handleKpiClick('listas')">
+          <div class="kpi-icon">✅</div>
+          <div class="kpi-value" id="kpi-listas">0</div>
+          <div class="kpi-label">Lista para entrega</div>
+        </div>
+        <div class="kpi-card amber" onclick="handleKpiClick('alta')">
+          <div class="kpi-icon">🔺</div>
+          <div class="kpi-value" id="kpi-alta">0</div>
+          <div class="kpi-label">Alta prioridad</div>
+        </div>
+        <div class="kpi-card purple" onclick="handleKpiClick('entregadas')">
+          <div class="kpi-icon">📦</div>
+          <div class="kpi-value" id="kpi-entregadas">0</div>
+          <div class="kpi-label">Entregadas</div>
+        </div>
+        <div class="kpi-card red" onclick="handleKpiClick('observadas')">
+          <div class="kpi-icon">⚠️</div>
+          <div class="kpi-value" id="kpi-observadas">0</div>
+          <div class="kpi-label">Observadas</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">📊 Solicitudes por área</span>
+          </div>
+          <div class="card-body">
+            <div class="chart-bar-group" id="area-chart"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">🤖 Estado de Agentes IA</span>
+          </div>
+          <div class="card-body">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#F0FDF4;border-radius:6px;border:1px solid #BBF7D0">
+                <span style="font-size:13px;font-weight:600">🔄 Orquestador</span>
+                <span class="badge" style="color:#007F3B;background:#D1FAE5">Activo</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#F0FDF4;border-radius:6px;border:1px solid #BBF7D0">
+                <span style="font-size:13px;font-weight:600">📥 Ingestor</span>
+                <span class="badge" style="color:#007F3B;background:#D1FAE5">Activo</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#FFFBEB;border-radius:6px;border:1px solid #FDE68A">
+                <span style="font-size:13px;font-weight:600">🏷️ Clasificador</span>
+                <span class="badge" style="color:#D97706;background:#FEF3C7">En espera</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#F0FDF4;border-radius:6px;border:1px solid #BBF7D0">
+                <span style="font-size:13px;font-weight:600">📝 Resumidor</span>
+                <span class="badge" style="color:#007F3B;background:#D1FAE5">Activo</span>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm" style="margin-top:14px;width:100%" onclick="navigate('agentes')">Ver todos los agentes →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <div class="card-header">
+          <span class="card-title">📋 Solicitudes activas recientes</span>
+          <button class="btn btn-outline btn-sm" onclick="navigate('solicitudes')">Ver todas →</button>
+        </div>
+        <div class="card-body" style="padding:0">
+          <div id="recientes-list" style="display:flex;flex-direction:column;gap:0;padding:12px;gap:10px"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOLICITUDES -->
+    <div class="page" id="page-solicitudes">
+      <div class="filter-bar">
+        <div class="filter-group">
+          <span class="filter-label">Estado</span>
+          <select class="filter-select" id="filter-estado" onchange="setFilterEstado(this.value)">
+            <option value="todos">Todos</option>
+            <option value="Nueva solicitud">Nueva solicitud</option>
+            <option value="en-proceso">En proceso</option>
+            <option value="Revisada">Revisada</option>
+            <option value="En diseño">En diseño</option>
+            <option value="En impresión">En impresión</option>
+            <option value="En postproceso">En postproceso</option>
+            <option value="Lista para entrega">Lista para entrega</option>
+            <option value="alta-prioridad">Alta prioridad</option>
+            <option value="Observada / requiere ajuste">Observada</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Área</span>
+          <select class="filter-select" id="filter-area" onchange="setFilterArea(this.value)">
+            <option value="todos">Todas las áreas</option>
+            <option value="Terapia Ocupacional">Terapia Ocupacional</option>
+            <option value="Kinesiología">Kinesiología</option>
+            <option value="Fonoaudiología">Fonoaudiología</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Responsable</span>
+          <select class="filter-select" id="filter-responsable" onchange="setFilterResponsable(this.value)">
+            <option value="todos">Todos</option>
+            <option value="Sin asignar">Sin asignar</option>
+            <option value="Fabian">Fabián</option>
+            <option value="Valentina">Valentina</option>
+            <option value="Alexis">Alexis</option>
+            <option value="Team 3D">Team 3D</option>
+          </select>
+        </div>
+
+        <div class="view-switcher" style="display:flex;gap:4px;background:var(--bg-app);padding:3px;border-radius:6px;border:1px solid var(--border-color);margin-left:auto">
+          <button class="btn btn-sm" id="btn-layout-list" onclick="setSolicitudesLayout('list')" style="background:var(--color-primary);color:#fff;box-shadow:var(--shadow-sm);font-weight:600">
+            📋 Lista
+          </button>
+          <button class="btn btn-sm" id="btn-layout-kanban" onclick="setSolicitudesLayout('kanban')" style="background:transparent;color:var(--text-secondary)">
+            📌 Kanban
+          </button>
+        </div>
+
+        <button class="btn btn-outline btn-sm" onclick="exportSyncQueue()" style="gap:6px" title="Exportar cambios locales para sincronizar con Google Sheets">
+          📤 Exportar Cambios
+        </button>
+
+        <button class="btn btn-primary btn-sm" onclick="actualizarDatosYEstados()" style="gap:6px" title="Sincronizar y actualizar lista de estados">
+          🔄 Actualizar
+        </button>
+
+        <div style="font-size:13px;color:var(--text-muted);align-self:center" id="solicitudes-count"></div>
+      </div>
+      <div id="solicitudes-container">
+        <div class="solicitudes-list" id="solicitudes-list"></div>
+        <div class="kanban-board" id="kanban-board" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- DETAIL -->
+    <div class="page" id="page-detail">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap">
+        <button class="btn btn-outline btn-sm" onclick="navigate('solicitudes')">← Volver</button>
+        <span style="font-size:16px;font-weight:700;color:var(--text-muted)" id="detail-id"></span>
+        <div id="detail-estado-badge"></div>
+        <div id="detail-prioridad-badge"></div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-label">🤖 Análisis de Agentes IA</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px">
+          <span class="badge" style="color:#6366F1;background:#EEF2FF" id="ai-categoria">—</span>
+          <span class="badge" style="color:#003087;background:#E0F2FE" id="ai-pieza">—</span>
+        </div>
+        <div class="ai-summary" id="ai-resumen">—</div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <div class="detail-section">
+            <div class="detail-section-header"><span class="detail-section-title">👤 Solicitante</span></div>
+            <div class="detail-field"><div class="detail-field-label">Nombre</div><div class="detail-field-value" id="d-solicitante">—</div></div>
+            <div class="detail-field"><div class="detail-field-label">Profesión</div><div class="detail-field-value" id="d-profesion">—</div></div>
+            <div class="detail-field"><div class="detail-field-label">Área</div><div class="detail-field-value" id="d-area">—</div></div>
+            <div class="detail-field"><div class="detail-field-label">Fecha solicitud</div><div class="detail-field-value" id="d-fecha">—</div></div>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-header"><span class="detail-section-title">🎯 Destino</span></div>
+            <div class="detail-field"><div class="detail-field-label">Tipo</div><div class="detail-field-value" id="d-destino">—</div></div>
+            <div class="detail-field"><div class="detail-field-label">Contexto</div><div class="detail-field-value" id="d-contexto">—</div></div>
+            <div class="detail-field"><div class="detail-field-label">Usuario / Unidad</div><div class="detail-field-value" id="d-target">—</div></div>
+            <div class="detail-field"><div class="detail-field-label">Ubicación</div><div class="detail-field-value" id="d-ubicacion">—</div></div>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-header" style="display:flex;justify-content:space-between;align-items:center">
+              <span class="detail-section-title">🧩 Implementos Solicitados (Checklist Individual)</span>
+              <span id="d-items-progress" style="font-size:12px;font-weight:700;color:var(--color-primary-light);background:#E0F2FE;padding:2px 8px;border-radius:12px">0/0 listos</span>
+            </div>
+            <div class="card-body" id="d-items-checklist" style="display:flex;flex-direction:column;gap:10px">
+              <!-- Checklist de implementos individuales -->
+            </div>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-header"><span class="detail-section-title">📄 Solicitud original</span></div>
+            <div class="detail-field"><div class="detail-field-label">Descripción</div><div class="detail-field-value" id="d-descripcion" style="white-space:pre-wrap;line-height:1.6">—</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="detail-section">
+            <div class="detail-section-header"><span class="detail-section-title">🔄 Flujo del caso</span></div>
+            <div class="card-body"><div class="timeline" id="detail-timeline"></div></div>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-header"><span class="detail-section-title">⚙️ Gestión del Caso</span></div>
+            <div class="detail-field">
+              <div class="detail-field-label">Asignado a</div>
+              <div style="display:flex;gap:10px;align-items:center">
+                <select class="filter-select" id="detail-assignee-select" onchange="changeSolicitudAssignee(this.value)" style="flex:1">
+                  <option value="">Sin asignar</option>
+                  <option value="Fabian">Fabián</option>
+                  <option value="Valentina">Valentina</option>
+                  <option value="Alexis">Alexis</option>
+                  <option value="Team 3D">Team 3D</option>
+                </select>
+                <span class="badge" id="detail-assignee-badge" style="color:var(--color-primary-light);background:#E0F2FE"></span>
+              </div>
+            </div>
+            <div class="detail-field">
+              <div class="detail-field-label">Cambiar Estado</div>
+              <div style="display:flex;gap:10px;align-items:center">
+                <select class="filter-select" id="detail-estado-select" onchange="changeSolicitudEstado(this.value)" style="flex:1">
+                  <option value="Nueva solicitud">Nueva solicitud</option>
+                  <option value="Revisada">Revisada</option>
+                  <option value="En diseño">En diseño</option>
+                  <option value="En impresión">En impresión</option>
+                  <option value="En postproceso">En postproceso</option>
+                  <option value="Lista para entrega">Lista para entrega</option>
+                  <option value="Entregada">Entregada</option>
+                  <option value="Observada / requiere ajuste">Observada / requiere ajuste</option>
+                  <option value="Cancelada">Cancelada</option>
+                </select>
+                <button class="btn btn-primary btn-sm" onclick="changeSolicitudEstado(document.getElementById('detail-estado-select').value)">
+                  Actualizar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-header"><span class="detail-section-title">📝 Observaciones</span></div>
+            <div class="detail-field"><div class="detail-field-label">Clínicas</div><div class="detail-field-value" id="d-obs-clinicas">—</div></div>
+            <div class="detail-field"><div class="detail-field-label">Técnicas</div><div class="detail-field-value" id="d-obs-tecnicas">—</div></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px" id="detail-actions"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTORIAL -->
+    <div class="page" id="page-historial">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--text-muted)" id="historial-count"></div>
+        <button class="btn btn-outline btn-sm" onclick="actualizarDatosYEstados()" style="gap:6px">
+          🔄 Actualizar Estados
+        </button>
+      </div>
+      <div class="solicitudes-list" id="historial-list"></div>
+    </div>
+
+    <!-- AGENTES IA -->
+    <div class="page" id="page-agentes">
+      <div style="margin-bottom:20px">
+        <p style="color:var(--text-secondary);font-size:14px">Arquitectura multiagente que procesa cada solicitud desde Google Forms hasta el tablero del Team 3D.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+        <div class="card">
+          <div class="card-header" style="background:linear-gradient(135deg,#003087,#0072CE)">
+            <span style="color:#fff;font-weight:700">🔄 Agente Orquestador</span>
+            <span class="badge" style="color:#41B6E6;background:rgba(255,255,255,0.15)">Coordinador</span>
+          </div>
+          <div class="card-body">
+            <p style="font-size:13px;color:var(--text-secondary);margin-bottom:10px">Detecta nuevas solicitudes, coordina el flujo y consolida el resultado final.</p>
+            <div style="font-size:12px;color:var(--text-muted)">Salida: Caso estructurado + bandera revisión manual</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" style="background:#F8FAFC">
+            <span style="font-weight:700">📥 Agente Ingestor</span>
+            <span class="badge" style="color:#0072CE;background:#E0F2FE">Lectura</span>
+          </div>
+          <div class="card-body">
+            <p style="font-size:13px;color:var(--text-secondary);margin-bottom:10px">Lee la fila nueva de Google Sheets y convierte la respuesta bruta en estructura inicial.</p>
+            <div style="font-size:12px;color:var(--text-muted)">Salida: nombreSolicitante, descripcionOriginal, fechaSolicitud</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" style="background:#F8FAFC">
+            <span style="font-weight:700">🧹 Agente Normalizador</span>
+            <span class="badge" style="color:#7C3AED;background:#EDE9FE">Limpieza</span>
+          </div>
+          <div class="card-body">
+            <p style="font-size:13px;color:var(--text-secondary);margin-bottom:10px">Estandariza profesiones, separa nombre/RUT/unidad, unifica nombres de piezas.</p>
+            <div style="font-size:12px;color:var(--text-muted)">Ej: "T.O" → "Terapia Ocupacional" | "fingergrip" → "Finger Grip"</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" style="background:#F8FAFC">
+            <span style="font-weight:700">🏷️ Agente Clasificador</span>
+            <span class="badge" style="color:#D97706;background:#FEF3C7">Análisis</span>
+          </div>
+          <div class="card-body">
+            <p style="font-size:13px;color:var(--text-secondary);margin-bottom:10px">Define destino (usuario/unidad), contexto, área y categoría funcional de la pieza.</p>
+            <div style="font-size:12px;color:var(--text-muted)">Salida: categoriaFuncional + confianzaClasificacion</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" style="background:#F8FAFC">
+            <span style="font-weight:700">🔺 Agente Priorizador</span>
+            <span class="badge" style="color:#D5281B;background:#FEE2E2">Urgencia</span>
+          </div>
+          <div class="card-body">
+            <p style="font-size:13px;color:var(--text-secondary);margin-bottom:10px">Sugiere prioridad Alta/Media/Baja según contexto clínico y urgencia operativa.</p>
+            <div style="font-size:12px;color:var(--text-muted)">Criterio: hospitalizado + unidad crítica = Alta prioridad</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" style="background:#F8FAFC">
+            <span style="font-weight:700">📝 Agente Resumidor</span>
+            <span class="badge" style="color:#007F3B;background:#D1FAE5">Texto</span>
+          </div>
+          <div class="card-body">
+            <p style="font-size:13px;color:var(--text-secondary);margin-bottom:10px">Genera resumen de 1-2 líneas para la tarjeta del caso en el tablero.</p>
+            <div style="font-size:12px;color:var(--text-muted)">Tono clínico-operativo, sin jerga técnica innecesaria</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" style="background:#F8FAFC">
+            <span style="font-weight:700">👁️ Agente Seguimiento</span>
+            <span class="badge" style="color:#4C6272;background:#F0F4F5">Alertas</span>
+          </div>
+          <div class="card-body">
+            <p style="font-size:13px;color:var(--text-secondary);margin-bottom:10px">Detecta casos detenidos, sugiere acciones y genera alertas por tiempos excedidos.</p>
+            <div style="font-size:12px;color:var(--text-muted)">Ej: caso sin cambio 5 días → alerta de revisión</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <div class="card-header"><span class="card-title">🔗 Flujo entre agentes</span></div>
+        <div class="card-body">
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px">
+            <span style="padding:6px 12px;background:#003087;color:#fff;border-radius:6px;font-weight:600">Google Sheets</span>
+            <span style="color:var(--text-muted)">→</span>
+            <span style="padding:6px 12px;background:#0072CE;color:#fff;border-radius:6px;font-weight:600">Orquestador</span>
+            <span style="color:var(--text-muted)">→</span>
+            <span style="padding:6px 12px;background:#EDE9FE;color:#7C3AED;border-radius:6px;font-weight:600">Ingestor</span>
+            <span style="color:var(--text-muted)">→</span>
+            <span style="padding:6px 12px;background:#EDE9FE;color:#7C3AED;border-radius:6px;font-weight:600">Normalizador</span>
+            <span style="color:var(--text-muted)">→</span>
+            <span style="padding:6px 12px;background:#FEF3C7;color:#D97706;border-radius:6px;font-weight:600">Clasificador</span>
+            <span style="color:var(--text-muted)">→</span>
+            <span style="padding:6px 12px;background:#FEE2E2;color:#D5281B;border-radius:6px;font-weight:600">Priorizador</span>
+            <span style="color:var(--text-muted)">→</span>
+            <span style="padding:6px 12px;background:#D1FAE5;color:#007F3B;border-radius:6px;font-weight:600">Resumidor</span>
+            <span style="color:var(--text-muted)">→</span>
+            <span style="padding:6px 12px;background:#F0F4F5;color:#003087;border-radius:6px;font-weight:600">App Team 3D</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVENTARIO / STOCK -->
+    <div class="page" id="page-inventario">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px">
+        <div>
+          <h2 style="font-size:20px;font-weight:700;color:var(--text-primary);margin:0">📦 Inventario de Piezas 3D (Stock Físico)</h2>
+          <p style="font-size:13px;color:var(--text-muted);margin:4px 0 0 0">Gestión de stock físico para agilizar las entregas al instante</p>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn btn-outline btn-sm" onclick="exportInventoryCSV()" style="gap:6px" title="Exportar archivo CSV para importar en Google Sheets">
+            📥 Exportar CSV
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="resetInventoryToZero()" style="gap:6px;color:#D5281B;border-color:#FCA5A5" title="Restablecer el stock de todas las piezas a 0">
+            🧹 Dejar Todo en 0
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="openAddInventoryModal()" style="gap:6px">
+            ➕ Agregar Pieza al Stock
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI Inventario -->
+      <div class="kpi-grid" style="margin-bottom:24px">
+        <div class="kpi-card blue">
+          <div class="kpi-icon">📦</div>
+          <div class="kpi-value" id="inv-kpi-total">0</div>
+          <div class="kpi-label">Tipos de Piezas</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-icon">✅</div>
+          <div class="kpi-value" id="inv-kpi-disponibles">0</div>
+          <div class="kpi-label">Piezas Disponibles</div>
+        </div>
+        <div class="kpi-card orange">
+          <div class="kpi-icon">⚠️</div>
+          <div class="kpi-value" id="inv-kpi-bajas">0</div>
+          <div class="kpi-label">Stock Bajo (Reponer)</div>
+        </div>
+        <div class="kpi-card red">
+          <div class="kpi-icon">❌</div>
+          <div class="kpi-value" id="inv-kpi-agotadas">0</div>
+          <div class="kpi-label">Piezas Agotadas</div>
+        </div>
+      </div>
+
+      <!-- Filter & Search Bar -->
+      <div class="filter-bar" style="margin-bottom:20px">
+        <div class="filter-group">
+          <span class="filter-label">Categoría</span>
+          <select class="filter-select" id="inv-filter-categoria" onchange="renderInventory()">
+            <option value="todos">Todas las categorías</option>
+            <option value="Ayuda técnica AVD">Ayuda técnica AVD</option>
+            <option value="Implemento de rehabilitación">Implemento de rehabilitación</option>
+            <option value="Accesorio / Repuesto">Accesorio / Repuesto</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Estado Stock</span>
+          <select class="filter-select" id="inv-filter-estado" onchange="renderInventory()">
+            <option value="todos">Todos los estados</option>
+            <option value="disponible">Stock Disponible</option>
+            <option value="bajo">Stock Bajo</option>
+            <option value="agotado">Agotado</option>
+          </select>
+        </div>
+        <div class="search-bar" style="margin-left:auto;width:240px">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Buscar en inventario..." id="inv-search" oninput="renderInventory()">
+        </div>
+      </div>
+
+      <!-- Grid of 3D Pieces in Stock -->
+      <div id="inventory-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:16px">
+        <!-- Items renderizados dinámicamente -->
+      </div>
+    </div>
+  </div><!-- end main-content -->
+</div><!-- end app-layout -->
+
+<!-- MODAL AGREGAR PIEZA -->
+<div class="modal-overlay" id="inv-modal-overlay" onclick="closeInvModal(event)">
+  <div class="modal" onclick="event.stopPropagation()" style="max-width:440px">
+    <div class="modal-header">
+      <h3 class="modal-title" id="inv-modal-title">Agregar Pieza al Stock</h3>
+      <button class="btn-icon" onclick="closeInvModal()" style="border:none;background:transparent;font-size:20px;cursor:pointer">✕</button>
+    </div>
+    <div class="modal-body" style="padding:16px 24px;display:flex;flex-direction:column;gap:14px">
+      <div class="filter-group">
+        <label class="filter-label" style="font-weight:600">Nombre de la Pieza 3D</label>
+        <input type="text" id="inv-input-nombre" class="filter-select" placeholder="Ej. Adaptador de lápiz con mango" style="width:100%">
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" style="font-weight:600">Categoría</label>
+        <select id="inv-input-categoria" class="filter-select" style="width:100%">
+          <option value="Ayuda técnica AVD">Ayuda técnica AVD</option>
+          <option value="Implemento de rehabilitación">Implemento de rehabilitación</option>
+          <option value="Accesorio / Repuesto">Accesorio / Repuesto</option>
+        </select>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="filter-group">
+          <label class="filter-label" style="font-weight:600">Stock Inicial</label>
+          <input type="number" id="inv-input-stock" class="filter-select" value="5" min="0" style="width:100%">
+        </div>
+        <div class="filter-group">
+          <label class="filter-label" style="font-weight:600">Mínimo Alerta</label>
+          <input type="number" id="inv-input-min" class="filter-select" value="2" min="1" style="width:100%">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeInvModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveInventoryItem()">Guardar Pieza</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="kpi-modal-overlay" onclick="closeKpiModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title" id="kpi-modal-title">Solicitudes</h3>
+      <button class="btn-icon" onclick="closeKpiModal()" style="border:none;background:transparent;font-size:20px;cursor:pointer">✕</button>
+    </div>
+    <div class="modal-body" style="padding: 16px 24px">
+      <!-- Search bar inside modal -->
+      <div class="search-bar" style="margin-bottom: 16px; width: 100%">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Buscar en este listado..." id="modal-search" oninput="filterModalList()" style="width: 100%">
+      </div>
+      <div id="kpi-modal-list" style="display:flex;flex-direction:column;gap:10px;max-height:50vh;overflow-y:auto;padding-right:4px">
+        <!-- List of matching cards -->
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeKpiModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script src="data.js"></script>
+<script src="live_data.js"></script>
+<script src="sheets_loader.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
