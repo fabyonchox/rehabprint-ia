@@ -1,10 +1,10 @@
 // RehabPrint IA — App Logic
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuekn9HYI4cPeLj7Lj5T-YYMsAF7N59dzCJCvqkPW42P8PuXhhMNackUcbfK_nNWxHpA/exec';
-const GITHUB_REPO    = 'fabyonchox/rehabprint-ia';
+const GITHUB_REPO     = 'fabyonchox/rehabprint-ia';
 const GITHUB_WORKFLOW = 'sync.yml';
-// ⚠️ Reemplaza con tu GitHub Personal Access Token (scope: workflow)
-// Créalo en: https://github.com/settings/tokens/new → marca "workflow"
-const GITHUB_PAT     = 'REEMPLAZAR_CON_TU_TOKEN';
+// Token guardado de forma segura en el navegador de cada usuario
+function getGithubPAT() { return localStorage.getItem('rehabprint_github_pat') || ''; }
+
 
 let currentView = 'dashboard';
 let selectedSolicitud = null;
@@ -68,13 +68,24 @@ async function triggerIASync() {
   const btn  = document.getElementById('btn-sync-ia');
   const icon = document.getElementById('sync-ia-icon');
   const text = document.getElementById('sync-ia-text');
+  const pat  = getGithubPAT();
 
-  if (GITHUB_PAT === 'REEMPLAZAR_CON_TU_TOKEN') {
-    showToast('⚠️ Configura tu GitHub Token en app.js para usar esta función', 'error');
+  // Si no hay token configurado, pedirlo al usuario
+  if (!pat) {
+    const token = prompt(
+      '🔑 Ingresa tu GitHub Personal Access Token para activar los Agentes IA en la nube.\n\n' +
+      'Solo necesitas ingresarlo una vez — se guarda de forma segura en tu navegador.\n\n' +
+      'Token (empieza con ghp_...):'
+    );
+    if (!token || !token.startsWith('ghp_')) {
+      showToast('❌ Token inválido o cancelado', 'error');
+      return;
+    }
+    localStorage.setItem('rehabprint_github_pat', token.trim());
+    showToast('✅ Token guardado. Vuelve a presionar el botón.', 'success');
     return;
   }
 
-  // UI: estado "procesando"
   btn.disabled = true;
   icon.textContent = '⏳';
   text.textContent = 'Procesando...';
@@ -85,7 +96,7 @@ async function triggerIASync() {
       {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${GITHUB_PAT}`,
+          'Authorization': `Bearer ${pat}`,
           'Accept': 'application/vnd.github+json',
           'Content-Type': 'application/json'
         },
@@ -97,7 +108,6 @@ async function triggerIASync() {
       icon.textContent = '🤖';
       text.textContent = 'Sincronizando...';
       showToast('🤖 Agentes IA activados — los nuevos pedidos aparecerán en ~60 segundos', 'success');
-      // Esperar 65 segundos y luego actualizar la vista
       setTimeout(async () => {
         await actualizarDatosYEstados(true);
         icon.textContent = '✅';
@@ -106,14 +116,16 @@ async function triggerIASync() {
         showToast('✅ Sincronización completada — datos actualizados', 'success');
         setTimeout(() => { icon.textContent = '🤖'; }, 3000);
       }, 65000);
+    } else if (res.status === 401) {
+      localStorage.removeItem('rehabprint_github_pat');
+      icon.textContent = '🤖'; text.textContent = 'Sincronizar IA'; btn.disabled = false;
+      showToast('❌ Token inválido. Presiona de nuevo para ingresar uno nuevo.', 'error');
     } else {
       throw new Error(`Status ${res.status}`);
     }
   } catch(e) {
-    icon.textContent = '🤖';
-    text.textContent = 'Sincronizar IA';
-    btn.disabled = false;
-    showToast('❌ Error al activar los agentes. Verifica tu token de GitHub.', 'error');
+    icon.textContent = '🤖'; text.textContent = 'Sincronizar IA'; btn.disabled = false;
+    showToast('❌ Error de conexión al activar los agentes.', 'error');
   }
 }
 
