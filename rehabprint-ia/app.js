@@ -8,6 +8,13 @@ let searchQuery = '';
 let activeModerator = 'Fabian';
 
 // ─── NAVIGATION ───────────────────────────────────────
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.querySelector('.sidebar-backdrop');
+  if (sidebar) sidebar.classList.toggle('open');
+  if (backdrop) backdrop.classList.toggle('open');
+}
+
 function navigate(view) {
   currentView = view;
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -16,6 +23,13 @@ function navigate(view) {
   if (page) page.classList.add('active');
   const navItem = document.querySelector(`[data-view="${view}"]`);
   if (navItem) navItem.classList.add('active');
+
+  // Cerrar sidebar si estamos en móvil
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.querySelector('.sidebar-backdrop');
+  if (sidebar) sidebar.classList.remove('open');
+  if (backdrop) backdrop.classList.remove('open');
+
   const titles = {
     dashboard: 'Dashboard', solicitudes: 'Solicitudes', inventario: 'Inventario de Stock 3D', historial: 'Historial', agentes: 'Agentes IA'
   };
