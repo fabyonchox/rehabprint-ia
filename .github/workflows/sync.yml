@@ -27,10 +27,16 @@ jobs:
           pip install google-auth google-auth-httplib2 google-api-python-client
 
       - name: 🔑 Restaurar credenciales Google
+        env:
+          GOOGLE_CREDENTIALS_SECRET: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
-          echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
+          if [ -n "$GOOGLE_CREDENTIALS_SECRET" ]; then
+            echo "$GOOGLE_CREDENTIALS_SECRET" > credentials.json
+          fi
 
       - name: 🤖 Ejecutar Agentes IA — Sincronizar Google Sheets
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
           python sync_sheets.py
 
@@ -38,9 +44,10 @@ jobs:
         run: |
           git config user.name  "RehabPrint Bot"
           git config user.email "bot@rehabprint-ia.app"
-          cp rehabprint-ia/live_data.js  live_data.js
-          cp rehabprint-ia/live_data.json live_data.json
-          git add live_data.js live_data.json rehabprint-ia/live_data.js rehabprint-ia/live_data.json
+          git add live_data.js live_data.json
+          if [ -d "rehabprint-ia" ]; then
+            git add rehabprint-ia/live_data.js rehabprint-ia/live_data.json || true
+          fi
           if git diff --staged --quiet; then
             echo "Sin cambios nuevos en Google Sheets."
           else
