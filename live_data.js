@@ -1,5 +1,5 @@
 const liveData = {
-  "last_sync": "2026-08-16T08:37:41.421452",
+  "last_sync": "2026-08-16T09:34:40.001054",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 8,
   "records": [
@@ -83,7 +83,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Roberto fierro) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-16T08:37:41.421147"
+        "timestampProcesado": "2026-08-16T09:34:40.000560"
       }
     },
     {
@@ -164,7 +164,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Andrés Artaza Barrios /) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-16T08:37:41.421201"
+        "timestampProcesado": "2026-08-16T09:34:40.000643"
       }
     },
     {
@@ -245,7 +245,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (pedido personal) | Contexto: Hospitalizado | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-16T08:37:41.421242"
+        "timestampProcesado": "2026-08-16T09:34:40.000709"
       }
     },
     {
@@ -326,7 +326,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Servicio de urgencias) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-16T08:37:41.421277"
+        "timestampProcesado": "2026-08-16T09:34:40.000770"
       }
     },
     {
@@ -411,7 +411,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Marcela Garrido pinto rut:) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-16T08:37:41.421318"
+        "timestampProcesado": "2026-08-16T09:34:40.000839"
       }
     },
     {
@@ -496,7 +496,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Toribio Aravena) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-16T08:37:41.421358"
+        "timestampProcesado": "2026-08-16T09:34:40.000905"
       }
     },
     {
@@ -577,7 +577,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (Poli kine/to/fono) | Contexto: Hospitalizado | Categoría: Stock de unidad | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-16T08:37:41.421393"
+        "timestampProcesado": "2026-08-16T09:34:40.000965"
       }
     },
     {
@@ -663,7 +663,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (Prueba) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-16T08:37:41.421446"
+        "timestampProcesado": "2026-08-16T09:34:40.001045"
       }
     }
   ]
