@@ -1,5 +1,5 @@
 {
-  "last_sync": "2026-08-20T01:42:14.124161",
+  "last_sync": "2026-08-20T03:03:53.709546",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 10,
   "records": [
@@ -83,7 +83,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Roberto fierro) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-20T01:42:14.123628"
+        "timestampProcesado": "2026-08-20T03:03:53.708976"
       }
     },
     {
@@ -164,7 +164,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Andrés Artaza Barrios /) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-20T01:42:14.123698"
+        "timestampProcesado": "2026-08-20T03:03:53.709065"
       }
     },
     {
@@ -245,7 +245,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (pedido personal) | Contexto: Hospitalizado | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-20T01:42:14.123756"
+        "timestampProcesado": "2026-08-20T03:03:53.709134"
       }
     },
     {
@@ -326,7 +326,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Servicio de urgencias) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-20T01:42:14.123807"
+        "timestampProcesado": "2026-08-20T03:03:53.709193"
       }
     },
     {
@@ -411,7 +411,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Marcela Garrido pinto rut:) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-20T01:42:14.123865"
+        "timestampProcesado": "2026-08-20T03:03:53.709260"
       }
     },
     {
@@ -496,7 +496,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Toribio Aravena) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-20T01:42:14.123921"
+        "timestampProcesado": "2026-08-20T03:03:53.709325"
       }
     },
     {
@@ -577,7 +577,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (Poli kine/to/fono) | Contexto: Hospitalizado | Categoría: Stock de unidad | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-20T01:42:14.123971"
+        "timestampProcesado": "2026-08-20T03:03:53.709385"
       }
     },
     {
@@ -663,7 +663,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (Prueba) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-20T01:42:14.124044"
+        "timestampProcesado": "2026-08-20T03:03:53.709459"
       }
     },
     {
@@ -748,7 +748,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Rosa Malverde rut:) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-20T01:42:14.124102"
+        "timestampProcesado": "2026-08-20T03:03:53.709503"
       }
     },
     {
@@ -829,7 +829,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Luis Aedo;) | Contexto: Unidad cerrada | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-20T01:42:14.124154"
+        "timestampProcesado": "2026-08-20T03:03:53.709540"
       }
     }
   ]
