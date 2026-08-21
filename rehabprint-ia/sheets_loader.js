@@ -151,22 +151,22 @@ function rowToSolicitud(row, index) {
       rutUsuario = match[0];
       const idx = cleanText.indexOf(rutUsuario);
       let prefix = cleanText.substring(0, idx).trim();
-      prefix = prefix.replace(/[\/:\s,\t\-]+$/, '').trim();
+      prefix = prefix.replace(/[\/:\s,\t\-\;]+$/, '').trim();
       nombreUsuario = prefix || 'Paciente';
 
       let suffix = cleanText.substring(idx + rutUsuario.length).trim();
-      suffix = suffix.replace(/^[\/:\s,\t\-]+/, '').trim();
+      suffix = suffix.replace(/^[\/:\s,\t\-\;]+/, '').trim();
       servicioSalaCama = suffix;
     } else {
-      const parts = usuarioTexto.split(',').map(p => p.trim());
+      const parts = usuarioTexto.split(/[,;]/).map(p => p.trim());
       nombreUsuario = parts[0] || '';
       if (parts.length > 1) {
         rutUsuario = parts[1] || '';
         servicioSalaCama = parts.slice(2).join(', ').trim() || '';
       }
     }
-    nombreUsuario = nombreUsuario.replace(/[\/\s\-]+$/, '').trim();
-    servicioSalaCama = servicioSalaCama.replace(/^[\/\s\-,]+/, '').trim();
+    nombreUsuario = nombreUsuario.replace(/[\/\s\-\;:,\.]+(rut)?$/gi, '').trim();
+    servicioSalaCama = servicioSalaCama.replace(/^[\/\s\-,;\:]+/, '').trim();
   }
 
   // Check priority: High if has RUT (meaning rutUsuario contains numbers)
@@ -235,30 +235,42 @@ function rowToSolicitud(row, index) {
   };
 }
 
-function loadLiveData() {
-  if (typeof liveData === 'undefined') {
-    console.warn('[RehabPrint] liveData no está definido (live_data.js ausente o no cargado).');
+async function loadLiveData() {
+  let targetData = typeof liveData !== 'undefined' ? liveData : null;
+
+  try {
+    const res = await fetch(`live_data.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (res.ok) {
+      targetData = await res.json();
+      window.liveData = targetData;
+    }
+  } catch (err) {
+    console.warn('[RehabPrint] Fetch live_data.json falló, usando fallback en memoria:', err.message);
+  }
+
+  if (!targetData || !targetData.records) {
+    console.warn('[RehabPrint] liveData no está disponible.');
     return false;
   }
 
   try {
     // Reemplazar solicitudes con datos reales
     solicitudes.length = 0;
-    liveData.records.forEach((row, i) => {
+    targetData.records.forEach((row, i) => {
       solicitudes.push(rowToSolicitud(row, i + 1));
     });
 
     // Mostrar banner de éxito
     const banner = document.createElement('div');
     banner.style.cssText = 'position:fixed;bottom:70px;right:20px;background:#007F3B;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,0.2)';
-    banner.innerHTML = `✅ ${liveData.records.length} registros cargados desde Google Sheets · ${liveData.last_sync.slice(0,16).replace('T',' ')}`;
+    banner.innerHTML = `✅ ${targetData.records.length} registros cargados desde Google Sheets · ${(targetData.last_sync || '').slice(0,16).replace('T',' ')}`;
     document.body.appendChild(banner);
-    setTimeout(() => banner.remove(), 6000);
+    setTimeout(() => banner.remove(), 4000);
 
     // Refrescar vista
-    navigate(currentView);
-    updateNavBadges();
-    console.log(`[RehabPrint] ${liveData.records.length} registros cargados desde liveData.`);
+    if (typeof navigate === 'function' && typeof currentView !== 'undefined') navigate(currentView);
+    if (typeof updateNavBadges === 'function') updateNavBadges();
+    console.log(`[RehabPrint] ${targetData.records.length} registros cargados desde liveData.`);
     return true;
   } catch (e) {
     console.error('[RehabPrint] Error al parsear liveData:', e.message);

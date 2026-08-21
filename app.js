@@ -171,7 +171,7 @@ async function actualizarDatosYEstados(silencioso = false) {
     setTimeout(() => { icon.style.transform = 'rotate(0deg)'; }, 600);
   }
 
-  if (typeof loadLiveData === 'function') loadLiveData();
+  if (typeof loadLiveData === 'function') await loadLiveData();
 
   // 1️⃣ Obtener estados desde la NUBE (compartido entre Fabían, Valentina y Alexis)
   const cloudStates = await cloudGetStates();
@@ -746,7 +746,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   navigate('dashboard');
   updateNavBadges();
   if (typeof loadLiveData === 'function') {
-    loadLiveData();
+    await loadLiveData();
   }
   // Cargar inventario compartido desde la nube
   await cloudGetInventory();

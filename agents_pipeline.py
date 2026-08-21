@@ -78,11 +78,15 @@ def agente_normalizador(ingested_data):
         if rut_match:
             rut = rut_match.group(0)
             parts = usuario_raw.split(rut)
-            nombre_user = parts[0].strip().rstrip("-").rstrip(",")
+            nombre_user = parts[0].strip()
+            nombre_user = re.sub(r'[\s;:,,\-]*\brut\b[\s;:,,\-]*$', '', nombre_user, flags=re.IGNORECASE)
+            nombre_user = re.sub(r'[\s;:,,\-]+$', '', nombre_user).strip()
             if len(parts) > 1:
-                ubicacion = parts[1].strip().lstrip("-").lstrip(",")
+                ubicacion = re.sub(r'^[\s;:,,\-]+', '', parts[1].strip()).strip()
         else:
-            parts = [p.strip() for p in usuario_raw.split(",") if p.strip()]
+            parts = [p.strip().strip(";").strip(",") for p in usuario_raw.split(";") if p.strip()]
+            if not parts:
+                parts = [p.strip().strip(";").strip(",") for p in usuario_raw.split(",") if p.strip()]
             if parts:
                 nombre_user = parts[0]
             if len(parts) > 1:
