@@ -1,5 +1,5 @@
 const liveData = {
-  "last_sync": "2026-08-22T11:26:52.417645",
+  "last_sync": "2026-08-22T11:50:13.224416",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 10,
   "records": [
@@ -83,7 +83,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Roberto fierro) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-22T11:26:52.417065"
+        "timestampProcesado": "2026-08-22T11:50:13.223708"
       }
     },
     {
@@ -164,7 +164,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Andrés Artaza Barrios /) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-22T11:26:52.417153"
+        "timestampProcesado": "2026-08-22T11:50:13.223802"
       }
     },
     {
@@ -245,7 +245,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (pedido personal) | Contexto: Hospitalizado | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-22T11:26:52.417213"
+        "timestampProcesado": "2026-08-22T11:50:13.223868"
       }
     },
     {
@@ -326,7 +326,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Servicio de urgencias) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-22T11:26:52.417267"
+        "timestampProcesado": "2026-08-22T11:50:13.223929"
       }
     },
     {
@@ -411,7 +411,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Marcela Garrido pinto) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-22T11:26:52.417336"
+        "timestampProcesado": "2026-08-22T11:50:13.224007"
       }
     },
     {
@@ -496,7 +496,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Toribio Aravena) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-22T11:26:52.417392"
+        "timestampProcesado": "2026-08-22T11:50:13.224075"
       }
     },
     {
@@ -577,7 +577,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (Poli kine/to/fono) | Contexto: Hospitalizado | Categoría: Stock de unidad | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-22T11:26:52.417444"
+        "timestampProcesado": "2026-08-22T11:50:13.224136"
       }
     },
     {
@@ -663,7 +663,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (Prueba) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-22T11:26:52.417516"
+        "timestampProcesado": "2026-08-22T11:50:13.224220"
       }
     },
     {
@@ -748,7 +748,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Rosa Malverde) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-22T11:26:52.417581"
+        "timestampProcesado": "2026-08-22T11:50:13.224328"
       }
     },
     {
@@ -829,7 +829,7 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Luis Aedo) | Contexto: Unidad cerrada | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-08-22T11:26:52.417637"
+        "timestampProcesado": "2026-08-22T11:50:13.224406"
       }
     }
   ]
