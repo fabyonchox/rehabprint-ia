@@ -398,7 +398,10 @@ function solicitudCardHTML(s) {
         <div class="solicitud-title">${s.piezaNormalizada}</div>
       </div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
-        <span class="badge" style="color:${ec.color};background:${ec.bg}">${ec.icon} ${s.estadoCaso}</span>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span class="badge" style="color:${ec.color};background:${ec.bg}">${ec.icon} ${s.estadoCaso}</span>
+          <button onclick="event.stopPropagation(); eliminarSolicitud('${s.id}')" title="Eliminar solicitud" style="border:none;background:transparent;cursor:pointer;font-size:14px;padding:2px 6px;border-radius:4px;opacity:0.6;transition:all 0.2s" onmouseover="this.style.opacity=1;this.style.background='#FEE2E2'" onmouseout="this.style.opacity=0.6;this.style.background='transparent'">🗑️</button>
+        </div>
         <span class="badge-priority" style="color:${pc.color};background:${pc.bg}">▲ ${s.prioridadIA}</span>
       </div>
     </div>
@@ -580,7 +583,50 @@ function renderDetailActions(s) {
   if (next) btns += `<button class="btn btn-primary" onclick="advanceState('${s.id}','${next}')">→ Avanzar a: ${next}</button>`;
   if (s.estadoCaso !== ESTADOS.ENTREGADA && s.estadoCaso !== ESTADOS.CANCELADA)
     btns += `<button class="btn btn-outline" onclick="flagObservada('${s.id}')">⚠️ Observar</button>`;
+  btns += `<button class="btn btn-outline" onclick="eliminarSolicitud('${s.id}')" style="color:#DC2626;border-color:#FCA5A5;background:#FEF2F2;font-weight:600">🗑️ Eliminar Solicitud</button>`;
   container.innerHTML = btns;
+}
+
+function eliminarSolicitud(id) {
+  const s = solicitudes.find(x => x.id === id);
+  if (!s) return;
+
+  if (!confirm(`⚠️ ¿Estás seguro de que deseas eliminar la solicitud ${id} (${s.piezaNormalizada})?\n\nEsta solicitud ya no aparecerá en la aplicación.`)) {
+    return;
+  }
+
+  // 1. Guardar ID en lista de eliminados localmente
+  const deletedIds = JSON.parse(localStorage.getItem('rehabprint_deleted_ids') || '[]');
+  if (!deletedIds.includes(id)) {
+    deletedIds.push(id);
+    localStorage.setItem('rehabprint_deleted_ids', JSON.stringify(deletedIds));
+  }
+
+  // 2. Cambiar estado a Cancelada local y en la nube
+  const estadoCancelada = typeof ESTADOS !== 'undefined' ? ESTADOS.CANCELADA : 'Cancelada';
+  s.estadoCaso = estadoCancelada;
+  saveLocalState(id, s);
+  pushSyncChange(id, 'estado', estadoCancelada, s.estadoCaso);
+  cloudSaveState(id, estadoCancelada, s.responsableActual);
+
+  // 3. Quitar del listado en memoria
+  const idx = solicitudes.findIndex(x => x.id === id);
+  if (idx !== -1) {
+    solicitudes.splice(idx, 1);
+  }
+
+  // 4. Cerrar el modal de detalle si estaba abierto
+  const modal = document.getElementById('detail-modal');
+  if (modal) modal.style.display = 'none';
+
+  // 5. Toast y actualizar UI
+  showToast(`🗑️ Solicitud ${id} eliminada correctamente`, 'success');
+  updateNavBadges();
+
+  if (currentView === 'dashboard') renderDashboard();
+  else if (currentView === 'solicitudes') renderSolicitudes();
+  else if (currentView === 'historial') renderHistorial();
+  else navigate('solicitudes');
 }
 
 // ─── MODIFICACIÓN DE ESTADO Y ASIGNACIÓN ────────────────
