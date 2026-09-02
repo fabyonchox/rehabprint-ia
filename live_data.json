@@ -1,5 +1,5 @@
 {
-  "last_sync": "2026-09-02T04:09:12.274411",
+  "last_sync": "2026-09-02T08:58:15.084938",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 11,
   "records": [
@@ -83,7 +83,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Roberto fierro) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.273902"
+        "timestampProcesado": "2026-09-02T08:58:15.084593"
       }
     },
     {
@@ -164,7 +164,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Andrés Artaza Barrios /) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.273970"
+        "timestampProcesado": "2026-09-02T08:58:15.084643"
       }
     },
     {
@@ -245,7 +245,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (pedido personal) | Contexto: Hospitalizado | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.274015"
+        "timestampProcesado": "2026-09-02T08:58:15.084674"
       }
     },
     {
@@ -326,7 +326,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Servicio de urgencias) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.274055"
+        "timestampProcesado": "2026-09-02T08:58:15.084700"
       }
     },
     {
@@ -411,7 +411,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Marcela Garrido pinto) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.274134"
+        "timestampProcesado": "2026-09-02T08:58:15.084734"
       }
     },
     {
@@ -496,7 +496,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Toribio Aravena) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.274179"
+        "timestampProcesado": "2026-09-02T08:58:15.084763"
       }
     },
     {
@@ -577,7 +577,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (Poli kine/to/fono) | Contexto: Hospitalizado | Categoría: Stock de unidad | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.274220"
+        "timestampProcesado": "2026-09-02T08:58:15.084789"
       }
     },
     {
@@ -662,7 +662,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Rosa Malverde) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.274282"
+        "timestampProcesado": "2026-09-02T08:58:15.084832"
       }
     },
     {
@@ -743,7 +743,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Luis Aedo) | Contexto: Unidad cerrada | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.274327"
+        "timestampProcesado": "2026-09-02T08:58:15.084880"
       }
     },
     {
@@ -824,7 +824,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (Neurología) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.274363"
+        "timestampProcesado": "2026-09-02T08:58:15.084906"
       }
     },
     {
@@ -905,7 +905,7 @@
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Patricio De la Fuente) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-02T04:09:12.274404"
+        "timestampProcesado": "2026-09-02T08:58:15.084933"
       }
     }
   ]
