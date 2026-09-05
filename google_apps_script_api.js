@@ -207,69 +207,151 @@ function saveState(id, estado, responsable, moderator) {
 
 // ─── SOLICITUDES ─────────────────────────────────────────
 function getSolicitudes() {
-  const ss   = SpreadsheetApp.openById(SHEET_ID);
-  let sheet  = ss.getSheetByName(SHEET_SOLICITUDES);
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  
+  // 1. Buscar la hoja de formulario
+  let sheet = ss.getSheetByName('Respuestas de formulario 1');
+  if (!sheet) {
+    const allSheets = ss.getSheets();
+    for (let s of allSheets) {
+      const name = s.getName().toLowerCase();
+      if (name.includes('respuestas') || name.includes('formulario')) {
+        sheet = s;
+        break;
+      }
+    }
+  }
+  if (!sheet) sheet = ss.getSheetByName(SHEET_SOLICITUDES);
   if (!sheet) return [];
 
   const rows = sheet.getDataRange().getValues();
   if (rows.length < 2) return [];
 
-  // Encabezados: ID | Timestamp | RUT | Profesional | Área | Servicio/Unidad | Contexto | TipoDestino | Implemento | CategoríaFuncional | Especificaciones | Estado | Prioridad | Responsable | DiasEspera | Observaciones
-  return rows.slice(1).map(r => ({
-    id:                 String(r[0]),
-    timestamp:          String(r[1]),
-    rutAnonimizado:     String(r[2]),
-    profesional:        String(r[3]),
-    area:               String(r[4]),
-    servicioUnidad:     String(r[5]),
-    contextoAtencion:   String(r[6]),
-    tipoDestino:        String(r[7]),
-    implemento:         String(r[8]),
-    categoriaFuncional: String(r[9]),
-    especificaciones:   String(r[10]),
-    estado:             String(r[11]),
-    prioridad:          String(r[12]),
-    responsable:        String(r[13]) || 'Team 3D',
-    tiempoEsperaDias:   Number(r[14]) || 0,
-    observaciones:      String(r[15]) || ''
-  })).filter(s => s.id && s.id !== 'undefined');
+  const headers = rows[0].map(h => String(h).trim().toLowerCase());
+  const states = getStates();
+
+  const colFuncionario = headers.findIndex(h => h.includes('funcionario') || h.includes('solicitante'));
+  const colProfesion = headers.findIndex(h => h.includes('profesi'));
+  const colDirigido = headers.findIndex(h => h.includes('dirigido'));
+  const colUsuario = headers.findIndex(h => h.includes('usuario indicar'));
+  const colUnidad = headers.findIndex(h => h.includes('unidad indicar'));
+  const colPersonalizada = headers.findIndex(h => h.includes('personalizada'));
+  const colEntrega1 = headers.findIndex(h => h.includes('1° fecha de entrega') || h.includes('1ª fecha de entrega') || h.includes('1a fecha de entrega'));
+  const colTotalEntregados = headers.findIndex(h => h.includes('total implementos entregados'));
+  const colEspera = headers.findIndex(h => h.includes('tiempo de espera'));
+
+  const results = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const r = rows[i];
+    if (!r || r.every(cell => String(cell).trim() === '')) continue;
+
+    const id = 'RP-' + String(i).padStart(3, '0');
+    const timestamp = String(r[0] || '');
+    const profesional = String(colFuncionario >= 0 ? r[colFuncionario] : r[1] || '—').trim();
+    const profesion = String(colProfesion >= 0 ? r[colProfesion] : r[2] || '').trim();
+
+    // Área
+    let area = 'Otra';
+    const profLower = (profesion + ' ' + profesional).toLowerCase();
+    if (profLower.includes('ocupacional') || profLower.includes('to')) area = 'Terapia Ocupacional';
+    else if (profLower.includes('kinesi') || profLower.includes('kine')) area = 'Kinesiología';
+    else if (profLower.includes('fono')) area = 'Fonoaudiología';
+
+    // Destino y Paciente
+    const dirigidoTxt = String(colDirigido >= 0 ? r[colDirigido] : r[3] || '');
+    const usuarioTxt = String(colUsuario >= 0 ? r[colUsuario] : r[4] || '').trim();
+    const unidadTxt = String(colUnidad >= 0 ? r[colUnidad] : r[5] || '').trim();
+
+    const isUnidad = dirigidoTxt.toLowerCase().includes('unidad');
+    const tipoDestino = isUnidad ? 'Unidad' : 'Usuario';
+    const servicioUnidad = isUnidad ? (unidadTxt || 'Unidad') : (usuarioTxt || 'Poli Adulto');
+
+    // RUT anonimizado
+    let rutAnon = '—';
+    if (usuarioTxt) {
+      const matchRut = usuarioTxt.match(/\b\d{1,2}(?:\.\d{3}){2}-?[\dkK]\b|\b\d{7,8}-?[\dkK]\b/);
+      if (matchRut) {
+        const rawRut = matchRut[0].replace(/\./g, '');
+        const dashIdx = rawRut.indexOf('-');
+        const base = dashIdx > 0 ? rawRut.substring(0, dashIdx) : rawRut.slice(0, -1);
+        const dv = dashIdx > 0 ? rawRut.substring(dashIdx + 1) : rawRut.slice(-1);
+        if (base.length >= 4) {
+          rutAnon = base.substring(0, 2) + '.***.***-' + dv;
+        } else {
+          rutAnon = '***.***-' + dv;
+        }
+      }
+    }
+
+    // Piezas solicitadas
+    const piezas = [];
+    for (let c = 6; c < headers.length; c++) {
+      if (c === colPersonalizada || c === colEntrega1 || c === colTotalEntregados || c === colEspera) continue;
+      if (headers[c].includes('entrega') || headers[c].includes('espera') || headers[c].includes('catastro')) continue;
+      
+      const val = String(r[c] || '').trim();
+      const valLower = val.toLowerCase();
+      if (val && !['no', 'no requiero', '0', 'false', '—', '-'].includes(valLower)) {
+        let cleanName = rows[0][c].split('(')[0].trim();
+        if (!['requiero', 'si', 'sí', 'lo requiero', 'x'].includes(valLower)) {
+          cleanName += ' (' + val.replace(/lo requiero/gi, '').trim() + ')';
+        }
+        piezas.push(cleanName);
+      }
+    }
+    const pers = String(colPersonalizada >= 0 ? r[colPersonalizada] : '').trim();
+    if (pers) {
+      piezas.push('Personalizado: ' + pers.substring(0, 60));
+    }
+    const implemento = piezas.length > 0 ? piezas.join(' + ') : 'Implemento 3D';
+
+    // Estado y Responsable
+    let estado = 'Nueva solicitud';
+    let responsable = 'Team 3D';
+    if (states[id]) {
+      estado = states[id].estado || estado;
+      responsable = states[id].responsable || states[id].moderator || responsable;
+    } else {
+      const ent1 = colEntrega1 >= 0 ? String(r[colEntrega1] || '').trim() : '';
+      const totEnt = colTotalEntregados >= 0 ? Number(r[colTotalEntregados]) || 0 : 0;
+      if (ent1 || totEnt > 0) {
+        estado = 'Entregada';
+      }
+    }
+
+    const diasEspera = colEspera >= 0 ? Number(r[colEspera]) || 0 : 0;
+
+    results.push({
+      id: id,
+      timestamp: timestamp,
+      rutAnonimizado: rutAnon,
+      profesional: profesional,
+      area: area,
+      servicioUnidad: servicioUnidad,
+      contextoAtencion: isUnidad ? 'Unidad cerrada' : 'Ambulatorio',
+      tipoDestino: tipoDestino,
+      implemento: implemento,
+      categoriaFuncional: pers ? 'Pieza personalizada' : (isUnidad ? 'Stock de unidad' : 'Ayuda técnica AVD'),
+      especificaciones: pers || usuarioTxt || '',
+      estado: estado,
+      prioridad: estado === 'Entregada' ? 'Baja' : (isUnidad ? 'Alta' : 'Media'),
+      responsable: responsable,
+      tiempoEsperaDias: diasEspera,
+      observaciones: ''
+    });
+  }
+
+  return results;
 }
 
 function saveSolicitud(sol) {
-  const ss  = SpreadsheetApp.openById(SHEET_ID);
-  let sheet = ss.getSheetByName(SHEET_SOLICITUDES);
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  let sheet = ss.getSheetByName(SHEET_ESTADOS);
   if (!sheet) {
-    sheet = ss.insertSheet(SHEET_SOLICITUDES);
-    sheet.appendRow([
-      'ID','Timestamp','RUT Anonimizado','Profesional','Área','Servicio/Unidad',
-      'Contexto Atención','Tipo Destino','Implemento','Categoría Funcional',
-      'Especificaciones','Estado','Prioridad','Responsable','Días Espera','Observaciones'
-    ]);
+    sheet = ss.insertSheet(SHEET_ESTADOS);
+    sheet.appendRow(['ID', 'Estado', 'Responsable', 'Modificado por', 'Fecha actualización']);
   }
-
-  const rows = sheet.getDataRange().getValues();
-  let updated = false;
-
-  for (let i = 1; i < rows.length; i++) {
-    if (rows[i][0] === sol.id) {
-      sheet.getRange(i + 1, 1, 1, 16).setValues([[
-        sol.id, sol.timestamp, sol.rutAnonimizado, sol.profesional,
-        sol.area, sol.servicioUnidad, sol.contextoAtencion, sol.tipoDestino,
-        sol.implemento, sol.categoriaFuncional, sol.especificaciones,
-        sol.estado, sol.prioridad, sol.responsable || 'Team 3D',
-        sol.tiempoEsperaDias || 0, sol.observaciones || ''
-      ]]);
-      updated = true;
-      break;
-    }
-  }
-  if (!updated) {
-    sheet.appendRow([
-      sol.id, sol.timestamp, sol.rutAnonimizado, sol.profesional,
-      sol.area, sol.servicioUnidad, sol.contextoAtencion, sol.tipoDestino,
-      sol.implemento, sol.categoriaFuncional, sol.especificaciones,
-      sol.estado, sol.prioridad, sol.responsable || 'Team 3D',
-      sol.tiempoEsperaDias || 0, sol.observaciones || ''
-    ]);
-  }
+  saveState(sol.id, sol.estado, sol.responsable, 'Android App');
 }
+

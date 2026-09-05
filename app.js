@@ -1,5 +1,5 @@
 // RehabPrint IA — App Logic
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzaOPBbfSKAtpK-F0ImvWZKikSWlS7E03yEGRRQKaNBrm1Usvl4pC801PVMxIvcRT09gA/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFu9oxcCun8vP3MgLWGQObmLF6xi3yP-zuRg_T5HePTuqbRbbEdBOJRPACGqbWi3X7xQ/exec';
 const GITHUB_REPO     = 'fabyonchox/rehabprint-ia';
 const GITHUB_WORKFLOW = 'sync.yml';
 // Limpieza de seguridad: remover cualquier PAT residual almacenado previamente
