@@ -577,8 +577,55 @@
         <!-- List of matching cards -->
       </div>
     </div>
-    <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeKpiModal()">Cerrar</button>
+<!-- MODAL REGISTRAR ENTREGA FORMAL (ENTREGASCREEN MVP) -->
+<div class="modal-overlay" id="entrega-modal-overlay" onclick="closeEntregaModal(event)">
+  <div class="modal" onclick="event.stopPropagation()" style="max-width:520px">
+    <div class="modal-header" style="background:#F0FDF4;border-bottom:1px solid #BBF7D0">
+      <div>
+        <h3 class="modal-title" style="color:#007F3B;display:flex;align-items:center;gap:8px">
+          <span>📦</span> Registrar Entrega de Caso
+        </h3>
+        <span style="font-size:12px;color:var(--text-secondary)" id="entrega-modal-subtitle">—</span>
+      </div>
+      <button class="btn-icon" onclick="closeEntregaModal()" style="border:none;background:transparent;font-size:20px;cursor:pointer">✕</button>
+    </div>
+    <div class="modal-body" style="padding:20px 24px;display:flex;flex-direction:column;gap:14px">
+      <input type="hidden" id="entrega-solicitud-id">
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="filter-group">
+          <label class="filter-label" style="font-weight:600">Fecha de Entrega</label>
+          <input type="date" id="entrega-fecha" class="filter-select" style="width:100%">
+        </div>
+        <div class="filter-group">
+          <label class="filter-label" style="font-weight:600">Tipo de Entrega</label>
+          <select id="entrega-tipo" class="filter-select" style="width:100%">
+            <option value="Entrega completa">Entrega completa</option>
+            <option value="Entrega parcial">Entrega parcial</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" style="font-weight:600">Receptor del Producto / Dispositivo</label>
+        <input type="text" id="entrega-receptor" class="filter-select" placeholder="Ej: TO tratante / Paciente / Familiar" style="width:100%">
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" style="font-weight:600">Implementos o Piezas Entregadas</label>
+        <textarea id="entrega-implementos" class="filter-select" rows="2" style="width:100%;resize:vertical;font-size:13px"></textarea>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" style="font-weight:600">Observaciones de Cierre (Opcional)</label>
+        <textarea id="entrega-observaciones" class="filter-select" rows="2" placeholder="Indicaciones de uso, higiene de la pieza, ajuste funcional..." style="width:100%;resize:vertical;font-size:13px"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer" style="display:flex;justify-content:flex-end;gap:10px">
+      <button class="btn btn-outline" onclick="closeEntregaModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="confirmarEntrega()" style="background:#007F3B;gap:6px">
+        ✅ Confirmar y Archivar Caso
+      </button>
     </div>
   </div>
 </div>

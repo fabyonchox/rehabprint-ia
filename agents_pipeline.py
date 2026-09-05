@@ -1,14 +1,14 @@
 """
-RehabPrint IA — Pipeline Multiagente de IA (Opción 3)
+RehabPrint IA — Pipeline Multiagente de IA (Versión Robusta)
 
 Implementa los 7 agentes definidos en 'rehabprint_ia_agentes.md':
 1. Agente Orquestador (Coordinador del flujo)
 2. Agente Ingestor (Lectura de datos crudos)
-3. Agente Normalizador (Limpieza y estandarización)
+3. Agente Normalizador (Limpieza, estandarización y anonimización de seguridad)
 4. Agente Clasificador (Categorías y contextos clínicos)
-5. Agente Priorizador (Sugerencia de prioridad operacional)
+5. Agente Priorizador (Sugerencia de prioridad operacional clínica: Alta, Media, Baja)
 6. Agente Resumidor (Resumen clínico de 1-2 líneas)
-7. Agente Seguimiento (Alertas y tiempos de espera)
+7. Agente Seguimiento (Alertas y tiempos de espera calculados)
 """
 
 import json
@@ -19,45 +19,88 @@ from datetime import datetime
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
+# ─── UTILIDADES DE ANONIMIZACIÓN (PRIVACIDAD CLÍNICA) ──────────────────────
+def anonymize_rut(rut_str):
+    """Enmascara un RUT chileno para proteger la privacidad (ej: 13.381.084-6 -> 13.***.***-6 o 8.765.432-K -> 8.***.***-K)."""
+    if not rut_str:
+        return ""
+    clean = re.sub(r'[^0-9kK]', '', str(rut_str))
+    if len(clean) < 7:
+        return "***"
+    dv = clean[-1]
+    cuerpo = clean[:-1]
+    prefix_len = max(1, len(cuerpo) - 6)
+    prefijo = cuerpo[:prefix_len]
+    return f"{prefijo}.***.***-{dv}"
+
+def anonymize_name(name_str):
+    """Ofusca el nombre de un paciente dejando solo el primer nombre y la inicial del apellido."""
+    if not name_str:
+        return "Paciente"
+    parts = [p.capitalize() for p in name_str.strip().split() if p.strip()]
+    if not parts:
+        return "Paciente"
+    if len(parts) == 1:
+        return parts[0]
+    return f"{parts[0]} {parts[1][0]}."
+
+def is_metadata_key(k):
+    """Detecta si una columna es de metadatos o formulario base en vez de un ítem imprimible."""
+    k_l = k.lower().strip()
+    return (
+        k_l.startswith("_") or
+        "funcionario" in k_l or "solicitante" in k_l or
+        "profesi" in k_l or
+        "dirigido" in k_l or
+        "indicar" in k_l or
+        "marca temporal" in k_l or "timestamp" in k_l or
+        "personalizada" in k_l or
+        "entrega" in k_l or "entregado" in k_l or
+        "espera" in k_l or "catastro" in k_l
+    )
+
+def get_row_val(row_raw, *keywords):
+    """Obtiene un valor buscando de forma flexible por una o más palabras clave en los encabezados."""
+    for k, v in row_raw.items():
+        k_l = k.lower().strip()
+        if any(kw in k_l for kw in keywords):
+            return str(v).strip()
+    return ""
+
 # ─── AGENTE INGESTOR ───────────────────────────────────
 def agente_ingestor(row_raw, index):
     """Convierte la respuesta cruda del formulario/sheet en un bloque inicial estructurado."""
     piezas = []
-    ignore_keys = {"Nombre del funcionario solicitante", "Profesión", "¿A quién va dirigido el producto impreso?", 
-                   "Si la respuesta anterior fue UNIDAD indicar: Unidad y Sala o Poli Kine/TO/Fono ",
-                   "Si la respuesta anterior fue USUARIO indicar: Nombre, Rut, Servicio(Sala-cama)/Lugar de atención (poli Kine/TO/Fono). ",
-                   "Marca temporal", "Solicitud personalizada: describir brevemente el equipamiento/ayuda técnica solicitada", "_row_index", "_ai_agent_analysis"}
     
     for k, v in row_raw.items():
-        k_lower = k.lower()
-        if k not in ignore_keys and v and "entrega" not in k_lower and "entregado" not in k_lower and "espera" not in k_lower:
+        if not is_metadata_key(k) and v:
             val_str = str(v).strip()
             v_lower = val_str.lower()
-            if val_str and v_lower not in ("no", "no requiero", "0", "false"):
+            if val_str and v_lower not in ("no", "no requiero", "0", "false", "—", "-"):
                 clean_item = k.split("(")[0].strip()
                 if v_lower not in ("requiero", "si", "sí", "x", "lo requiero"):
                     clean_item += f" ({val_str.replace('lo requiero', '').strip()})"
                 piezas.append(clean_item)
 
-    personalizada = row_raw.get("Solicitud personalizada: describir brevemente el equipamiento/ayuda técnica solicitada", "").strip()
+    personalizada = get_row_val(row_raw, "personalizada")
     if personalizada:
         piezas.append(f"Personalizado: {personalizada[:60]}")
 
     return {
         "id": f"RP-{str(index).zfill(3)}",
-        "nombreSolicitante": row_raw.get("Nombre del funcionario solicitante", "—").strip(),
-        "profesionSolicitante": row_raw.get("Profesión", "—").strip(),
-        "destinoTexto": row_raw.get("¿A quién va dirigido el producto impreso?", "").strip(),
-        "unidadTexto": row_raw.get("Si la respuesta anterior fue UNIDAD indicar: Unidad y Sala o Poli Kine/TO/Fono ", "").strip(),
-        "usuarioTexto": row_raw.get("Si la respuesta anterior fue USUARIO indicar: Nombre, Rut, Servicio(Sala-cama)/Lugar de atención (poli Kine/TO/Fono). ", "").strip(),
+        "nombreSolicitante": get_row_val(row_raw, "funcionario", "solicitante") or "—",
+        "profesionSolicitante": get_row_val(row_raw, "profesi") or "—",
+        "destinoTexto": get_row_val(row_raw, "dirigido"),
+        "unidadTexto": get_row_val(row_raw, "unidad indicar"),
+        "usuarioTexto": get_row_val(row_raw, "usuario indicar"),
         "personalizadaTexto": personalizada,
         "piezasDetectadas": piezas,
-        "fechaMarca": row_raw.get("Marca temporal", datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        "fechaMarca": get_row_val(row_raw, "marca temporal", "timestamp") or datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     }
 
 # ─── AGENTE NORMALIZADOR ───────────────────────────────
 def agente_normalizador(ingested_data):
-    """Limpia texto libre, estandariza profesiones, extrae RUT, nombre y unifica nombres de piezas."""
+    """Limpia texto libre, estandariza profesiones, extrae RUT, nombre y genera versiones anonimizadas."""
     prof = ingested_data["profesionSolicitante"].lower()
     if "ocupacional" in prof or "to" in prof:
         area = "Terapia Ocupacional"
@@ -94,10 +137,16 @@ def agente_normalizador(ingested_data):
             if len(parts) > 2:
                 ubicacion = ", ".join(parts[2:])
 
+    nombre_final = nombre_user or "Paciente"
+    rut_anon = anonymize_rut(rut)
+    nombre_anon = anonymize_name(nombre_final)
+
     return {
         "areaSolicitante": area,
-        "nombreUsuarioNormalizado": nombre_user or "Paciente",
+        "nombreUsuarioNormalizado": nombre_final,
+        "nombreUsuarioAnonimizado": nombre_anon,
         "rutUsuarioNormalizado": rut,
+        "rutUsuarioAnonimizado": rut_anon,
         "ubicacionNormalizada": ubicacion,
         "solicitudPersonalizada": ingested_data["personalizadaTexto"]
     }
@@ -106,17 +155,25 @@ def agente_normalizador(ingested_data):
 def agente_clasificador(ingested_data, normalized_data):
     """Determina tipo de destino, contexto de atención y categoría funcional del producto 3D."""
     dest_text = ingested_data["destinoTexto"].lower()
+    ubicacion_text = normalized_data["ubicacionNormalizada"].lower()
+    unidad_text = ingested_data["unidadTexto"].lower()
+    combined_context = f"{dest_text} {ubicacion_text} {unidad_text}"
+
     if "unidad" in dest_text or "stock" in dest_text or "servicio" in dest_text:
         destino_tipo = "Unidad"
     else:
         destino_tipo = "Usuario"
 
-    if "cerrada" in dest_text or "uci" in dest_text or "hospitaliz" in dest_text or "cama" in dest_text:
+    # Contexto de atención
+    if any(k in combined_context for k in ["cerrada", "uci", "uti", "pabellón", "pabellon", "quirúrgic", "quirurgic"]):
         contexto = "Unidad cerrada"
-    elif "ambulatorio" in dest_text or "poli" in dest_text:
+    elif any(k in combined_context for k in ["ambulatorio", "poli"]):
         contexto = "Ambulatorio"
-    else:
+    elif any(k in combined_context for k in ["cama", "sala", "hospitaliz", "medicina interna", "neurología", "traumatología"]):
         contexto = "Hospitalizado"
+    else:
+        # Si va a usuario sin cama, suele ser ambulatorio
+        contexto = "Ambulatorio" if destino_tipo == "Usuario" else "Hospitalizado"
 
     # Categoría funcional
     if normalized_data["solicitudPersonalizada"]:
@@ -136,34 +193,68 @@ def agente_clasificador(ingested_data, normalized_data):
     }
 
 # ─── AGENTE PRIORIZADOR ────────────────────────────────
-def agente_priorizador(classified_data, normalized_data):
-    """Sugiere nivel de prioridad operativa (Alta, Media, Baja) con justificación técnica."""
+def agente_priorizador(classified_data, normalized_data, ingested_data):
+    """
+    Sugiere nivel de prioridad operativa clínica (Alta, Media, Baja) con justificación técnica.
+    
+    Criterios:
+    - Alta:
+        * Usuario en Unidad Cerrada (UCI/UTI/Pabellón).
+        * Usuario Hospitalizado con alta programada, protocolo agudo o necesidad inmediata.
+        * Texto que mencione urgencia funcional ('urgente', 'alta en', 'inmediato').
+    - Baja:
+        * Implementos lúdicos o terapéuticos diferibles (jenga, tetris, enhebradores, encajes).
+        * Reposición de stock general programable o ganchos de pared sin paciente activo.
+    - Media:
+        * Atención ambulatoria estándar (Poli TO, Poli Kine, Poli Fono) para AVD.
+        * Stock clínico estándar de rotación habitual.
+        * Piezas personalizadas ambulatorias regulares.
+    """
     contexto = classified_data["contextoAtencion"]
-    tiene_rut = bool(normalized_data["rutUsuarioNormalizado"])
+    destino = classified_data["destinoTipo"]
+    piezas = [p.lower() for p in ingested_data.get("piezasDetectadas", [])]
+    piezas_str = " ".join(piezas)
+    desc_raw = (ingested_data.get("personalizadaTexto", "") + " " + ingested_data.get("usuarioTexto", "")).lower()
+
+    es_urgente_texto = any(w in desc_raw for w in ["urgente", "alta programada", "inmediato", "48h", "protocolo"])
+    es_ludico_diferible = any(w in piezas_str for w in ["jenga", "tetris", "enhebrador", "tazos", "encaje", "vasos", "gancho"])
 
     if contexto == "Unidad cerrada":
         prioridad = "Alta"
-        motivo = "Usuario en Unidad Crítica o atención cerrada urgente."
-    elif tiene_rut or contexto == "Hospitalizado":
+        motivo = "Usuario o unidad crítica en atención cerrada con necesidad funcional urgente."
+        confianza = 0.95
+    elif contexto == "Hospitalizado" and (es_urgente_texto or "cama" in desc_raw or "sala" in desc_raw):
         prioridad = "Alta"
-        motivo = "Usuario hospitalizado con RUT registrado o atención directa requerida."
-    elif classified_data["destinoTipo"] == "Unidad":
+        motivo = "Usuario hospitalizado en sala-cama con requerimiento funcional inmediato para estadía o alta."
+        confianza = 0.90
+    elif es_urgente_texto:
+        prioridad = "Alta"
+        motivo = "Indicación de urgencia clínica expresa en la solicitud."
+        confianza = 0.88
+    elif es_ludico_diferible and destino == "Unidad":
+        prioridad = "Baja"
+        motivo = "Material lúdico-terapéutico o stock programable no vinculado a urgencia inmediata."
+        confianza = 0.85
+    elif destino == "Unidad" and "stock" in classified_data["categoriaFuncional"].lower():
         prioridad = "Media"
-        motivo = "Stock o equipamiento para unidad clínica."
+        motivo = "Stock clínico de rotación habitual para servicio de rehabilitación."
+        confianza = 0.85
     else:
+        # Usuario ambulatorio estándar
         prioridad = "Media"
-        motivo = "Atención ambulatoria estándar."
+        motivo = "Usuario ambulatorio en plan de rehabilitación funcional (AVD / apoyo motor)."
+        confianza = 0.88
 
     return {
         "prioridadIA": prioridad,
         "motivoPrioridad": motivo,
-        "confianzaPrioridad": 0.88
+        "confianzaPrioridad": confianza
     }
 
 # ─── AGENTE RESUMIDOR ──────────────────────────────────
 def agente_resumidor(ingested, normalized, classified, prioritized):
     """Genera resumen conciso en lenguaje clínico-operativo para el tablero."""
-    target = normalized["nombreUsuarioNormalizado"] if classified["destinoTipo"] == "Usuario" else ingested["unidadTexto"]
+    target = normalized["nombreUsuarioAnonimizado"] if classified["destinoTipo"] == "Usuario" else (ingested["unidadTexto"] or "Unidad")
     resumen = (
         f"{classified['destinoTipo']} ({target}) | "
         f"Contexto: {classified['contextoAtencion']} | "
@@ -176,23 +267,47 @@ def agente_resumidor(ingested, normalized, classified, prioritized):
 
 # ─── AGENTE SEGUIMIENTO ────────────────────────────────
 def agente_seguimiento(solicitud):
-    """Monitorea el tiempo de espera y sugiere alertas si el caso requiere atención."""
+    """Monitorea tiempos de espera reales y sugiere alertas si el caso requiere atención."""
     dias = solicitud.get("tiempoEsperaDias", 0)
     estado = solicitud.get("estadoCaso", "Nueva solicitud")
+    
+    # Calcular días a partir de la fecha de solicitud si días es 0
+    fecha_sol_str = solicitud.get("fechaSolicitud") or solicitud.get("fechaMarca")
+    if dias == 0 and fecha_sol_str:
+        try:
+            # Formatos posibles: YYYY-MM-DD o DD/MM/YYYY
+            clean_date = fecha_sol_str.split()[0]
+            if "-" in clean_date:
+                dt = datetime.strptime(clean_date, "%Y-%m-%d")
+            elif "/" in clean_date:
+                dt = datetime.strptime(clean_date, "%d/%m/%Y")
+            else:
+                dt = None
+            if dt:
+                dias = max(0, (datetime.now() - dt).days)
+        except Exception:
+            pass
 
     alerta = False
-    accion = "Sin acción pendiente"
+    accion = "En flujo normal de producción."
 
     if estado == "Nueva solicitud" and dias > 3:
         alerta = True
-        accion = f"⚠️ Caso sin revisar durante {dias} días. Asignar moderador urgente."
-    elif estado == "En impresión" and dias > 5:
+        accion = f"⚠️ Solicitud sin revisar durante {dias} días. Asignar moderador urgente."
+    elif estado in ("En diseño", "En impresión") and dias > 5:
         alerta = True
-        accion = f"⚠️ Proceso de impresión excedió {dias} días. Verificar estado de impresoras 3D."
+        accion = f"⚠️ Proceso técnico prolongado ({dias} días). Verificar estado de impresoras 3D."
+    elif estado == "Lista para entrega" and dias > 2:
+        alerta = True
+        accion = f"📦 Pieza lista para entrega sin retirar hace {dias} días. Coordinar despacho con solicitante."
+    elif estado == "Observada / requiere ajuste":
+        alerta = True
+        accion = "⚠️ Caso observado. Requiere resolución de medidas o especificaciones técnicas."
 
     return {
         "alertaSeguimiento": alerta,
-        "accionSugerida": accion
+        "accionSugerida": accion,
+        "diasCalculados": dias
     }
 
 # ─── AGENTE ORQUESTADOR ────────────────────────────────
@@ -201,10 +316,15 @@ def agente_orquestador(row_raw, index):
     ingested = agente_ingestor(row_raw, index)
     normalized = agente_normalizador(ingested)
     classified = agente_clasificador(ingested, normalized)
-    prioritized = agente_priorizador(classified, normalized)
+    prioritized = agente_priorizador(classified, normalized, ingested)
     summarized = agente_resumidor(ingested, normalized, classified, prioritized)
+    seguimiento = agente_seguimiento({**ingested, **classified, "estadoCaso": "Nueva solicitud"})
 
-    requiere_revision = (classified["confianzaClasificacion"] < 0.80) or (not normalized["nombreUsuarioNormalizado"] and classified["destinoTipo"] == "Usuario")
+    requiere_revision = (
+        (classified["confianzaClasificacion"] < 0.80) or 
+        (not normalized["nombreUsuarioNormalizado"] and classified["destinoTipo"] == "Usuario") or
+        (prioritized["prioridadIA"] == "Alta" and classified["contextoAtencion"] == "Ambulatorio")
+    )
 
     resultado = {
         **ingested,
@@ -212,6 +332,7 @@ def agente_orquestador(row_raw, index):
         **classified,
         **prioritized,
         **summarized,
+        **seguimiento,
         "requiereRevisionManual": requiere_revision,
         "timestampProcesado": datetime.now().isoformat()
     }
@@ -225,7 +346,7 @@ if __name__ == "__main__":
     sample_row = {
         "Nombre del funcionario solicitante": "Valentina Muñoz",
         "Profesión": "Terapeuta Ocupacional",
-        "¿A quién va dirigido el producto impreso?": "Usuario ambulatorio Poli TO",
+        "¿A quién va dirigido el producto impreso?": "Implemento/ayuda técnica entregado a USUARIO ambulatorio",
         "Si la respuesta anterior fue USUARIO indicar: Nombre, Rut, Servicio(Sala-cama)/Lugar de atención (poli Kine/TO/Fono). ": "Luis González, 14.502.812-4, Poli TO",
         "Solicitud personalizada: describir brevemente el equipamiento/ayuda técnica solicitada": "Adaptador universal para cubiertos",
         "Marca temporal": "14/08/2026 08:30:00"

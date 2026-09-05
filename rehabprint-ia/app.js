@@ -1,10 +1,9 @@
 // RehabPrint IA — App Logic
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuekn9HYI4cPeLj7Lj5T-YYMsAF7N59dzCJCvqkPW42P8PuXhhMNackUcbfK_nNWxHpA/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzaOPBbfSKAtpK-F0ImvWZKikSWlS7E03yEGRRQKaNBrm1Usvl4pC801PVMxIvcRT09gA/exec';
 const GITHUB_REPO     = 'fabyonchox/rehabprint-ia';
 const GITHUB_WORKFLOW = 'sync.yml';
-// Token guardado de forma segura en el navegador de cada usuario
-function getGithubPAT() { return localStorage.getItem('rehabprint_github_pat') || ''; }
-
+// Limpieza de seguridad: remover cualquier PAT residual almacenado previamente
+try { localStorage.removeItem('rehabprint_github_pat'); } catch(e) {}
 
 let currentView = 'dashboard';
 let selectedSolicitud = null;
@@ -31,7 +30,6 @@ async function cloudGetInventory() {
 
 async function cloudSaveInventory() {
   try {
-    // no-cors: fire-and-forget, evita bloqueo de CORS preflight
     fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -44,12 +42,19 @@ async function cloudSaveInventory() {
   } catch(e) { showToast('⚠️ Sin conexión — cambios guardados localmente', ''); }
 }
 
-async function cloudSaveState(id, estado, responsable) {
+async function cloudSaveState(id, estado, responsable, extras = {}) {
   try {
     fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
-      body: JSON.stringify({ action: 'updateState', id, estado, responsable, moderator: activeModerator })
+      body: JSON.stringify({
+        action: 'updateState',
+        id,
+        estado,
+        responsable,
+        moderator: activeModerator,
+        ...extras
+      })
     });
   } catch(e) { console.warn('Estado guardado solo localmente'); }
 }
@@ -63,69 +68,39 @@ async function cloudGetStates() {
   return {};
 }
 
-// ─── TRIGGER AGENTES IA EN LA NUBE (GitHub Actions) ────────────────────────
+// ─── SINCRONIZACIÓN DE AGENTES IA Y DATOS ──────────────────────────────────
 async function triggerIASync() {
   const btn  = document.getElementById('btn-sync-ia');
   const icon = document.getElementById('sync-ia-icon');
   const text = document.getElementById('sync-ia-text');
-  const pat  = getGithubPAT();
 
-  // Si no hay token configurado, pedirlo al usuario
-  if (!pat) {
-    const token = prompt(
-      '🔑 Ingresa tu GitHub Personal Access Token para activar los Agentes IA en la nube.\n\n' +
-      'Solo necesitas ingresarlo una vez — se guarda de forma segura en tu navegador.\n\n' +
-      'Token (empieza con ghp_...):'
-    );
-    if (!token || !token.startsWith('ghp_')) {
-      showToast('❌ Token inválido o cancelado', 'error');
-      return;
-    }
-    localStorage.setItem('rehabprint_github_pat', token.trim());
-    showToast('✅ Token guardado. Vuelve a presionar el botón.', 'success');
-    return;
-  }
-
-  btn.disabled = true;
-  icon.textContent = '⏳';
-  text.textContent = 'Procesando...';
+  if (btn) btn.disabled = true;
+  if (icon) icon.textContent = '⏳';
+  if (text) text.textContent = 'Sincronizando...';
+  showToast('🤖 Ejecutando sincronización de datos y Pipeline IA...', 'info');
 
   try {
-    const res = await fetch(
-      `https://api.github.com/repos/${GITHUB_REPO}/actions/workflows/${GITHUB_WORKFLOW}/dispatches`,
-      {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${pat}`,
-          'Accept': 'application/vnd.github+json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ ref: 'master' })
-      }
-    );
+    // 1. Notificar al backend de Google Apps Script para sincronización
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify({ action: 'triggerSync', moderator: activeModerator })
+    }).catch(() => {});
 
-    if (res.status === 204 || res.ok) {
-      icon.textContent = '🤖';
-      text.textContent = 'Sincronizando...';
-      showToast('🤖 Agentes IA activados — los nuevos pedidos aparecerán en ~60 segundos', 'success');
-      setTimeout(async () => {
-        await actualizarDatosYEstados(true);
-        icon.textContent = '✅';
-        text.textContent = 'Sincronizar IA';
-        btn.disabled = false;
-        showToast('✅ Sincronización completada — datos actualizados', 'success');
-        setTimeout(() => { icon.textContent = '🤖'; }, 3000);
-      }, 65000);
-    } else if (res.status === 401) {
-      localStorage.removeItem('rehabprint_github_pat');
-      icon.textContent = '🤖'; text.textContent = 'Sincronizar IA'; btn.disabled = false;
-      showToast('❌ Token inválido. Presiona de nuevo para ingresar uno nuevo.', 'error');
-    } else {
-      throw new Error(`Status ${res.status}`);
-    }
-  } catch(e) {
-    icon.textContent = '🤖'; text.textContent = 'Sincronizar IA'; btn.disabled = false;
-    showToast('❌ Error de conexión al activar los agentes.', 'error');
+    // 2. Actualizar estados y recargar liveData
+    await actualizarDatosYEstados(true);
+
+    if (icon) icon.textContent = '✅';
+    if (text) text.textContent = 'Sincronizado';
+    showToast('✅ Datos sincronizados con éxito con Google Sheets y Agentes IA', 'success');
+  } catch (e) {
+    showToast('⚠️ Sincronización local completada', 'info');
+  } finally {
+    setTimeout(() => {
+      if (icon) icon.textContent = '🤖';
+      if (text) text.textContent = 'Sincronizar IA';
+      if (btn) btn.disabled = false;
+    }, 3000);
   }
 }
 
@@ -406,11 +381,9 @@ function solicitudCardHTML(s) {
       </div>
     </div>
     <div class="solicitud-meta">
-      <span class="meta-item">👤 ${s.nombreSolicitante}</span>
+      <span class="meta-item" style="font-weight:600;color:var(--color-primary)">${destIcon} ${s.destinoTipo === DESTINO.USUARIO ? (s.nombreUsuario ? `Paciente: ${s.nombreUsuario}` : 'Paciente') : (s.unidadDestino ? `Unidad: ${s.unidadDestino}` : 'Unidad')}</span>
       <span class="meta-item" style="color:var(--text-muted)">•</span>
-      <span class="meta-item">🏷️ ${s.area}</span>
-      <span class="meta-item" style="color:var(--text-muted)">•</span>
-      <span class="meta-item">${destIcon} ${s.destinoTipo === DESTINO.USUARIO ? (s.nombreUsuario || 'Usuario') : (s.unidadDestino || 'Unidad')}</span>
+      <span class="meta-item">👩‍⚕️ Solicitó: ${s.nombreSolicitante} (${s.area})</span>
       ${s.responsableActual ? `<span class="meta-item" style="color:var(--text-muted)">•</span><span class="meta-item">👨‍🔧 ${s.responsableActual}</span>` : ''}
     </div>
     <div class="solicitud-footer">
@@ -570,21 +543,97 @@ function renderTimeline(s) {
 
 function renderDetailActions(s) {
   const container = document.getElementById('detail-actions');
-  const nextStates = {
-    [ESTADOS.NUEVA]: ESTADOS.REVISADA,
-    [ESTADOS.REVISADA]: ESTADOS.DISENO,
-    [ESTADOS.DISENO]: ESTADOS.IMPRESION,
-    [ESTADOS.IMPRESION]: ESTADOS.POSTPROCESO,
-    [ESTADOS.POSTPROCESO]: ESTADOS.LISTA,
-    [ESTADOS.LISTA]: ESTADOS.ENTREGADA,
-  };
-  const next = nextStates[s.estadoCaso];
   let btns = '';
-  if (next) btns += `<button class="btn btn-primary" onclick="advanceState('${s.id}','${next}')">→ Avanzar a: ${next}</button>`;
-  if (s.estadoCaso !== ESTADOS.ENTREGADA && s.estadoCaso !== ESTADOS.CANCELADA)
+
+  if (s.estadoCaso === ESTADOS.LISTA) {
+    btns += `<button class="btn btn-primary" onclick="openEntregaModal('${s.id}')" style="background:#007F3B;font-weight:600;gap:6px">📦 Registrar Entrega Formal</button>`;
+  } else if (s.estadoCaso === ESTADOS.OBSERVADA) {
+    btns += `<button class="btn btn-primary" onclick="advanceState('${s.id}','${ESTADOS.DISENO}')">🔧 Reanudar a: En diseño</button>`;
+    btns += `<button class="btn btn-outline" onclick="advanceState('${s.id}','${ESTADOS.IMPRESION}')">🖨️ Reanudar a: En impresión</button>`;
+  } else {
+    const nextStates = {
+      [ESTADOS.NUEVA]: ESTADOS.REVISADA,
+      [ESTADOS.REVISADA]: ESTADOS.DISENO,
+      [ESTADOS.DISENO]: ESTADOS.IMPRESION,
+      [ESTADOS.IMPRESION]: ESTADOS.POSTPROCESO,
+      [ESTADOS.POSTPROCESO]: ESTADOS.LISTA,
+    };
+    const next = nextStates[s.estadoCaso];
+    if (next) {
+      btns += `<button class="btn btn-primary" onclick="advanceState('${s.id}','${next}')">→ Avanzar a: ${next}</button>`;
+    }
+  }
+
+  if (s.estadoCaso !== ESTADOS.ENTREGADA && s.estadoCaso !== ESTADOS.CANCELADA && s.estadoCaso !== ESTADOS.OBSERVADA) {
     btns += `<button class="btn btn-outline" onclick="flagObservada('${s.id}')">⚠️ Observar</button>`;
+  }
+
   btns += `<button class="btn btn-outline" onclick="eliminarSolicitud('${s.id}')" style="color:#DC2626;border-color:#FCA5A5;background:#FEF2F2;font-weight:600">🗑️ Eliminar Solicitud</button>`;
   container.innerHTML = btns;
+}
+
+// ─── MODAL DE ENTREGA FORMAL (ENTREGASCREEN MVP) ──────
+function openEntregaModal(id) {
+  const s = solicitudes.find(x => x.id === id);
+  if (!s) return;
+
+  const modal = document.getElementById('entrega-modal-overlay');
+  const idInput = document.getElementById('entrega-solicitud-id');
+  const subTitle = document.getElementById('entrega-modal-subtitle');
+  const fechaInput = document.getElementById('entrega-fecha');
+  const receptorInput = document.getElementById('entrega-receptor');
+  const itemsText = document.getElementById('entrega-implementos');
+  const obsText = document.getElementById('entrega-observaciones');
+
+  if (idInput) idInput.value = s.id;
+  if (subTitle) subTitle.textContent = `${s.id} — ${s.piezaNormalizada} (${s.destinoTipo === DESTINO.USUARIO ? s.nombreUsuario : s.unidadDestino})`;
+  if (fechaInput) fechaInput.value = todayStr();
+  if (receptorInput) receptorInput.value = s.destinoTipo === DESTINO.USUARIO ? `${s.nombreUsuario} (o solicitante ${s.nombreSolicitante})` : `${s.unidadDestino} (${s.nombreSolicitante})`;
+  if (itemsText) itemsText.value = (s.piezasList && s.piezasList.length ? s.piezasList.join(', ') : s.piezaNormalizada) || '';
+  if (obsText) obsText.value = '';
+
+  if (modal) modal.classList.add('active');
+}
+
+function closeEntregaModal(e) {
+  if (e && e.target !== document.getElementById('entrega-modal-overlay') && !e.target.classList.contains('btn') && !e.target.classList.contains('btn-icon')) return;
+  const modal = document.getElementById('entrega-modal-overlay');
+  if (modal) modal.classList.remove('active');
+}
+
+function confirmarEntrega() {
+  const idInput = document.getElementById('entrega-solicitud-id');
+  const fechaInput = document.getElementById('entrega-fecha');
+  const tipoSelect = document.getElementById('entrega-tipo');
+  const receptorInput = document.getElementById('entrega-receptor');
+  const itemsText = document.getElementById('entrega-implementos');
+  const obsText = document.getElementById('entrega-observaciones');
+
+  const id = idInput ? idInput.value : '';
+  const s = solicitudes.find(x => x.id === id);
+  if (!s) return;
+
+  const fechaEntrega = fechaInput?.value || todayStr();
+  const tipoEntrega = tipoSelect?.value || 'Entrega completa';
+  const receptor = receptorInput?.value?.trim() || 'Personal de servicio';
+  const items = itemsText?.value?.trim() || s.piezaNormalizada;
+  const obs = obsText?.value?.trim() || '';
+
+  const oldState = s.estadoCaso;
+  s.estadoCaso = ESTADOS.ENTREGADA;
+  s.fechaEntrega = fechaEntrega;
+  s.implementosEntregados = items;
+  s.observacionesTecnicas = (s.observacionesTecnicas ? s.observacionesTecnicas + ' | ' : '') + `[${tipoEntrega}] Recibido por: ${receptor}. ${obs}`;
+
+  saveLocalState(s.id, s);
+  pushSyncChange(s.id, 'estado', ESTADOS.ENTREGADA, oldState);
+  cloudSaveState(s.id, ESTADOS.ENTREGADA, s.responsableActual, { fechaEntrega, receptor, tipoEntrega, implementosEntregados: items });
+
+  closeEntregaModal();
+  updateNavBadges();
+  showToast(`✅ Solicitud ${s.id} entregada formalmente y archivada en Historial`, 'success');
+
+  navigate('historial');
 }
 
 function eliminarSolicitud(id) {
@@ -711,9 +760,10 @@ function renderHistorial() {
         <span class="badge" style="color:${ec.color};background:${ec.bg}">${ec.icon} ${s.estadoCaso}</span>
       </div>
       <div class="solicitud-meta">
-        <span class="meta-item">👤 ${s.nombreSolicitante}</span>
-        <span class="meta-item">🏷️ ${s.area}</span>
-        ${s.tiempoEsperaDias ? `<span class="meta-item">⏱️ ${s.tiempoEsperaDias} días de espera</span>` : ''}
+        <span class="meta-item" style="font-weight:600;color:var(--color-primary)">${s.destinoTipo === DESTINO.USUARIO ? `👤 Paciente: ${s.nombreUsuario || 'Usuario'}` : `🏥 Unidad: ${s.unidadDestino || 'Unidad'}`}</span>
+        <span class="meta-item" style="color:var(--text-muted)">•</span>
+        <span class="meta-item">👩‍⚕️ Solicitó: ${s.nombreSolicitante} (${s.area})</span>
+        ${s.tiempoEsperaDias ? `<span class="meta-item" style="color:var(--text-muted)">•</span><span class="meta-item">⏱️ ${s.tiempoEsperaDias}d espera</span>` : ''}
       </div>
       <div class="solicitud-footer">
         <span class="solicitud-date">Solicitado: ${formatDate(s.fechaSolicitud)}</span>
