@@ -119,6 +119,22 @@ def sync():
 
     print(f"✅ {len(records)} solicitudes válidas leídas desde Google Sheets y procesadas por Agentes IA")
 
+    # Anonimizar datos de pacientes para exportación pública segura
+    from agents_pipeline import anonymize_rut, anonymize_name
+    col_user = "Si la respuesta anterior fue USUARIO indicar: Nombre, Rut, Servicio(Sala-cama)/Lugar de atención (poli Kine/TO/Fono). "
+    for rec in records:
+        if "_ai_agent_analysis" in rec:
+            ai = rec["_ai_agent_analysis"]
+            ai["rutUsuarioNormalizado"] = ai.get("rutUsuarioAnonimizado") or anonymize_rut(ai.get("rutUsuarioNormalizado", ""))
+            ai["nombreUsuarioNormalizado"] = ai.get("nombreUsuarioAnonimizado") or anonymize_name(ai.get("nombreUsuarioNormalizado", ""))
+        if col_user in rec and rec[col_user]:
+            val_txt = str(rec[col_user])
+            import re
+            m = re.search(r'\b\d{1,2}(?:\.\d{3}){2}-?[\dkK]\b|\b\d{7,8}-?[\dkK]\b', val_txt)
+            if m:
+                val_txt = val_txt.replace(m.group(0), anonymize_rut(m.group(0)))
+                rec[col_user] = val_txt
+
     # Exportar a JS (bypassea CORS de file:///)
     output = {
         "last_sync": datetime.now().isoformat(),
@@ -150,6 +166,13 @@ def sync():
 
     print(f"💾 {len(records)} solicitudes exportadas exitosamente.")
     print(f"🕐 Hora de sincronización: {output['last_sync']}")
+
+    try:
+        from sync_dist import sync_distribution
+        sync_distribution()
+    except Exception as e:
+        print(f"⚠️ Error en sync_dist: {e}")
+
     return records
 
 if __name__ == "__main__":

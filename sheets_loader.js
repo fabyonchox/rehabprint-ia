@@ -39,22 +39,58 @@ const ITEM_COLS = [
 
 // ─── PIPELINE MULTIAGENTE DE IA (IMPLEMENTACIÓN CLIENTE EN JS) ─────────────
 
+function anonymizeRutJS(rutStr) {
+  if (!rutStr) return "";
+  const clean = String(rutStr).replace(/[^0-9kK]/g, '');
+  if (clean.length < 7) return "***";
+  const dv = clean.slice(-1);
+  const cuerpo = clean.slice(0, -1);
+  const prefixLen = Math.max(1, cuerpo.length - 6);
+  const prefijo = cuerpo.slice(0, prefixLen);
+  return `${prefijo}.***.***-${dv}`;
+}
+
+function anonymizeNameJS(nameStr) {
+  if (!nameStr) return "Paciente";
+  const parts = String(nameStr).trim().split(/\s+/).filter(Boolean);
+  if (!parts.length) return "Paciente";
+  if (parts.length === 1) return parts[0];
+  return `${parts[0]} ${parts[1][0]}.`;
+}
+
+function isMetadataKeyJS(k) {
+  const kl = String(k).toLowerCase().trim();
+  return (
+    kl.startsWith('_') ||
+    kl.includes('funcionario') || kl.includes('solicitante') ||
+    kl.includes('profesi') ||
+    kl.includes('dirigido') ||
+    kl.includes('indicar') ||
+    kl.includes('marca temporal') || kl.includes('timestamp') ||
+    kl.includes('personalizada') ||
+    kl.includes('entrega') || kl.includes('entregado') ||
+    kl.includes('espera') || kl.includes('catastro')
+  );
+}
+
+function getRowValJS(row, ...keywords) {
+  for (const k in row) {
+    const kl = String(k).toLowerCase().trim();
+    if (keywords.some(kw => kl.includes(kw))) {
+      return String(row[k]).trim();
+    }
+  }
+  return "";
+}
+
 function agenteIngestorJS(row, index) {
   const piezas = [];
-  const ignoreKeys = new Set([
-    "Nombre del funcionario solicitante", "Profesión", "¿A quién va dirigido el producto impreso?",
-    "Si la respuesta anterior fue UNIDAD indicar: Unidad y Sala o Poli Kine/TO/Fono ",
-    "Si la respuesta anterior fue USUARIO indicar: Nombre, Rut, Servicio(Sala-cama)/Lugar de atención (poli Kine/TO/Fono). ",
-    "Marca temporal", "Solicitud personalizada: describir brevemente el equipamiento/ayuda técnica solicitada",
-    "_row_index", "_ai_agent_analysis"
-  ]);
 
   for (const k in row) {
-    const kLower = k.toLowerCase();
-    if (!ignoreKeys.has(k) && row[k] && !kLower.includes('entrega') && !kLower.includes('entregado') && !kLower.includes('espera')) {
+    if (!isMetadataKeyJS(k) && row[k]) {
       const valStr = String(row[k]).trim();
       const vLower = valStr.toLowerCase();
-      if (valStr && !['no', 'no requiero', '0', 'false'].includes(vLower)) {
+      if (valStr && !['no', 'no requiero', '0', 'false', '—', '-'].includes(vLower)) {
         let cleanItem = k.split('(')[0].trim();
         if (!['requiero', 'si', 'sí', 'x', 'lo requiero'].includes(vLower)) {
           cleanItem += ` (${valStr.replace(/lo requiero/gi, '').trim()})`;
@@ -64,21 +100,21 @@ function agenteIngestorJS(row, index) {
     }
   }
 
-  const personalizada = (row["Solicitud personalizada: describir brevemente el equipamiento/ayuda técnica solicitada"] || "").trim();
+  const personalizada = getRowValJS(row, "personalizada");
   if (personalizada) {
     piezas.push(`Personalizado: ${personalizada.substring(0, 60)}`);
   }
 
   return {
     id: `RP-${String(index).padStart(3, '0')}`,
-    nombreSolicitante: (row["Nombre del funcionario solicitante"] || "—").trim(),
-    profesionSolicitante: (row["Profesión"] || "—").trim(),
-    destinoTexto: (row["¿A quién va dirigido el producto impreso?"] || "").trim(),
-    unidadTexto: (row["Si la respuesta anterior fue UNIDAD indicar: Unidad y Sala o Poli Kine/TO/Fono "] || "").trim(),
-    usuarioTexto: (row["Si la respuesta anterior fue USUARIO indicar: Nombre, Rut, Servicio(Sala-cama)/Lugar de atención (poli Kine/TO/Fono). "] || "").trim(),
+    nombreSolicitante: getRowValJS(row, "funcionario", "solicitante") || "—",
+    profesionSolicitante: getRowValJS(row, "profesi") || "—",
+    destinoTexto: getRowValJS(row, "dirigido"),
+    unidadTexto: getRowValJS(row, "unidad indicar"),
+    usuarioTexto: getRowValJS(row, "usuario indicar"),
     personalizadaTexto: personalizada,
     piezasDetectadas: piezas,
-    fechaMarca: row["Marca temporal"] || new Date().toLocaleString("es-CL")
+    fechaMarca: getRowValJS(row, "marca temporal", "timestamp") || new Date().toLocaleString("es-CL")
   };
 }
 
@@ -110,10 +146,16 @@ function agenteNormalizadorJS(ingested) {
     }
   }
 
+  const nombreFinal = nombreUser || "Paciente";
+  const rutAnon = anonymizeRutJS(rut);
+  const nombreAnon = anonymizeNameJS(nombreFinal);
+
   return {
     areaSolicitante: area,
-    nombreUsuarioNormalizado: nombreUser || "Paciente",
+    nombreUsuarioNormalizado: nombreFinal,
+    nombreUsuarioAnonimizado: nombreAnon,
     rutUsuarioNormalizado: rut,
+    rutUsuarioAnonimizado: rutAnon,
     ubicacionNormalizada: ubicacion,
     solicitudPersonalizada: ingested.personalizadaTexto
   };
@@ -121,13 +163,21 @@ function agenteNormalizadorJS(ingested) {
 
 function agenteClasificadorJS(ingested, normalized) {
   const destLower = ingested.destinoTexto.toLowerCase();
+  const ubicacionLower = normalized.ubicacionNormalizada.toLowerCase();
+  const unidadLower = ingested.unidadTexto.toLowerCase();
+  const combinedContext = `${destLower} ${ubicacionLower} ${unidadLower}`;
+
   const destinoTipo = (destLower.includes("unidad") || destLower.includes("stock") || destLower.includes("servicio")) ? "Unidad" : "Usuario";
 
-  let contexto = "Hospitalizado";
-  if (destLower.includes("cerrada") || destLower.includes("uci") || destLower.includes("hospitaliz") || destLower.includes("cama")) {
+  let contexto = "Ambulatorio";
+  if (["cerrada", "uci", "uti", "pabellón", "pabellon", "quirúrgic", "quirurgic"].some(k => combinedContext.includes(k))) {
     contexto = "Unidad cerrada";
-  } else if (destLower.includes("ambulatorio") || destLower.includes("poli")) {
+  } else if (["ambulatorio", "poli"].some(k => combinedContext.includes(k))) {
     contexto = "Ambulatorio";
+  } else if (["cama", "sala", "hospitaliz", "medicina interna", "neurología", "traumatología"].some(k => combinedContext.includes(k))) {
+    contexto = "Hospitalizado";
+  } else {
+    contexto = destinoTipo === "Usuario" ? "Ambulatorio" : "Hospitalizado";
   }
 
   let categoria = "Ayuda técnica AVD";
@@ -149,48 +199,78 @@ function agenteClasificadorJS(ingested, normalized) {
   };
 }
 
-function agentePriorizadorJS(classified, normalized) {
+function agentePriorizadorJS(classified, normalized, ingested) {
   const contexto = classified.contextoAtencion;
-  const tieneRut = Boolean(normalized.rutUsuarioNormalizado && /\d/.test(normalized.rutUsuarioNormalizado));
+  const destino = classified.destinoTipo;
+  const piezasStr = (ingested.piezasDetectadas || []).join(' ').toLowerCase();
+  const descRaw = `${ingested.personalizadaTexto || ''} ${ingested.usuarioTexto || ''}`.toLowerCase();
+
+  const esUrgenteTexto = ["urgente", "alta programada", "inmediato", "48h", "protocolo"].some(w => descRaw.includes(w));
+  const esLudicoDiferible = ["jenga", "tetris", "enhebrador", "tazos", "encaje", "vasos", "gancho"].some(w => piezasStr.includes(w));
 
   let prioridad = "Media";
-  let motivo = "Atención estándar de rehabilitación.";
+  let motivo = "Usuario ambulatorio en plan de rehabilitación funcional (AVD / apoyo motor).";
+  let confianza = 0.88;
 
   if (contexto === "Unidad cerrada") {
     prioridad = "Alta";
-    motivo = "Usuario en Unidad Crítica o atención cerrada urgente.";
-  } else if (tieneRut || contexto === "Hospitalizado") {
+    motivo = "Usuario o unidad crítica en atención cerrada con necesidad funcional urgente.";
+    confianza = 0.95;
+  } else if (contexto === "Hospitalizado" && (esUrgenteTexto || descRaw.includes("cama") || descRaw.includes("sala"))) {
     prioridad = "Alta";
-    motivo = "Usuario hospitalizado con RUT registrado o atención directa requerida.";
-  } else if (classified.destinoTipo === "Unidad") {
+    motivo = "Usuario hospitalizado en sala-cama con requerimiento funcional inmediato para estadía o alta.";
+    confianza = 0.90;
+  } else if (esUrgenteTexto) {
+    prioridad = "Alta";
+    motivo = "Indicación de urgencia clínica expresa en la solicitud.";
+    confianza = 0.88;
+  } else if (esLudicoDiferible && destino === "Unidad") {
+    prioridad = "Baja";
+    motivo = "Material lúdico-terapéutico o stock programable no vinculado a urgencia inmediata.";
+    confianza = 0.85;
+  } else if (destino === "Unidad" && classified.categoriaFuncional.toLowerCase().includes("stock")) {
     prioridad = "Media";
-    motivo = "Stock o equipamiento para unidad clínica.";
-  } else {
-    prioridad = "Media";
-    motivo = "Atención ambulatoria estándar.";
+    motivo = "Stock clínico de rotación habitual para servicio de rehabilitación.";
+    confianza = 0.85;
   }
 
   return {
     prioridadIA: prioridad,
     motivoPrioridad: motivo,
-    confianzaPrioridad: 0.88
+    confianzaPrioridad: confianza
   };
 }
 
 function agenteResumidorJS(ingested, normalized, classified, prioritized) {
-  const target = classified.destinoTipo === "Usuario" ? normalized.nombreUsuarioNormalizado : (ingested.unidadTexto || "Unidad");
+  const target = classified.destinoTipo === "Usuario" ? normalized.nombreUsuarioAnonimizado : (ingested.unidadTexto || "Unidad");
   const resumen = `${classified.destinoTipo} (${target}) | Contexto: ${classified.contextoAtencion} | Categoría: ${classified.categoriaFuncional} | Prioridad: ${prioritized.prioridadIA}`;
   return { resumenIA: resumen };
 }
 
 function agenteSeguimientoJS(row, index) {
-  const dias = parseInt(row['1° Tiempo de Espera '] || row['1ª Tiempo de Espera '] || row['1a Tiempo de Espera '] || '0') || 0;
+  let dias = parseInt(row['1° Tiempo de Espera '] || row['1ª Tiempo de Espera '] || row['1a Tiempo de Espera '] || row['1° Tiempo de Espera'] || '0') || 0;
+  
+  const fechaStr = row['Marca temporal'] || row['fechaSolicitud'] || '';
+  if (dias === 0 && fechaStr) {
+    try {
+      const parts = fechaStr.split(' ')[0].split(/[\/\-]/);
+      if (parts.length === 3) {
+        let dt;
+        if (parts[0].length === 4) dt = new Date(`${parts[0]}-${parts[1]}-${parts[2]}`);
+        else dt = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+        if (!isNaN(dt.getTime())) {
+          dias = Math.max(0, Math.floor((Date.now() - dt.getTime()) / (1000 * 60 * 60 * 24)));
+        }
+      }
+    } catch(e) {}
+  }
+
   let alerta = false;
-  let accion = "Caso en flujo normal";
+  let accion = "En flujo normal de producción.";
 
   if (dias > 5) {
     alerta = true;
-    accion = `⚠️ Caso en espera por ${dias} días. Revisar asignación de impresoras 3D.`;
+    accion = `⚠️ Solicitud sin avance durante ${dias} días. Verificar asignación de impresora 3D.`;
   } else if (dias > 3) {
     alerta = true;
     accion = `⚠️ Caso requiere moderación prioritaria (${dias} días transcurridos).`;
@@ -198,7 +278,8 @@ function agenteSeguimientoJS(row, index) {
 
   return {
     alertaSeguimiento: alerta,
-    accionSugerida: accion
+    accionSugerida: accion,
+    diasCalculados: dias
   };
 }
 
@@ -208,11 +289,13 @@ function agenteOrquestadorJS(row, index) {
   const ingested = agenteIngestorJS(row, index);
   const normalized = agenteNormalizadorJS(ingested);
   const classified = agenteClasificadorJS(ingested, normalized);
-  const prioritized = agentePriorizadorJS(classified, normalized);
+  const prioritized = agentePriorizadorJS(classified, normalized, ingested);
   const summarized = agenteResumidorJS(ingested, normalized, classified, prioritized);
   const seguimiento = agenteSeguimientoJS(row, index);
 
-  const requiereRevision = (classified.confianzaClasificacion < 0.80) || (!normalized.nombreUsuarioNormalizado && classified.destinoTipo === "Usuario");
+  const requiereRevision = (classified.confianzaClasificacion < 0.80) || 
+    (!normalized.nombreUsuarioNormalizado && classified.destinoTipo === "Usuario") ||
+    (prioritized.prioridadIA === "Alta" && classified.contextoAtencion === "Ambulatorio");
 
   return {
     ...ingested,
@@ -295,8 +378,8 @@ function rowToSolicitud(row, index) {
     destinoTipo: ai.destinoTipo || 'Usuario',
     contexto: ai.contextoAtencion || 'Ambulatorio',
     unidadDestino: ai.unidadTexto || row['Si la respuesta anterior fue UNIDAD indicar: Unidad y Sala o Poli Kine/TO/Fono '] || '',
-    nombreUsuario: ai.nombreUsuarioNormalizado || '',
-    rutUsuario: ai.rutUsuarioNormalizado || '',
+    nombreUsuario: ai.nombreUsuarioAnonimizado || ai.nombreUsuarioNormalizado || '',
+    rutUsuario: ai.rutUsuarioAnonimizado || ai.rutUsuarioNormalizado || '',
     servicioSalaCama: ai.ubicacionNormalizada || '',
     descripcionOriginal: piezas.join(', '),
     piezasList: piezas,

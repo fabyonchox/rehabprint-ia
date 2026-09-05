@@ -2,3 +2,18 @@ credentials.json
 __pycache__/
 *.pyc
 .env
+*.xlsx
+*.csv
+rehabprint_sync_queue*.json
+
+# Android
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/app/build
+*.apk
+*.aab
+
