@@ -1,5 +1,5 @@
 {
-  "last_sync": "2026-09-06T19:26:35.010633",
+  "last_sync": "2026-09-06T21:38:01.658151",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 11,
   "records": [
@@ -88,7 +88,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 412 días. Asignar moderador urgente.",
         "diasCalculados": 412,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.009350"
+        "timestampProcesado": "2026-09-06T21:38:01.656731"
       }
     },
     {
@@ -174,7 +174,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 179 días. Asignar moderador urgente.",
         "diasCalculados": 179,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.009525"
+        "timestampProcesado": "2026-09-06T21:38:01.656910"
       }
     },
     {
@@ -260,7 +260,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 158 días. Asignar moderador urgente.",
         "diasCalculados": 158,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.009671"
+        "timestampProcesado": "2026-09-06T21:38:01.657052"
       }
     },
     {
@@ -346,7 +346,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 114 días. Asignar moderador urgente.",
         "diasCalculados": 114,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.009787"
+        "timestampProcesado": "2026-09-06T21:38:01.657181"
       }
     },
     {
@@ -436,7 +436,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 47 días. Asignar moderador urgente.",
         "diasCalculados": 47,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.009909"
+        "timestampProcesado": "2026-09-06T21:38:01.657349"
       }
     },
     {
@@ -526,7 +526,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 46 días. Asignar moderador urgente.",
         "diasCalculados": 46,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.010019"
+        "timestampProcesado": "2026-09-06T21:38:01.657479"
       }
     },
     {
@@ -612,7 +612,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 25 días. Asignar moderador urgente.",
         "diasCalculados": 25,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.010129"
+        "timestampProcesado": "2026-09-06T21:38:01.657595"
       }
     },
     {
@@ -702,7 +702,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 20 días. Asignar moderador urgente.",
         "diasCalculados": 20,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.010269"
+        "timestampProcesado": "2026-09-06T21:38:01.657742"
       }
     },
     {
@@ -788,7 +788,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 19 días. Asignar moderador urgente.",
         "diasCalculados": 19,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.010379"
+        "timestampProcesado": "2026-09-06T21:38:01.657866"
       }
     },
     {
@@ -874,7 +874,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 6 días. Asignar moderador urgente.",
         "diasCalculados": 6,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.010472"
+        "timestampProcesado": "2026-09-06T21:38:01.657974"
       }
     },
     {
@@ -960,7 +960,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 5 días. Asignar moderador urgente.",
         "diasCalculados": 5,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-06T19:26:35.010573"
+        "timestampProcesado": "2026-09-06T21:38:01.658099"
       }
     }
   ]
