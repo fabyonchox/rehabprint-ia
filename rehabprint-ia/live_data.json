@@ -1,7 +1,7 @@
 {
-  "last_sync": "2026-09-09T16:51:03.430724",
+  "last_sync": "2026-09-09T19:40:00.938676",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
-  "total_records": 13,
+  "total_records": 16,
   "records": [
     {
       "Marca temporal": "21/07/2025 14:49:24",
@@ -88,7 +88,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 415 días. Asignar moderador urgente.",
         "diasCalculados": 415,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.429044"
+        "timestampProcesado": "2026-09-09T19:40:00.936571"
       }
     },
     {
@@ -174,7 +174,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 182 días. Asignar moderador urgente.",
         "diasCalculados": 182,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.429221"
+        "timestampProcesado": "2026-09-09T19:40:00.936752"
       }
     },
     {
@@ -260,7 +260,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 161 días. Asignar moderador urgente.",
         "diasCalculados": 161,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.429363"
+        "timestampProcesado": "2026-09-09T19:40:00.936937"
       }
     },
     {
@@ -346,7 +346,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 117 días. Asignar moderador urgente.",
         "diasCalculados": 117,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.429492"
+        "timestampProcesado": "2026-09-09T19:40:00.937071"
       }
     },
     {
@@ -436,7 +436,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 50 días. Asignar moderador urgente.",
         "diasCalculados": 50,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.429656"
+        "timestampProcesado": "2026-09-09T19:40:00.937216"
       }
     },
     {
@@ -526,7 +526,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 49 días. Asignar moderador urgente.",
         "diasCalculados": 49,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.429789"
+        "timestampProcesado": "2026-09-09T19:40:00.937350"
       }
     },
     {
@@ -612,7 +612,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 28 días. Asignar moderador urgente.",
         "diasCalculados": 28,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.429905"
+        "timestampProcesado": "2026-09-09T19:40:00.937472"
       }
     },
     {
@@ -702,7 +702,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 23 días. Asignar moderador urgente.",
         "diasCalculados": 23,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.430053"
+        "timestampProcesado": "2026-09-09T19:40:00.937622"
       }
     },
     {
@@ -788,7 +788,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 22 días. Asignar moderador urgente.",
         "diasCalculados": 22,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.430184"
+        "timestampProcesado": "2026-09-09T19:40:00.937754"
       }
     },
     {
@@ -874,7 +874,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 9 días. Asignar moderador urgente.",
         "diasCalculados": 9,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.430298"
+        "timestampProcesado": "2026-09-09T19:40:00.937893"
       }
     },
     {
@@ -960,7 +960,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 8 días. Asignar moderador urgente.",
         "diasCalculados": 8,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.430419"
+        "timestampProcesado": "2026-09-09T19:40:00.938016"
       }
     },
     {
@@ -1047,7 +1047,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.430537"
+        "timestampProcesado": "2026-09-09T19:40:00.938139"
       }
     },
     {
@@ -1133,7 +1133,267 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 0,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T16:51:03.430668"
+        "timestampProcesado": "2026-09-09T19:40:00.938252"
+      }
+    },
+    {
+      "Marca temporal": "9/09/2026 16:26:33",
+      "Nombre del funcionario solicitante": "Javier Flores Montiel ",
+      "Profesión": "T.O",
+      "¿A quién va dirigido el producto impreso?": "Implemento/ayuda técnica entregado a USUARIO hospitalizado",
+      "Si la respuesta anterior fue USUARIO indicar: Nombre, Rut, Servicio(Sala-cama)/Lugar de atención (poli Kine/TO/Fono). ": "Luisa Navarrete, 12.***.***-6",
+      "Si la respuesta anterior fue UNIDAD indicar: Unidad y Sala o Poli Kine/TO/Fono ": "Uti médica / cama 2",
+      "Adaptador de lápiz con mango (ayuda técnica)": "",
+      "Adaptador de lápiz tipo pelota  (ayuda técnica)": "",
+      "Adaptador de cubiertos con mango  (ayuda técnica)": "",
+      "Adaptador Universal  (ayuda técnica)": "",
+      "Adaptador universal con mango  (ayuda técnica)": "",
+      "Extractor de pastillas   (ayuda técnica)": "",
+      "Adaptador corta uñas   (ayuda técnica)": "",
+      "Adaptador bolsa de compras  (ayuda técnica)": "",
+      "Adaptador de llaves  (ayuda técnica)": "",
+      "Abotonador  (ayuda técnica)": "Lo requiero",
+      "Cortador de frutas  (ayuda técnica)": "",
+      "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
+      "Masajeador de cicatriz (implemento rh)": "",
+      "Hand Grip  (implemento rh)": "",
+      "Tablero de motricidad con fósforos   (implemento rh)": "",
+      "  Tablero extensor de dedos   (implemento rh)": "",
+      "Tablero de monedas  (implemento rh)": "",
+      "Jenga de gatitos  (implemento rh)": "",
+      "Tazos de discriminación táctil  (implemento rh)": "",
+      "Prono-supinador  (implemento rh)": "",
+      "Finger Grip  (implemento rh)": "",
+      "Encaje de tetris  (implemento rh)": "",
+      "Solicitud personalizada: describir brevemente el equipamiento/ayuda técnica solicitada": "Adaptador para vaso, para facilitar AVDB de alimentación, creo que un diámetro de 6 centímetros creo que sería óptimo. Cualquier cosa me preguntan.",
+      "Engranaje para mano  (implemento rh)": "",
+      "Vasos con pelotitas de colores  (implemento rh)": "",
+      "Enhebradores de animales   (implemento rh)": "",
+      "Juego tetris (pequeño)  (implemento rh)": "",
+      "Prueba de la Clavija de Nueve Agujeros (9-HPT)  (implemento rh)": "",
+      "Soporte de láminas  (ayuda técnica o implemento rh)": "",
+      "Ganchos individuales para pared ": "",
+      "Gancho triple para pared": "",
+      "Encaje de figuras geométricas  (implemento rh)": "",
+      "Tablero de monedas ": "",
+      "1° FECHA DE ENTREGA": "",
+      "1° IMPLEMENTOS ENTREGADOS": "",
+      "2° FECHA DE ENTREGA": "",
+      "2° IMPLEMENTOS ENTREGADOS": "",
+      "3° FECHA DE ENTREGA": "",
+      "3° IMPLEMENTOS ENTREGADOS": "",
+      "TOTAL IMPLEMENTOS ENTREGADOS ": "",
+      "1° Tiempo de Espera ": "",
+      "2° Tiempo de Espera ": "",
+      "3° Tiempo de Espera ": "",
+      "CATASTRO DE BENEFICIARIOS DIARIOS DE IMPLEMENTOS ADAPTACIONES ": "",
+      "_row_index": 14,
+      "_ai_agent_analysis": {
+        "id": "RP-014",
+        "nombreSolicitante": "Javier Flores Montiel",
+        "profesionSolicitante": "T.O",
+        "destinoTexto": "Implemento/ayuda técnica entregado a USUARIO hospitalizado",
+        "unidadTexto": "Uti médica / cama 2",
+        "usuarioTexto": "Luisa Navarrete, 12320237-6",
+        "personalizadaTexto": "Adaptador para vaso, para facilitar AVDB de alimentación, creo que un diámetro de 6 centímetros creo que sería óptimo. Cualquier cosa me preguntan.",
+        "piezasDetectadas": [
+          "Abotonador",
+          "Personalizado: Adaptador para vaso, para facilitar AVDB de alimentación, cr"
+        ],
+        "fechaMarca": "9/09/2026 16:26:33",
+        "areaSolicitante": "Otra",
+        "nombreUsuarioNormalizado": "Luisa N.",
+        "nombreUsuarioAnonimizado": "Luisa N.",
+        "rutUsuarioNormalizado": "12.***.***-6",
+        "rutUsuarioAnonimizado": "12.***.***-6",
+        "ubicacionNormalizada": "",
+        "solicitudPersonalizada": "Adaptador para vaso, para facilitar AVDB de alimentación, creo que un diámetro de 6 centímetros creo que sería óptimo. Cualquier cosa me preguntan.",
+        "destinoTipo": "Usuario",
+        "contextoAtencion": "Unidad cerrada",
+        "categoriaFuncional": "Pieza personalizada",
+        "confianzaClasificacion": 0.92,
+        "prioridadIA": "Alta",
+        "motivoPrioridad": "Usuario o unidad crítica en atención cerrada con necesidad funcional urgente.",
+        "confianzaPrioridad": 0.95,
+        "resumenIA": "Usuario (Luisa N.) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
+        "alertaSeguimiento": false,
+        "accionSugerida": "En flujo normal de producción.",
+        "diasCalculados": 0,
+        "requiereRevisionManual": false,
+        "timestampProcesado": "2026-09-09T19:40:00.938372"
+      }
+    },
+    {
+      "Marca temporal": "9/09/2026 16:30:23",
+      "Nombre del funcionario solicitante": "Javier Flores Montiel",
+      "Profesión": "Terapeuta Ocupacional",
+      "¿A quién va dirigido el producto impreso?": "Implemento/ayuda técnica entregado a USUARIO hospitalizado",
+      "Si la respuesta anterior fue USUARIO indicar: Nombre, Rut, Servicio(Sala-cama)/Lugar de atención (poli Kine/TO/Fono). ": "Manuel Rosales Rubio, 9.***.***-7, medicina 24/4, solicitado por TO",
+      "Si la respuesta anterior fue UNIDAD indicar: Unidad y Sala o Poli Kine/TO/Fono ": "Terapia Ocupacional",
+      "Adaptador de lápiz con mango (ayuda técnica)": "",
+      "Adaptador de lápiz tipo pelota  (ayuda técnica)": "Lo requiero",
+      "Adaptador de cubiertos con mango  (ayuda técnica)": "",
+      "Adaptador Universal  (ayuda técnica)": "Lo requiero en tamaño adulto",
+      "Adaptador universal con mango  (ayuda técnica)": "",
+      "Extractor de pastillas   (ayuda técnica)": "",
+      "Adaptador corta uñas   (ayuda técnica)": "",
+      "Adaptador bolsa de compras  (ayuda técnica)": "",
+      "Adaptador de llaves  (ayuda técnica)": "",
+      "Abotonador  (ayuda técnica)": "",
+      "Cortador de frutas  (ayuda técnica)": "",
+      "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
+      "Masajeador de cicatriz (implemento rh)": "",
+      "Hand Grip  (implemento rh)": "",
+      "Tablero de motricidad con fósforos   (implemento rh)": "",
+      "  Tablero extensor de dedos   (implemento rh)": "",
+      "Tablero de monedas  (implemento rh)": "",
+      "Jenga de gatitos  (implemento rh)": "",
+      "Tazos de discriminación táctil  (implemento rh)": "",
+      "Prono-supinador  (implemento rh)": "",
+      "Finger Grip  (implemento rh)": "",
+      "Encaje de tetris  (implemento rh)": "",
+      "Solicitud personalizada: describir brevemente el equipamiento/ayuda técnica solicitada": "",
+      "Engranaje para mano  (implemento rh)": "",
+      "Vasos con pelotitas de colores  (implemento rh)": "",
+      "Enhebradores de animales   (implemento rh)": "",
+      "Juego tetris (pequeño)  (implemento rh)": "",
+      "Prueba de la Clavija de Nueve Agujeros (9-HPT)  (implemento rh)": "",
+      "Soporte de láminas  (ayuda técnica o implemento rh)": "",
+      "Ganchos individuales para pared ": "",
+      "Gancho triple para pared": "",
+      "Encaje de figuras geométricas  (implemento rh)": "",
+      "Tablero de monedas ": "",
+      "1° FECHA DE ENTREGA": "",
+      "1° IMPLEMENTOS ENTREGADOS": "",
+      "2° FECHA DE ENTREGA": "",
+      "2° IMPLEMENTOS ENTREGADOS": "",
+      "3° FECHA DE ENTREGA": "",
+      "3° IMPLEMENTOS ENTREGADOS": "",
+      "TOTAL IMPLEMENTOS ENTREGADOS ": "",
+      "1° Tiempo de Espera ": "",
+      "2° Tiempo de Espera ": "",
+      "3° Tiempo de Espera ": "",
+      "CATASTRO DE BENEFICIARIOS DIARIOS DE IMPLEMENTOS ADAPTACIONES ": "",
+      "_row_index": 15,
+      "_ai_agent_analysis": {
+        "id": "RP-015",
+        "nombreSolicitante": "Javier Flores Montiel",
+        "profesionSolicitante": "Terapeuta Ocupacional",
+        "destinoTexto": "Implemento/ayuda técnica entregado a USUARIO hospitalizado",
+        "unidadTexto": "Terapia Ocupacional",
+        "usuarioTexto": "Manuel Rosales Rubio, 9441860-7, medicina 24/4, solicitado por TO",
+        "personalizadaTexto": "",
+        "piezasDetectadas": [
+          "Adaptador de lápiz tipo pelota",
+          "Adaptador Universal (Lo requiero en tamaño adulto)"
+        ],
+        "fechaMarca": "9/09/2026 16:30:23",
+        "areaSolicitante": "Terapia Ocupacional",
+        "nombreUsuarioNormalizado": "Manuel R.",
+        "nombreUsuarioAnonimizado": "Manuel R.",
+        "rutUsuarioNormalizado": "9.***.***-7",
+        "rutUsuarioAnonimizado": "9.***.***-7",
+        "ubicacionNormalizada": "medicina 24/4, solicitado por TO",
+        "solicitudPersonalizada": "",
+        "destinoTipo": "Usuario",
+        "contextoAtencion": "Hospitalizado",
+        "categoriaFuncional": "Ayuda técnica AVD",
+        "confianzaClasificacion": 0.92,
+        "prioridadIA": "Media",
+        "motivoPrioridad": "Usuario ambulatorio en plan de rehabilitación funcional (AVD / apoyo motor).",
+        "confianzaPrioridad": 0.88,
+        "resumenIA": "Usuario (Manuel R.) | Contexto: Hospitalizado | Categoría: Ayuda técnica AVD | Prioridad: Media",
+        "alertaSeguimiento": false,
+        "accionSugerida": "En flujo normal de producción.",
+        "diasCalculados": 0,
+        "requiereRevisionManual": false,
+        "timestampProcesado": "2026-09-09T19:40:00.938493"
+      }
+    },
+    {
+      "Marca temporal": "9/09/2026 16:36:31",
+      "Nombre del funcionario solicitante": "Javier Flores Montiel",
+      "Profesión": "Terapeuta Ocupacional",
+      "¿A quién va dirigido el producto impreso?": "Implemento/ayuda técnica entregado a USUARIO hospitalizado",
+      "Si la respuesta anterior fue USUARIO indicar: Nombre, Rut, Servicio(Sala-cama)/Lugar de atención (poli Kine/TO/Fono). ": "Timoteo Carrasco Aedo, 10.***.***-9, UTI médica cama 6",
+      "Si la respuesta anterior fue UNIDAD indicar: Unidad y Sala o Poli Kine/TO/Fono ": "Terapeuta Ocupacional",
+      "Adaptador de lápiz con mango (ayuda técnica)": "",
+      "Adaptador de lápiz tipo pelota  (ayuda técnica)": "Lo requiero",
+      "Adaptador de cubiertos con mango  (ayuda técnica)": "",
+      "Adaptador Universal  (ayuda técnica)": "",
+      "Adaptador universal con mango  (ayuda técnica)": "",
+      "Extractor de pastillas   (ayuda técnica)": "",
+      "Adaptador corta uñas   (ayuda técnica)": "",
+      "Adaptador bolsa de compras  (ayuda técnica)": "",
+      "Adaptador de llaves  (ayuda técnica)": "",
+      "Abotonador  (ayuda técnica)": "",
+      "Cortador de frutas  (ayuda técnica)": "",
+      "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
+      "Masajeador de cicatriz (implemento rh)": "",
+      "Hand Grip  (implemento rh)": "",
+      "Tablero de motricidad con fósforos   (implemento rh)": "",
+      "  Tablero extensor de dedos   (implemento rh)": "",
+      "Tablero de monedas  (implemento rh)": "",
+      "Jenga de gatitos  (implemento rh)": "",
+      "Tazos de discriminación táctil  (implemento rh)": "",
+      "Prono-supinador  (implemento rh)": "",
+      "Finger Grip  (implemento rh)": "",
+      "Encaje de tetris  (implemento rh)": "",
+      "Solicitud personalizada: describir brevemente el equipamiento/ayuda técnica solicitada": "",
+      "Engranaje para mano  (implemento rh)": "",
+      "Vasos con pelotitas de colores  (implemento rh)": "",
+      "Enhebradores de animales   (implemento rh)": "",
+      "Juego tetris (pequeño)  (implemento rh)": "",
+      "Prueba de la Clavija de Nueve Agujeros (9-HPT)  (implemento rh)": "",
+      "Soporte de láminas  (ayuda técnica o implemento rh)": "",
+      "Ganchos individuales para pared ": "",
+      "Gancho triple para pared": "",
+      "Encaje de figuras geométricas  (implemento rh)": "",
+      "Tablero de monedas ": "",
+      "1° FECHA DE ENTREGA": "",
+      "1° IMPLEMENTOS ENTREGADOS": "",
+      "2° FECHA DE ENTREGA": "",
+      "2° IMPLEMENTOS ENTREGADOS": "",
+      "3° FECHA DE ENTREGA": "",
+      "3° IMPLEMENTOS ENTREGADOS": "",
+      "TOTAL IMPLEMENTOS ENTREGADOS ": "",
+      "1° Tiempo de Espera ": "",
+      "2° Tiempo de Espera ": "",
+      "3° Tiempo de Espera ": "",
+      "CATASTRO DE BENEFICIARIOS DIARIOS DE IMPLEMENTOS ADAPTACIONES ": "",
+      "_row_index": 16,
+      "_ai_agent_analysis": {
+        "id": "RP-016",
+        "nombreSolicitante": "Javier Flores Montiel",
+        "profesionSolicitante": "Terapeuta Ocupacional",
+        "destinoTexto": "Implemento/ayuda técnica entregado a USUARIO hospitalizado",
+        "unidadTexto": "Terapeuta Ocupacional",
+        "usuarioTexto": "Timoteo Carrasco Aedo, 10025261-9, UTI médica cama 6",
+        "personalizadaTexto": "",
+        "piezasDetectadas": [
+          "Adaptador de lápiz tipo pelota"
+        ],
+        "fechaMarca": "9/09/2026 16:36:31",
+        "areaSolicitante": "Terapia Ocupacional",
+        "nombreUsuarioNormalizado": "Timoteo C.",
+        "nombreUsuarioAnonimizado": "Timoteo C.",
+        "rutUsuarioNormalizado": "10.***.***-9",
+        "rutUsuarioAnonimizado": "10.***.***-9",
+        "ubicacionNormalizada": "UTI médica cama 6",
+        "solicitudPersonalizada": "",
+        "destinoTipo": "Usuario",
+        "contextoAtencion": "Unidad cerrada",
+        "categoriaFuncional": "Ayuda técnica AVD",
+        "confianzaClasificacion": 0.92,
+        "prioridadIA": "Alta",
+        "motivoPrioridad": "Usuario o unidad crítica en atención cerrada con necesidad funcional urgente.",
+        "confianzaPrioridad": 0.95,
+        "resumenIA": "Usuario (Timoteo C.) | Contexto: Unidad cerrada | Categoría: Ayuda técnica AVD | Prioridad: Alta",
+        "alertaSeguimiento": false,
+        "accionSugerida": "En flujo normal de producción.",
+        "diasCalculados": 0,
+        "requiereRevisionManual": false,
+        "timestampProcesado": "2026-09-09T19:40:00.938608"
       }
     }
   ]
