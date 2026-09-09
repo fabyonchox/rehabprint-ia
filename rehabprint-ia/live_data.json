@@ -1,5 +1,5 @@
 {
-  "last_sync": "2026-09-09T01:09:28.355689",
+  "last_sync": "2026-09-09T06:33:52.071316",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 12,
   "records": [
@@ -88,7 +88,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 415 días. Asignar moderador urgente.",
         "diasCalculados": 415,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.354666"
+        "timestampProcesado": "2026-09-09T06:33:52.069865"
       }
     },
     {
@@ -174,7 +174,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 182 días. Asignar moderador urgente.",
         "diasCalculados": 182,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.354810"
+        "timestampProcesado": "2026-09-09T06:33:52.070051"
       }
     },
     {
@@ -260,7 +260,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 161 días. Asignar moderador urgente.",
         "diasCalculados": 161,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.354904"
+        "timestampProcesado": "2026-09-09T06:33:52.070195"
       }
     },
     {
@@ -346,7 +346,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 117 días. Asignar moderador urgente.",
         "diasCalculados": 117,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.354987"
+        "timestampProcesado": "2026-09-09T06:33:52.070325"
       }
     },
     {
@@ -436,7 +436,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 50 días. Asignar moderador urgente.",
         "diasCalculados": 50,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.355076"
+        "timestampProcesado": "2026-09-09T06:33:52.070460"
       }
     },
     {
@@ -526,7 +526,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 49 días. Asignar moderador urgente.",
         "diasCalculados": 49,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.355158"
+        "timestampProcesado": "2026-09-09T06:33:52.070579"
       }
     },
     {
@@ -612,7 +612,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 28 días. Asignar moderador urgente.",
         "diasCalculados": 28,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.355249"
+        "timestampProcesado": "2026-09-09T06:33:52.070698"
       }
     },
     {
@@ -702,7 +702,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 23 días. Asignar moderador urgente.",
         "diasCalculados": 23,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.355351"
+        "timestampProcesado": "2026-09-09T06:33:52.070841"
       }
     },
     {
@@ -788,7 +788,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 22 días. Asignar moderador urgente.",
         "diasCalculados": 22,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.355436"
+        "timestampProcesado": "2026-09-09T06:33:52.070959"
       }
     },
     {
@@ -874,7 +874,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 9 días. Asignar moderador urgente.",
         "diasCalculados": 9,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.355507"
+        "timestampProcesado": "2026-09-09T06:33:52.071058"
       }
     },
     {
@@ -960,7 +960,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 8 días. Asignar moderador urgente.",
         "diasCalculados": 8,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.355583"
+        "timestampProcesado": "2026-09-09T06:33:52.071164"
       }
     },
     {
@@ -1047,7 +1047,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-09T01:09:28.355654"
+        "timestampProcesado": "2026-09-09T06:33:52.071264"
       }
     }
   ]
