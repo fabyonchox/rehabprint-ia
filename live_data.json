@@ -1,5 +1,5 @@
 {
-  "last_sync": "2026-09-10T11:05:43.338996",
+  "last_sync": "2026-09-10T15:06:37.878408",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 16,
   "records": [
@@ -88,7 +88,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 416 días. Asignar moderador urgente.",
         "diasCalculados": 416,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.337441"
+        "timestampProcesado": "2026-09-10T15:06:37.876966"
       }
     },
     {
@@ -174,7 +174,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 183 días. Asignar moderador urgente.",
         "diasCalculados": 183,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.337603"
+        "timestampProcesado": "2026-09-10T15:06:37.877108"
       }
     },
     {
@@ -260,7 +260,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 162 días. Asignar moderador urgente.",
         "diasCalculados": 162,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.337714"
+        "timestampProcesado": "2026-09-10T15:06:37.877215"
       }
     },
     {
@@ -346,7 +346,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 118 días. Asignar moderador urgente.",
         "diasCalculados": 118,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.337814"
+        "timestampProcesado": "2026-09-10T15:06:37.877329"
       }
     },
     {
@@ -436,7 +436,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 51 días. Asignar moderador urgente.",
         "diasCalculados": 51,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.337919"
+        "timestampProcesado": "2026-09-10T15:06:37.877427"
       }
     },
     {
@@ -526,7 +526,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 50 días. Asignar moderador urgente.",
         "diasCalculados": 50,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338017"
+        "timestampProcesado": "2026-09-10T15:06:37.877514"
       }
     },
     {
@@ -612,7 +612,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 29 días. Asignar moderador urgente.",
         "diasCalculados": 29,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338108"
+        "timestampProcesado": "2026-09-10T15:06:37.877594"
       }
     },
     {
@@ -702,7 +702,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 24 días. Asignar moderador urgente.",
         "diasCalculados": 24,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338230"
+        "timestampProcesado": "2026-09-10T15:06:37.877700"
       }
     },
     {
@@ -788,7 +788,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 23 días. Asignar moderador urgente.",
         "diasCalculados": 23,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338325"
+        "timestampProcesado": "2026-09-10T15:06:37.877796"
       }
     },
     {
@@ -874,7 +874,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 10 días. Asignar moderador urgente.",
         "diasCalculados": 10,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338427"
+        "timestampProcesado": "2026-09-10T15:06:37.877875"
       }
     },
     {
@@ -960,7 +960,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 9 días. Asignar moderador urgente.",
         "diasCalculados": 9,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338521"
+        "timestampProcesado": "2026-09-10T15:06:37.877956"
       }
     },
     {
@@ -1047,7 +1047,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 2,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338606"
+        "timestampProcesado": "2026-09-10T15:06:37.878032"
       }
     },
     {
@@ -1091,7 +1091,7 @@
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "10-09-2026",
-      "1° IMPLEMENTOS ENTREGADOS": "",
+      "1° IMPLEMENTOS ENTREGADOS": "2",
       "2° FECHA DE ENTREGA": "",
       "2° IMPLEMENTOS ENTREGADOS": "",
       "3° FECHA DE ENTREGA": "",
@@ -1133,7 +1133,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338686"
+        "timestampProcesado": "2026-09-10T15:06:37.878105"
       }
     },
     {
@@ -1152,7 +1152,7 @@
       "Adaptador corta uñas   (ayuda técnica)": "",
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
-      "Abotonador  (ayuda técnica)": "Lo requiero",
+      "Abotonador  (ayuda técnica)": "",
       "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
@@ -1197,7 +1197,6 @@
         "usuarioTexto": "Luisa Navarrete, 12320237-6",
         "personalizadaTexto": "Adaptador para vaso, para facilitar AVDB de alimentación, creo que un diámetro de 6 centímetros creo que sería óptimo. Cualquier cosa me preguntan.",
         "piezasDetectadas": [
-          "Abotonador",
           "Personalizado: Adaptador para vaso, para facilitar AVDB de alimentación, cr"
         ],
         "fechaMarca": "9/09/2026 16:26:33",
@@ -1220,7 +1219,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338774"
+        "timestampProcesado": "2026-09-10T15:06:37.878185"
       }
     },
     {
@@ -1263,8 +1262,8 @@
       "Gancho triple para pared": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
-      "1° FECHA DE ENTREGA": "",
-      "1° IMPLEMENTOS ENTREGADOS": "",
+      "1° FECHA DE ENTREGA": "10-09-2026",
+      "1° IMPLEMENTOS ENTREGADOS": "2",
       "2° FECHA DE ENTREGA": "",
       "2° IMPLEMENTOS ENTREGADOS": "",
       "3° FECHA DE ENTREGA": "",
@@ -1307,7 +1306,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338862"
+        "timestampProcesado": "2026-09-10T15:06:37.878270"
       }
     },
     {
@@ -1350,8 +1349,8 @@
       "Gancho triple para pared": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
-      "1° FECHA DE ENTREGA": "",
-      "1° IMPLEMENTOS ENTREGADOS": "",
+      "1° FECHA DE ENTREGA": "10-09-2026",
+      "1° IMPLEMENTOS ENTREGADOS": "1",
       "2° FECHA DE ENTREGA": "",
       "2° IMPLEMENTOS ENTREGADOS": "",
       "3° FECHA DE ENTREGA": "",
@@ -1393,7 +1392,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T11:05:43.338946"
+        "timestampProcesado": "2026-09-10T15:06:37.878358"
       }
     }
   ]
