@@ -1,5 +1,5 @@
 const liveData = {
-  "last_sync": "2026-09-10T00:30:16.586177",
+  "last_sync": "2026-09-10T05:46:43.920729",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 16,
   "records": [
@@ -88,7 +88,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 416 días. Asignar moderador urgente.",
         "diasCalculados": 416,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.584805"
+        "timestampProcesado": "2026-09-10T05:46:43.918637"
       }
     },
     {
@@ -174,7 +174,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 183 días. Asignar moderador urgente.",
         "diasCalculados": 183,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.584945"
+        "timestampProcesado": "2026-09-10T05:46:43.918822"
       }
     },
     {
@@ -260,7 +260,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 162 días. Asignar moderador urgente.",
         "diasCalculados": 162,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585039"
+        "timestampProcesado": "2026-09-10T05:46:43.918998"
       }
     },
     {
@@ -346,7 +346,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 118 días. Asignar moderador urgente.",
         "diasCalculados": 118,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585124"
+        "timestampProcesado": "2026-09-10T05:46:43.919141"
       }
     },
     {
@@ -436,7 +436,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 51 días. Asignar moderador urgente.",
         "diasCalculados": 51,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585245"
+        "timestampProcesado": "2026-09-10T05:46:43.919286"
       }
     },
     {
@@ -526,7 +526,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 50 días. Asignar moderador urgente.",
         "diasCalculados": 50,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585333"
+        "timestampProcesado": "2026-09-10T05:46:43.919417"
       }
     },
     {
@@ -612,7 +612,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 29 días. Asignar moderador urgente.",
         "diasCalculados": 29,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585410"
+        "timestampProcesado": "2026-09-10T05:46:43.919534"
       }
     },
     {
@@ -702,7 +702,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 24 días. Asignar moderador urgente.",
         "diasCalculados": 24,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585513"
+        "timestampProcesado": "2026-09-10T05:46:43.919683"
       }
     },
     {
@@ -788,7 +788,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 23 días. Asignar moderador urgente.",
         "diasCalculados": 23,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585593"
+        "timestampProcesado": "2026-09-10T05:46:43.919807"
       }
     },
     {
@@ -874,7 +874,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 10 días. Asignar moderador urgente.",
         "diasCalculados": 10,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585665"
+        "timestampProcesado": "2026-09-10T05:46:43.919936"
       }
     },
     {
@@ -960,7 +960,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 9 días. Asignar moderador urgente.",
         "diasCalculados": 9,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585740"
+        "timestampProcesado": "2026-09-10T05:46:43.920066"
       }
     },
     {
@@ -1047,7 +1047,7 @@ const liveData = {
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 2,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585818"
+        "timestampProcesado": "2026-09-10T05:46:43.920192"
       }
     },
     {
@@ -1133,7 +1133,7 @@ const liveData = {
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585887"
+        "timestampProcesado": "2026-09-10T05:46:43.920306"
       }
     },
     {
@@ -1220,7 +1220,7 @@ const liveData = {
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.585964"
+        "timestampProcesado": "2026-09-10T05:46:43.920426"
       }
     },
     {
@@ -1307,7 +1307,7 @@ const liveData = {
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.586057"
+        "timestampProcesado": "2026-09-10T05:46:43.920546"
       }
     },
     {
@@ -1393,7 +1393,7 @@ const liveData = {
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-10T00:30:16.586134"
+        "timestampProcesado": "2026-09-10T05:46:43.920661"
       }
     }
   ]
