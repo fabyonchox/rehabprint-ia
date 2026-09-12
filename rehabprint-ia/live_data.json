@@ -1,5 +1,5 @@
 {
-  "last_sync": "2026-09-12T17:23:50.433170",
+  "last_sync": "2026-09-12T19:36:28.950059",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 16,
   "records": [
@@ -88,7 +88,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 418 días. Asignar moderador urgente.",
         "diasCalculados": 418,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.431275"
+        "timestampProcesado": "2026-09-12T19:36:28.948483"
       }
     },
     {
@@ -174,7 +174,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 185 días. Asignar moderador urgente.",
         "diasCalculados": 185,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.431477"
+        "timestampProcesado": "2026-09-12T19:36:28.948636"
       }
     },
     {
@@ -260,7 +260,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 164 días. Asignar moderador urgente.",
         "diasCalculados": 164,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.431617"
+        "timestampProcesado": "2026-09-12T19:36:28.948754"
       }
     },
     {
@@ -346,7 +346,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 120 días. Asignar moderador urgente.",
         "diasCalculados": 120,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.431740"
+        "timestampProcesado": "2026-09-12T19:36:28.948857"
       }
     },
     {
@@ -436,7 +436,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 53 días. Asignar moderador urgente.",
         "diasCalculados": 53,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.431883"
+        "timestampProcesado": "2026-09-12T19:36:28.948969"
       }
     },
     {
@@ -526,7 +526,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 52 días. Asignar moderador urgente.",
         "diasCalculados": 52,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.431997"
+        "timestampProcesado": "2026-09-12T19:36:28.949070"
       }
     },
     {
@@ -612,7 +612,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 31 días. Asignar moderador urgente.",
         "diasCalculados": 31,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.432101"
+        "timestampProcesado": "2026-09-12T19:36:28.949156"
       }
     },
     {
@@ -702,7 +702,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 26 días. Asignar moderador urgente.",
         "diasCalculados": 26,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.432240"
+        "timestampProcesado": "2026-09-12T19:36:28.949299"
       }
     },
     {
@@ -788,7 +788,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 25 días. Asignar moderador urgente.",
         "diasCalculados": 25,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.432353"
+        "timestampProcesado": "2026-09-12T19:36:28.949395"
       }
     },
     {
@@ -874,7 +874,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 12 días. Asignar moderador urgente.",
         "diasCalculados": 12,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.432451"
+        "timestampProcesado": "2026-09-12T19:36:28.949477"
       }
     },
     {
@@ -960,7 +960,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 11 días. Asignar moderador urgente.",
         "diasCalculados": 11,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.432557"
+        "timestampProcesado": "2026-09-12T19:36:28.949575"
       }
     },
     {
@@ -1047,7 +1047,7 @@
         "accionSugerida": "⚠️ Solicitud sin revisar durante 4 días. Asignar moderador urgente.",
         "diasCalculados": 4,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.432657"
+        "timestampProcesado": "2026-09-12T19:36:28.949662"
       }
     },
     {
@@ -1133,7 +1133,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 3,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.432763"
+        "timestampProcesado": "2026-09-12T19:36:28.949745"
       }
     },
     {
@@ -1219,7 +1219,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 3,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.432891"
+        "timestampProcesado": "2026-09-12T19:36:28.949834"
       }
     },
     {
@@ -1306,7 +1306,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 3,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.433002"
+        "timestampProcesado": "2026-09-12T19:36:28.949924"
       }
     },
     {
@@ -1392,7 +1392,7 @@
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 3,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-09-12T17:23:50.433104"
+        "timestampProcesado": "2026-09-12T19:36:28.950006"
       }
     }
   ]
