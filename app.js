@@ -1,5 +1,6 @@
 // RehabPrint IA — App Logic
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFu9oxcCun8vP3MgLWGQObmLF6xi3yP-zuRg_T5HePTuqbRbbEdBOJRPACGqbWi3X7xQ/exec';
+var APPS_SCRIPT_URL = window.APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbwFu9oxcCun8vP3MgLWGQObmLF6xi3yP-zuRg_T5HePTuqbRbbEdBOJRPACGqbWi3X7xQ/exec';
+window.APPS_SCRIPT_URL = APPS_SCRIPT_URL;
 const GITHUB_REPO     = 'fabyonchox/rehabprint-ia';
 const GITHUB_WORKFLOW = 'sync.yml';
 // Limpieza de seguridad: remover cualquier PAT residual almacenado previamente
@@ -68,6 +69,19 @@ async function cloudGetStates() {
   return {};
 }
 
+async function cloudGetSolicitudes() {
+  try {
+    const res = await fetch(`${APPS_SCRIPT_URL}?action=getSolicitudes`, { redirect: 'follow' });
+    const json = await res.json();
+    if (json && json.ok && Array.isArray(json.data) && json.data.length > 0) {
+      return json.data;
+    }
+  } catch(e) {
+    console.warn('[RehabPrint] No se pudo obtener solicitudes en vivo desde Google Apps Script:', e.message);
+  }
+  return null;
+}
+
 // ─── SINCRONIZACIÓN DE AGENTES IA Y DATOS ──────────────────────────────────
 async function triggerIASync() {
   const btn  = document.getElementById('btn-sync-ia');
@@ -77,7 +91,7 @@ async function triggerIASync() {
   if (btn) btn.disabled = true;
   if (icon) icon.textContent = '⏳';
   if (text) text.textContent = 'Sincronizando...';
-  showToast('🤖 Ejecutando sincronización de datos y Pipeline IA...', 'info');
+  showToast('🤖 Sincronizando nuevas solicitudes en tiempo real desde Google Sheets...', 'info');
 
   try {
     // 1. Notificar al backend de Google Apps Script para sincronización
@@ -87,12 +101,12 @@ async function triggerIASync() {
       body: JSON.stringify({ action: 'triggerSync', moderator: activeModerator })
     }).catch(() => {});
 
-    // 2. Actualizar estados y recargar liveData
-    await actualizarDatosYEstados(true);
+    // 2. Actualizar estados y recargar liveData con datos directos de Google Sheets
+    await actualizarDatosYEstados(false);
 
     if (icon) icon.textContent = '✅';
     if (text) text.textContent = 'Sincronizado';
-    showToast('✅ Datos sincronizados con éxito con Google Sheets y Agentes IA', 'success');
+    showToast(`✅ ${solicitudes.length} solicitudes sincronizadas con éxito desde la nube`, 'success');
   } catch (e) {
     showToast('⚠️ Sincronización local completada', 'info');
   } finally {
@@ -100,7 +114,7 @@ async function triggerIASync() {
       if (icon) icon.textContent = '🤖';
       if (text) text.textContent = 'Sincronizar IA';
       if (btn) btn.disabled = false;
-    }, 3000);
+    }, 2500);
   }
 }
 

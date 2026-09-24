@@ -1,6 +1,9 @@
 // RehabPrint IA — Cargador de datos reales desde Google Sheets con Pipeline Multiagente IA
 // Soporta _ai_agent_analysis pre-procesado en Python y fallback de Agentes JS en navegador.
 
+var APPS_SCRIPT_URL = window.APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbwFu9oxcCun8vP3MgLWGQObmLF6xi3yP-zuRg_T5HePTuqbRbbEdBOJRPACGqbWi3X7xQ/exec';
+window.APPS_SCRIPT_URL = APPS_SCRIPT_URL;
+
 const ITEM_COLS = [
   { col: 'Adaptador de lápiz con mango (ayuda técnica)', nombre: 'Adaptador de lápiz con mango', tipo: 'Ayuda técnica AVD' },
   { col: 'Adaptador de lápiz tipo pelota  (ayuda técnica)', nombre: 'Adaptador de lápiz pelota', tipo: 'Ayuda técnica AVD' },
@@ -404,6 +407,76 @@ function rowToSolicitud(row, index) {
   };
 }
 
+function cloudItemToSolicitud(item) {
+  const localStates = JSON.parse(localStorage.getItem('rehabprint_states') || '{}');
+  const localAssignees = JSON.parse(localStorage.getItem('rehabprint_assignees') || '{}');
+
+  const piezas = item.implemento
+    ? item.implemento.split('+').map(p => p.trim()).filter(Boolean)
+    : [item.especificaciones || 'Pieza 3D'];
+
+  const piezaNormalizada = piezas.length === 0 ? 'Sin especificar' :
+    piezas.length === 1 ? piezas[0] :
+    piezas.slice(0, 2).join(' + ') + (piezas.length > 2 ? ` (+${piezas.length - 2} más)` : '');
+
+  let nombreUser = '';
+  let rutUser = item.rutAnonimizado || '';
+  let servicioSala = item.servicioUnidad || '';
+
+  if (item.tipoDestino === 'Usuario' && item.servicioUnidad) {
+    const parts = item.servicioUnidad.split(/[,;\/]/).map(p => p.trim()).filter(Boolean);
+    nombreUser = parts[0] || 'Paciente';
+    if (parts.length > 1 && (!rutUser || rutUser === '—')) {
+      const rutRegex = /\b\d{1,2}(?:\.\d{3}){2}-?[\dkK]\b|\b\d{7,8}-?[\dkK]\b/;
+      const m = item.servicioUnidad.match(rutRegex);
+      if (m) rutUser = anonymizeRutJS(m[0]);
+    }
+    if (parts.length > 2) servicioSala = parts.slice(2).join(', ');
+  }
+
+  let fechaStr = item.timestamp || '';
+  try {
+    const d = new Date(item.timestamp);
+    if (!isNaN(d.getTime())) {
+      fechaStr = d.toISOString().split('T')[0];
+    }
+  } catch(e) {}
+
+  const estado = localStates[item.id] || item.estado || (typeof ESTADOS !== 'undefined' ? ESTADOS.NUEVA : 'Nueva solicitud');
+  const responsable = localAssignees[item.id] || item.responsable || 'Team 3D';
+
+  return {
+    id: item.id,
+    fechaSolicitud: fechaStr,
+    fuenteRegistro: 'Google Sheets (Live Cloud API)',
+    nombreSolicitante: item.profesional || '—',
+    profesion: item.area || '—',
+    area: item.area || 'Otra',
+    destinoTipo: item.tipoDestino || 'Usuario',
+    contexto: item.contextoAtencion || 'Ambulatorio',
+    unidadDestino: item.tipoDestino === 'Unidad' ? item.servicioUnidad : '',
+    nombreUsuario: nombreUser || (item.tipoDestino === 'Usuario' ? 'Paciente' : ''),
+    rutUsuario: rutUser,
+    servicioSalaCama: servicioSala,
+    descripcionOriginal: item.especificaciones || item.implemento || '',
+    piezasList: piezas,
+    categoriaIA: item.categoriaFuncional || 'Ayuda técnica AVD',
+    piezaNormalizada,
+    prioridadIA: item.prioridad || 'Media',
+    motivoPrioridad: item.contextoAtencion === 'Unidad cerrada' ? 'Unidad crítica/cerrada' : 'Atención estándar',
+    resumenIA: `${item.tipoDestino} (${nombreUser || item.servicioUnidad || 'Unidad'}): ${item.implemento}`,
+    confianzaClasificacion: 0.90,
+    requiereRevisionManual: false,
+    alertaSeguimiento: item.tiempoEsperaDias > 3,
+    accionSugerida: item.tiempoEsperaDias > 3 ? '⚠️ Caso requiere seguimiento prioritario' : 'En flujo normal de producción',
+    estadoCaso: estado,
+    responsableActual: responsable,
+    tiempoEsperaDias: item.tiempoEsperaDias || 0,
+    observacionesClinicas: item.observaciones || '',
+    observacionesTecnicas: ''
+  };
+}
+
 async function loadLiveData() {
   let targetData = typeof liveData !== 'undefined' ? liveData : null;
 
@@ -417,36 +490,77 @@ async function loadLiveData() {
     console.warn('[RehabPrint] Fetch live_data.json falló, usando fallback en memoria:', err.message);
   }
 
-  if (!targetData || !targetData.records) {
-    console.warn('[RehabPrint] liveData no está disponible.');
+  const deletedIds = JSON.parse(localStorage.getItem('rehabprint_deleted_ids') || '[]');
+  const loadedMap = new Map();
+
+  // 1. Cargar datos base de live_data.json (procesados con pipeline multiagente si existe)
+  if (targetData && targetData.records) {
+    targetData.records.forEach((row, i) => {
+      const sol = rowToSolicitud(row, i + 1);
+      if (!deletedIds.includes(sol.id) && sol.estadoCaso !== (typeof ESTADOS !== 'undefined' ? ESTADOS.CANCELADA : 'Cancelada')) {
+        loadedMap.set(sol.id, sol);
+      }
+    });
+  }
+
+  // 2. 🚀 Sincronizar en tiempo real con Google Apps Script (trae solicitudes nuevas en vivo)
+  let cloudCount = 0;
+  try {
+    const endpoint = `${window.APPS_SCRIPT_URL || APPS_SCRIPT_URL}?action=getSolicitudes`;
+    const res = await fetch(endpoint, { redirect: 'follow' });
+    const json = await res.json();
+    if (json && json.ok && Array.isArray(json.data) && json.data.length > 0) {
+      cloudCount = json.data.length;
+      const localStates = JSON.parse(localStorage.getItem('rehabprint_states') || '{}');
+      const localAssignees = JSON.parse(localStorage.getItem('rehabprint_assignees') || '{}');
+
+      json.data.forEach(cItem => {
+        if (!deletedIds.includes(cItem.id)) {
+          if (!loadedMap.has(cItem.id)) {
+            // Solicitud nueva no presente en el archivo estático
+            loadedMap.set(cItem.id, cloudItemToSolicitud(cItem));
+          } else {
+            // Si ya existe en memoria, actualizar estado y responsable si no hay override local
+            const existing = loadedMap.get(cItem.id);
+            if (cItem.estado && !localStates[cItem.id]) {
+              existing.estadoCaso = cItem.estado;
+            }
+            if (cItem.responsable && !localAssignees[cItem.id]) {
+              existing.responsableActual = cItem.responsable;
+            }
+          }
+        }
+      });
+    }
+  } catch (err) {
+    console.warn('[RehabPrint] Fetch directo a Apps Script no disponible, usando caché local:', err.message);
+  }
+
+  if (loadedMap.size === 0) {
+    console.warn('[RehabPrint] No hay solicitudes disponibles.');
     return false;
   }
 
   try {
-    // Reemplazar solicitudes con datos reales procesados por los Agentes IA (descartando eliminados)
-    const deletedIds = JSON.parse(localStorage.getItem('rehabprint_deleted_ids') || '[]');
     solicitudes.length = 0;
-    targetData.records.forEach((row, i) => {
-      const sol = rowToSolicitud(row, i + 1);
-      if (!deletedIds.includes(sol.id) && sol.estadoCaso !== (typeof ESTADOS !== 'undefined' ? ESTADOS.CANCELADA : 'Cancelada')) {
-        solicitudes.push(sol);
-      }
-    });
+    loadedMap.forEach(sol => solicitudes.push(sol));
 
     // Mostrar banner de éxito
     const banner = document.createElement('div');
     banner.style.cssText = 'position:fixed;bottom:70px;right:20px;background:#007F3B;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,0.2)';
-    banner.innerHTML = `🤖 ${targetData.records.length} registros cargados con Pipeline IA · ${(targetData.last_sync || '').slice(0,16).replace('T',' ')}`;
+    const fuente = cloudCount > 0 ? `Google Sheets en vivo (${cloudCount} solicitudes)` : 'Caché local';
+    banner.innerHTML = `🤖 ${solicitudes.length} solicitudes sincronizadas · ${fuente}`;
     document.body.appendChild(banner);
     setTimeout(() => banner.remove(), 4000);
 
     // Refrescar vista
     if (typeof navigate === 'function' && typeof currentView !== 'undefined') navigate(currentView);
     if (typeof updateNavBadges === 'function') updateNavBadges();
-    console.log(`[RehabPrint] ${targetData.records.length} registros cargados desde liveData procesados por 7 Agentes IA.`);
+    console.log(`[RehabPrint] ${solicitudes.length} registros cargados (Cloud live: ${cloudCount}).`);
     return true;
   } catch (e) {
-    console.error('[RehabPrint] Error al parsear liveData:', e.message);
+    console.error('[RehabPrint] Error al actualizar solicitudes:', e.message);
     return false;
   }
 }
+
