@@ -1,5 +1,5 @@
 const liveData = {
-  "last_sync": "2026-11-04T20:53:54.156902",
+  "last_sync": "2026-11-05T01:24:10.285900",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 34,
   "records": [
@@ -85,10 +85,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Roberto F.) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 471 días. Asignar moderador urgente.",
-        "diasCalculados": 471,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 472 días. Asignar moderador urgente.",
+        "diasCalculados": 472,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.153906"
+        "timestampProcesado": "2026-11-05T01:24:10.283842"
       }
     },
     {
@@ -171,10 +171,10 @@ const liveData = {
         "confianzaPrioridad": 0.95,
         "resumenIA": "Usuario (Andrés A.) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 238 días. Asignar moderador urgente.",
-        "diasCalculados": 238,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 239 días. Asignar moderador urgente.",
+        "diasCalculados": 239,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.154075"
+        "timestampProcesado": "2026-11-05T01:24:10.284029"
       }
     },
     {
@@ -257,10 +257,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Unidad (pedido personal) | Contexto: Hospitalizado | Categoría: Pieza personalizada | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 217 días. Asignar moderador urgente.",
-        "diasCalculados": 217,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 218 días. Asignar moderador urgente.",
+        "diasCalculados": 218,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.154183"
+        "timestampProcesado": "2026-11-05T01:24:10.284114"
       }
     },
     {
@@ -343,10 +343,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Servicio D.) | Contexto: Hospitalizado | Categoría: Pieza personalizada | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 173 días. Asignar moderador urgente.",
-        "diasCalculados": 173,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 174 días. Asignar moderador urgente.",
+        "diasCalculados": 174,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.154278"
+        "timestampProcesado": "2026-11-05T01:24:10.284199"
       }
     },
     {
@@ -433,10 +433,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Marcela G.) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 106 días. Asignar moderador urgente.",
-        "diasCalculados": 106,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 107 días. Asignar moderador urgente.",
+        "diasCalculados": 107,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.154381"
+        "timestampProcesado": "2026-11-05T01:24:10.284269"
       }
     },
     {
@@ -523,10 +523,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Toribio A.) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 105 días. Asignar moderador urgente.",
-        "diasCalculados": 105,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 106 días. Asignar moderador urgente.",
+        "diasCalculados": 106,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.154497"
+        "timestampProcesado": "2026-11-05T01:24:10.284332"
       }
     },
     {
@@ -609,10 +609,10 @@ const liveData = {
         "confianzaPrioridad": 0.85,
         "resumenIA": "Unidad (Poli kine/to/fono) | Contexto: Ambulatorio | Categoría: Stock de unidad | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 84 días. Asignar moderador urgente.",
-        "diasCalculados": 84,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 85 días. Asignar moderador urgente.",
+        "diasCalculados": 85,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.154585"
+        "timestampProcesado": "2026-11-05T01:24:10.284387"
       }
     },
     {
@@ -699,10 +699,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Rosa M.) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 79 días. Asignar moderador urgente.",
-        "diasCalculados": 79,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 80 días. Asignar moderador urgente.",
+        "diasCalculados": 80,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.154703"
+        "timestampProcesado": "2026-11-05T01:24:10.284464"
       }
     },
     {
@@ -785,10 +785,10 @@ const liveData = {
         "confianzaPrioridad": 0.9,
         "resumenIA": "Usuario (Luis A.) | Contexto: Hospitalizado | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 78 días. Asignar moderador urgente.",
-        "diasCalculados": 78,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 79 días. Asignar moderador urgente.",
+        "diasCalculados": 79,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.154799"
+        "timestampProcesado": "2026-11-05T01:24:10.284524"
       }
     },
     {
@@ -871,10 +871,10 @@ const liveData = {
         "confianzaPrioridad": 0.95,
         "resumenIA": "Unidad (Neurología) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 65 días. Asignar moderador urgente.",
-        "diasCalculados": 65,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 66 días. Asignar moderador urgente.",
+        "diasCalculados": 66,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.154882"
+        "timestampProcesado": "2026-11-05T01:24:10.284575"
       }
     },
     {
@@ -957,10 +957,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Patricio D.) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 64 días. Asignar moderador urgente.",
-        "diasCalculados": 64,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 65 días. Asignar moderador urgente.",
+        "diasCalculados": 65,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.154969"
+        "timestampProcesado": "2026-11-05T01:24:10.284632"
       }
     },
     {
@@ -1044,10 +1044,10 @@ const liveData = {
         "confianzaPrioridad": 0.85,
         "resumenIA": "Unidad (Unidad) | Contexto: Hospitalizado | Categoría: Stock de unidad | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 57 días. Asignar moderador urgente.",
-        "diasCalculados": 57,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 58 días. Asignar moderador urgente.",
+        "diasCalculados": 58,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155051"
+        "timestampProcesado": "2026-11-05T01:24:10.284685"
       }
     },
     {
@@ -1130,10 +1130,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Módulo B.) | Contexto: Hospitalizado | Categoría: Pieza personalizada | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 56 días. Asignar moderador urgente.",
-        "diasCalculados": 56,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 57 días. Asignar moderador urgente.",
+        "diasCalculados": 57,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155128"
+        "timestampProcesado": "2026-11-05T01:24:10.284737"
       }
     },
     {
@@ -1216,10 +1216,10 @@ const liveData = {
         "confianzaPrioridad": 0.95,
         "resumenIA": "Usuario (Luisa N.) | Contexto: Unidad cerrada | Categoría: Pieza personalizada | Prioridad: Alta",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 56 días. Asignar moderador urgente.",
-        "diasCalculados": 56,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 57 días. Asignar moderador urgente.",
+        "diasCalculados": 57,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155212"
+        "timestampProcesado": "2026-11-05T01:24:10.284792"
       }
     },
     {
@@ -1303,10 +1303,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Manuel R.) | Contexto: Hospitalizado | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 56 días. Asignar moderador urgente.",
-        "diasCalculados": 56,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 57 días. Asignar moderador urgente.",
+        "diasCalculados": 57,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155298"
+        "timestampProcesado": "2026-11-05T01:24:10.284849"
       }
     },
     {
@@ -1389,10 +1389,10 @@ const liveData = {
         "confianzaPrioridad": 0.95,
         "resumenIA": "Usuario (Timoteo C.) | Contexto: Unidad cerrada | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 56 días. Asignar moderador urgente.",
-        "diasCalculados": 56,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 57 días. Asignar moderador urgente.",
+        "diasCalculados": 57,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155378"
+        "timestampProcesado": "2026-11-05T01:24:10.284902"
       }
     },
     {
@@ -1475,10 +1475,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Guillermo A.) | Contexto: Hospitalizado | Categoría: Pieza personalizada | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 51 días. Asignar moderador urgente.",
-        "diasCalculados": 51,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 52 días. Asignar moderador urgente.",
+        "diasCalculados": 52,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155487"
+        "timestampProcesado": "2026-11-05T01:24:10.284954"
       }
     },
     {
@@ -1561,10 +1561,10 @@ const liveData = {
         "confianzaPrioridad": 0.9,
         "resumenIA": "Usuario (Juana O.) | Contexto: Hospitalizado | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 49 días. Asignar moderador urgente.",
-        "diasCalculados": 49,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 50 días. Asignar moderador urgente.",
+        "diasCalculados": 50,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155571"
+        "timestampProcesado": "2026-11-05T01:24:10.285010"
       }
     },
     {
@@ -1647,10 +1647,10 @@ const liveData = {
         "confianzaPrioridad": 0.95,
         "resumenIA": "Unidad (Medicina , Terapia Ocupacional) | Contexto: Unidad cerrada | Categoría: Stock de unidad | Prioridad: Alta",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 49 días. Asignar moderador urgente.",
-        "diasCalculados": 49,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 50 días. Asignar moderador urgente.",
+        "diasCalculados": 50,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155642"
+        "timestampProcesado": "2026-11-05T01:24:10.285058"
       }
     },
     {
@@ -1734,10 +1734,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Marcos R.) | Contexto: Hospitalizado | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 44 días. Asignar moderador urgente.",
-        "diasCalculados": 44,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 45 días. Asignar moderador urgente.",
+        "diasCalculados": 45,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155724"
+        "timestampProcesado": "2026-11-05T01:24:10.285111"
       }
     },
     {
@@ -1821,10 +1821,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Jose F.) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 43 días. Asignar moderador urgente.",
-        "diasCalculados": 43,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 44 días. Asignar moderador urgente.",
+        "diasCalculados": 44,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155807"
+        "timestampProcesado": "2026-11-05T01:24:10.285176"
       }
     },
     {
@@ -1911,10 +1911,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Cecilia U.) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 42 días. Asignar moderador urgente.",
-        "diasCalculados": 42,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 43 días. Asignar moderador urgente.",
+        "diasCalculados": 43,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155892"
+        "timestampProcesado": "2026-11-05T01:24:10.285230"
       }
     },
     {
@@ -2004,10 +2004,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Flor M.) | Contexto: Ambulatorio | Categoría: Pieza personalizada | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 36 días. Asignar moderador urgente.",
-        "diasCalculados": 36,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 37 días. Asignar moderador urgente.",
+        "diasCalculados": 37,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.155979"
+        "timestampProcesado": "2026-11-05T01:24:10.285286"
       }
     },
     {
@@ -2090,10 +2090,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Myriam P.) | Contexto: Ambulatorio | Categoría: Pieza personalizada | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 36 días. Asignar moderador urgente.",
-        "diasCalculados": 36,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 37 días. Asignar moderador urgente.",
+        "diasCalculados": 37,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156055"
+        "timestampProcesado": "2026-11-05T01:24:10.285337"
       }
     },
     {
@@ -2176,10 +2176,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Jose I.) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 36 días. Asignar moderador urgente.",
-        "diasCalculados": 36,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 37 días. Asignar moderador urgente.",
+        "diasCalculados": 37,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156133"
+        "timestampProcesado": "2026-11-05T01:24:10.285389"
       }
     },
     {
@@ -2262,10 +2262,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Guillermo A.) | Contexto: Hospitalizado | Categoría: Pieza personalizada | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 29 días. Asignar moderador urgente.",
-        "diasCalculados": 29,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 30 días. Asignar moderador urgente.",
+        "diasCalculados": 30,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156205"
+        "timestampProcesado": "2026-11-05T01:24:10.285437"
       }
     },
     {
@@ -2348,10 +2348,10 @@ const liveData = {
         "confianzaPrioridad": 0.95,
         "resumenIA": "Usuario (Sara M.) | Contexto: Unidad cerrada | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 28 días. Asignar moderador urgente.",
-        "diasCalculados": 28,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 29 días. Asignar moderador urgente.",
+        "diasCalculados": 29,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156284"
+        "timestampProcesado": "2026-11-05T01:24:10.285490"
       }
     },
     {
@@ -2434,10 +2434,10 @@ const liveData = {
         "confianzaPrioridad": 0.9,
         "resumenIA": "Usuario (Wilma A.) | Contexto: Hospitalizado | Categoría: Ayuda técnica AVD | Prioridad: Alta",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 28 días. Asignar moderador urgente.",
-        "diasCalculados": 28,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 29 días. Asignar moderador urgente.",
+        "diasCalculados": 29,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156362"
+        "timestampProcesado": "2026-11-05T01:24:10.285543"
       }
     },
     {
@@ -2523,10 +2523,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Vilma G.) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 28 días. Asignar moderador urgente.",
-        "diasCalculados": 28,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 29 días. Asignar moderador urgente.",
+        "diasCalculados": 29,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156455"
+        "timestampProcesado": "2026-11-05T01:24:10.285593"
       }
     },
     {
@@ -2609,10 +2609,10 @@ const liveData = {
         "confianzaPrioridad": 0.95,
         "resumenIA": "Unidad (TO UCI) | Contexto: Unidad cerrada | Categoría: Stock de unidad | Prioridad: Alta",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 8 días. Asignar moderador urgente.",
-        "diasCalculados": 8,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 9 días. Asignar moderador urgente.",
+        "diasCalculados": 9,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156525"
+        "timestampProcesado": "2026-11-05T01:24:10.285638"
       }
     },
     {
@@ -2695,10 +2695,10 @@ const liveData = {
         "confianzaPrioridad": 0.88,
         "resumenIA": "Usuario (Paciente) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": true,
-        "accionSugerida": "⚠️ Solicitud sin revisar durante 6 días. Asignar moderador urgente.",
-        "diasCalculados": 6,
+        "accionSugerida": "⚠️ Solicitud sin revisar durante 7 días. Asignar moderador urgente.",
+        "diasCalculados": 7,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156594"
+        "timestampProcesado": "2026-11-05T01:24:10.285683"
       }
     },
     {
@@ -2782,9 +2782,9 @@ const liveData = {
         "resumenIA": "Usuario (Eliseo R.) | Contexto: Ambulatorio | Categoría: Pieza personalizada | Prioridad: Media",
         "alertaSeguimiento": false,
         "accionSugerida": "En flujo normal de producción.",
-        "diasCalculados": 2,
+        "diasCalculados": 3,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156671"
+        "timestampProcesado": "2026-11-05T01:24:10.285734"
       }
     },
     {
@@ -2868,9 +2868,9 @@ const liveData = {
         "resumenIA": "Usuario (Eliseo I.) | Contexto: Ambulatorio | Categoría: Pieza personalizada | Prioridad: Media",
         "alertaSeguimiento": false,
         "accionSugerida": "En flujo normal de producción.",
-        "diasCalculados": 2,
+        "diasCalculados": 3,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156748"
+        "timestampProcesado": "2026-11-05T01:24:10.285784"
       }
     },
     {
@@ -2954,9 +2954,9 @@ const liveData = {
         "resumenIA": "Usuario (Prueba) | Contexto: Hospitalizado | Categoría: Ayuda técnica AVD | Prioridad: Media",
         "alertaSeguimiento": false,
         "accionSugerida": "En flujo normal de producción.",
-        "diasCalculados": 1,
+        "diasCalculados": 2,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-04T20:53:54.156818"
+        "timestampProcesado": "2026-11-05T01:24:10.285831"
       }
     }
   ]
