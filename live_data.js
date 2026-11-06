@@ -1,7 +1,7 @@
 const liveData = {
-  "last_sync": "2026-11-06T11:24:02.185215",
+  "last_sync": "2026-11-06T18:18:28.967244",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
-  "total_records": 37,
+  "total_records": 38,
   "records": [
     {
       "Marca temporal": "21/07/2025 14:49:24",
@@ -20,7 +20,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "Lo requiero",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -41,6 +40,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -65,8 +67,7 @@ const liveData = {
         "personalizadaTexto": "",
         "piezasDetectadas": [
           "Adaptador universal con mango",
-          "Adaptador corta uñas",
-          "Cortador de frutas"
+          "Adaptador corta uñas"
         ],
         "fechaMarca": "21/07/2025 14:49:24",
         "areaSolicitante": "Terapia Ocupacional",
@@ -88,7 +89,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 473 días. Asignar moderador urgente.",
         "diasCalculados": 473,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.182937"
+        "timestampProcesado": "2026-11-06T18:18:28.962565"
       }
     },
     {
@@ -108,7 +109,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -129,6 +129,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "13-03-2026",
@@ -174,7 +177,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 240 días. Asignar moderador urgente.",
         "diasCalculados": 240,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183062"
+        "timestampProcesado": "2026-11-06T18:18:28.962762"
       }
     },
     {
@@ -194,7 +197,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -215,6 +217,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "22-06-2026",
@@ -260,7 +265,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 219 días. Asignar moderador urgente.",
         "diasCalculados": 219,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183144"
+        "timestampProcesado": "2026-11-06T18:18:28.962906"
       }
     },
     {
@@ -280,7 +285,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -301,6 +305,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "22-06-2026",
@@ -346,7 +353,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 175 días. Asignar moderador urgente.",
         "diasCalculados": 175,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183214"
+        "timestampProcesado": "2026-11-06T18:18:28.963039"
       }
     },
     {
@@ -366,7 +373,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "Lo requiero",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "Lo requiero",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -387,6 +393,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "30-07-2026",
@@ -436,7 +445,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 108 días. Asignar moderador urgente.",
         "diasCalculados": 108,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183288"
+        "timestampProcesado": "2026-11-06T18:18:28.963217"
       }
     },
     {
@@ -456,7 +465,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "Lo requiero",
       "Abotonador  (ayuda técnica)": "Lo requiero",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "Lo requiero",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -477,6 +485,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "22-07-2026",
@@ -526,7 +537,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 107 días. Asignar moderador urgente.",
         "diasCalculados": 107,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183354"
+        "timestampProcesado": "2026-11-06T18:18:28.963353"
       }
     },
     {
@@ -546,7 +557,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "lo requiero X2",
@@ -567,6 +577,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "13-08-2026",
@@ -612,7 +625,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 86 días. Asignar moderador urgente.",
         "diasCalculados": 86,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183413"
+        "timestampProcesado": "2026-11-06T18:18:28.963471"
       }
     },
     {
@@ -632,7 +645,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "Lo requiero",
       "Abotonador  (ayuda técnica)": "Lo requiero",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "Lo requiero",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -653,6 +665,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "17/08/2026",
@@ -702,7 +717,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 81 días. Asignar moderador urgente.",
         "diasCalculados": 81,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183497"
+        "timestampProcesado": "2026-11-06T18:18:28.963622"
       }
     },
     {
@@ -722,7 +737,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -743,6 +757,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "18/08/2026",
@@ -788,7 +805,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 80 días. Asignar moderador urgente.",
         "diasCalculados": 80,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183562"
+        "timestampProcesado": "2026-11-06T18:18:28.963748"
       }
     },
     {
@@ -808,7 +825,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -829,6 +845,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "31-08-2026",
@@ -874,7 +893,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 67 días. Asignar moderador urgente.",
         "diasCalculados": 67,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183620"
+        "timestampProcesado": "2026-11-06T18:18:28.963860"
       }
     },
     {
@@ -894,7 +913,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -915,6 +933,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "08-09-2026",
@@ -960,7 +981,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 66 días. Asignar moderador urgente.",
         "diasCalculados": 66,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183693"
+        "timestampProcesado": "2026-11-06T18:18:28.963975"
       }
     },
     {
@@ -980,7 +1001,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "Lo requiero en talla S",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "Lo requiero",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1001,6 +1021,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "08-09-2026",
@@ -1047,7 +1070,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 59 días. Asignar moderador urgente.",
         "diasCalculados": 59,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183750"
+        "timestampProcesado": "2026-11-06T18:18:28.964082"
       }
     },
     {
@@ -1067,7 +1090,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1088,6 +1110,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "10-09-2026",
@@ -1133,7 +1158,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 58 días. Asignar moderador urgente.",
         "diasCalculados": 58,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183805"
+        "timestampProcesado": "2026-11-06T18:18:28.964207"
       }
     },
     {
@@ -1153,7 +1178,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1174,6 +1198,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -1219,7 +1246,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 58 días. Asignar moderador urgente.",
         "diasCalculados": 58,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183863"
+        "timestampProcesado": "2026-11-06T18:18:28.964321"
       }
     },
     {
@@ -1239,7 +1266,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1260,6 +1286,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "10-09-2026",
@@ -1306,7 +1335,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 58 días. Asignar moderador urgente.",
         "diasCalculados": 58,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183924"
+        "timestampProcesado": "2026-11-06T18:18:28.964436"
       }
     },
     {
@@ -1326,7 +1355,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1347,6 +1375,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "10-09-2026",
@@ -1392,7 +1423,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 58 días. Asignar moderador urgente.",
         "diasCalculados": 58,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.183980"
+        "timestampProcesado": "2026-11-06T18:18:28.964546"
       }
     },
     {
@@ -1412,7 +1443,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1433,6 +1463,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "15-09-2026",
@@ -1478,7 +1511,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 53 días. Asignar moderador urgente.",
         "diasCalculados": 53,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184036"
+        "timestampProcesado": "2026-11-06T18:18:28.964653"
       }
     },
     {
@@ -1498,7 +1531,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1519,6 +1551,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "17-09",
@@ -1564,7 +1599,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 51 días. Asignar moderador urgente.",
         "diasCalculados": 51,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184095"
+        "timestampProcesado": "2026-11-06T18:18:28.964768"
       }
     },
     {
@@ -1584,7 +1619,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1605,6 +1639,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "29-09",
@@ -1650,7 +1687,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 51 días. Asignar moderador urgente.",
         "diasCalculados": 51,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184146"
+        "timestampProcesado": "2026-11-06T18:18:28.964864"
       }
     },
     {
@@ -1670,7 +1707,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1691,6 +1727,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "17-09",
@@ -1737,7 +1776,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 46 días. Asignar moderador urgente.",
         "diasCalculados": 46,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184205"
+        "timestampProcesado": "2026-11-06T18:18:28.964978"
       }
     },
     {
@@ -1757,7 +1796,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1778,6 +1816,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "23-09-2026",
@@ -1824,7 +1865,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 45 días. Asignar moderador urgente.",
         "diasCalculados": 45,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184262"
+        "timestampProcesado": "2026-11-06T18:18:28.965088"
       }
     },
     {
@@ -1844,7 +1885,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "Lo requiero en talla M",
       "Adaptador de llaves  (ayuda técnica)": "Lo requiero",
       "Abotonador  (ayuda técnica)": "Lo requiero",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "Lo requiero",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1865,6 +1905,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "23-09-2026",
@@ -1914,7 +1957,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 44 días. Asignar moderador urgente.",
         "diasCalculados": 44,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184321"
+        "timestampProcesado": "2026-11-06T18:18:28.965223"
       }
     },
     {
@@ -1934,7 +1977,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "Lo requiero en talla M",
       "Adaptador de llaves  (ayuda técnica)": "Lo requiero",
       "Abotonador  (ayuda técnica)": "Lo requiero",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "Lo requiero",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -1955,6 +1997,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "13-10-2026",
@@ -2007,7 +2052,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 38 días. Asignar moderador urgente.",
         "diasCalculados": 38,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184381"
+        "timestampProcesado": "2026-11-06T18:18:28.965352"
       }
     },
     {
@@ -2027,7 +2072,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2048,6 +2092,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "29-09-2026",
@@ -2093,7 +2140,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 38 días. Asignar moderador urgente.",
         "diasCalculados": 38,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184434"
+        "timestampProcesado": "2026-11-06T18:18:28.965464"
       }
     },
     {
@@ -2113,7 +2160,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2134,6 +2180,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "29-09-2026",
@@ -2179,7 +2228,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 38 días. Asignar moderador urgente.",
         "diasCalculados": 38,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184489"
+        "timestampProcesado": "2026-11-06T18:18:28.965577"
       }
     },
     {
@@ -2199,7 +2248,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2220,6 +2268,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -2265,7 +2316,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 31 días. Asignar moderador urgente.",
         "diasCalculados": 31,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184541"
+        "timestampProcesado": "2026-11-06T18:18:28.965679"
       }
     },
     {
@@ -2285,7 +2336,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2306,6 +2356,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "16-10-2026",
@@ -2351,7 +2404,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 30 días. Asignar moderador urgente.",
         "diasCalculados": 30,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184597"
+        "timestampProcesado": "2026-11-06T18:18:28.965791"
       }
     },
     {
@@ -2371,7 +2424,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2392,6 +2444,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "16-10-2029",
@@ -2437,7 +2492,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 30 días. Asignar moderador urgente.",
         "diasCalculados": 30,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184653"
+        "timestampProcesado": "2026-11-06T18:18:28.965904"
       }
     },
     {
@@ -2457,7 +2512,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "Lo requiero en talla M",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "Lo requiero",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "Lo requiero",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2478,6 +2532,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "20-10-2026",
@@ -2526,7 +2583,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 30 días. Asignar moderador urgente.",
         "diasCalculados": 30,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184715"
+        "timestampProcesado": "2026-11-06T18:18:28.966011"
       }
     },
     {
@@ -2546,7 +2603,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2567,6 +2623,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "27-10-2026",
@@ -2612,7 +2671,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 10 días. Asignar moderador urgente.",
         "diasCalculados": 10,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184763"
+        "timestampProcesado": "2026-11-06T18:18:28.966146"
       }
     },
     {
@@ -2632,7 +2691,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2653,6 +2711,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "29-10-2026",
@@ -2698,7 +2759,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 8 días. Asignar moderador urgente.",
         "diasCalculados": 8,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184811"
+        "timestampProcesado": "2026-11-06T18:18:28.966274"
       }
     },
     {
@@ -2718,7 +2779,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2739,6 +2799,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -2784,7 +2847,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 4 días. Asignar moderador urgente.",
         "diasCalculados": 4,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184866"
+        "timestampProcesado": "2026-11-06T18:18:28.966396"
       }
     },
     {
@@ -2804,7 +2867,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2825,6 +2887,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -2870,7 +2935,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 4 días. Asignar moderador urgente.",
         "diasCalculados": 4,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184920"
+        "timestampProcesado": "2026-11-06T18:18:28.966508"
       }
     },
     {
@@ -2890,7 +2955,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -2911,6 +2975,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -2956,7 +3023,7 @@ const liveData = {
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 3,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.184971"
+        "timestampProcesado": "2026-11-06T18:18:28.966611"
       }
     },
     {
@@ -2976,7 +3043,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "Lo requiero",
@@ -2997,9 +3063,12 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
-      "1° FECHA DE ENTREGA": "",
+      "1° FECHA DE ENTREGA": "06/11/2026",
       "1° IMPLEMENTOS ENTREGADOS": "",
       "2° FECHA DE ENTREGA": "",
       "2° IMPLEMENTOS ENTREGADOS": "",
@@ -3042,7 +3111,7 @@ const liveData = {
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.185028"
+        "timestampProcesado": "2026-11-06T18:18:28.966734"
       }
     },
     {
@@ -3062,7 +3131,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -3083,9 +3151,12 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
-      "1° FECHA DE ENTREGA": "",
+      "1° FECHA DE ENTREGA": "06/11/2026",
       "1° IMPLEMENTOS ENTREGADOS": "",
       "2° FECHA DE ENTREGA": "",
       "2° IMPLEMENTOS ENTREGADOS": "",
@@ -3128,7 +3199,7 @@ const liveData = {
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.185084"
+        "timestampProcesado": "2026-11-06T18:18:28.966851"
       }
     },
     {
@@ -3148,7 +3219,6 @@ const liveData = {
       "Adaptador bolsa de compras  (ayuda técnica)": "",
       "Adaptador de llaves  (ayuda técnica)": "",
       "Abotonador  (ayuda técnica)": "",
-      "Cortador de frutas  (ayuda técnica)": "",
       "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
       "Masajeador de cicatriz (implemento rh)": "",
       "Hand Grip  (implemento rh)": "",
@@ -3169,6 +3239,9 @@ const liveData = {
       "Soporte de láminas  (ayuda técnica o implemento rh)": "",
       "Ganchos individuales para pared ": "",
       "Gancho triple para pared": "",
+      "Calzador de zapato": "",
+      "Abridor de tapas de botella ": "",
+      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -3214,7 +3287,96 @@ const liveData = {
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 0,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-06T11:24:02.185138"
+        "timestampProcesado": "2026-11-06T18:18:28.966960"
+      }
+    },
+    {
+      "Marca temporal": "6/11/2026 9:24:58",
+      "Nombre del funcionario solicitante": "Prueba",
+      "Profesión": "",
+      "¿A quién va dirigido el producto impreso?": "Implemento/ayuda técnica entregado a USUARIO ambulatorio",
+      "Si la respuesta anterior fue USUARIO indicar: Nombre, Rut, Servicio(Sala-cama)/Lugar de atención (poli Kine/TO/Fono). ": "Prueba ",
+      "Si la respuesta anterior fue UNIDAD indicar: Unidad y Sala o Poli Kine/TO/Fono ": "Prueba ",
+      "Adaptador de lápiz con mango (ayuda técnica)": "",
+      "Adaptador de lápiz tipo pelota  (ayuda técnica)": "",
+      "Adaptador de cubiertos con mango  (ayuda técnica)": "",
+      "Adaptador Universal  (ayuda técnica)": "",
+      "Adaptador universal con mango  (ayuda técnica)": "",
+      "Extractor de pastillas   (ayuda técnica)": "",
+      "Adaptador corta uñas   (ayuda técnica)": "",
+      "Adaptador bolsa de compras  (ayuda técnica)": "",
+      "Adaptador de llaves  (ayuda técnica)": "",
+      "Abotonador  (ayuda técnica)": "",
+      "Abridor de latas (bebidas, atún, jurel, etc)  (ayuda técnica)": "",
+      "Masajeador de cicatriz (implemento rh)": "",
+      "Hand Grip  (implemento rh)": "",
+      "Tablero de motricidad con fósforos   (implemento rh)": "",
+      "  Tablero extensor de dedos   (implemento rh)": "",
+      "Tablero de monedas  (implemento rh)": "",
+      "Jenga de gatitos  (implemento rh)": "",
+      "Tazos de discriminación táctil  (implemento rh)": "",
+      "Prono-supinador  (implemento rh)": "",
+      "Finger Grip  (implemento rh)": "",
+      "Encaje de tetris  (implemento rh)": "",
+      "Solicitud personalizada: describir brevemente el equipamiento/ayuda técnica solicitada": "",
+      "Engranaje para mano  (implemento rh)": "",
+      "Vasos con pelotitas de colores  (implemento rh)": "",
+      "Enhebradores de animales   (implemento rh)": "",
+      "Juego tetris (pequeño)  (implemento rh)": "",
+      "Prueba de la Clavija de Nueve Agujeros (9-HPT)  (implemento rh)": "",
+      "Soporte de láminas  (ayuda técnica o implemento rh)": "",
+      "Ganchos individuales para pared ": "",
+      "Gancho triple para pared": "",
+      "Calzador de zapato": "Lo Requiero",
+      "Abridor de tapas de botella ": "Lo requiero",
+      "Columna 37": "",
+      "Encaje de figuras geométricas  (implemento rh)": "",
+      "Tablero de monedas ": "",
+      "1° FECHA DE ENTREGA": "",
+      "1° IMPLEMENTOS ENTREGADOS": "",
+      "2° FECHA DE ENTREGA": "",
+      "2° IMPLEMENTOS ENTREGADOS": "",
+      "3° FECHA DE ENTREGA": "",
+      "3° IMPLEMENTOS ENTREGADOS": "",
+      "TOTAL IMPLEMENTOS ENTREGADOS ": "",
+      "1° Tiempo de Espera ": "",
+      "2° Tiempo de Espera ": "",
+      "3° Tiempo de Espera ": "",
+      "CATASTRO DE BENEFICIARIOS DIARIOS DE IMPLEMENTOS ADAPTACIONES ": "",
+      "_row_index": 38,
+      "_ai_agent_analysis": {
+        "id": "RP-038",
+        "nombreSolicitante": "Prueba",
+        "profesionSolicitante": "—",
+        "destinoTexto": "Implemento/ayuda técnica entregado a USUARIO ambulatorio",
+        "unidadTexto": "Prueba",
+        "usuarioTexto": "Prueba",
+        "personalizadaTexto": "",
+        "piezasDetectadas": [
+          "Calzador de zapato",
+          "Abridor de tapas de botella"
+        ],
+        "fechaMarca": "6/11/2026 9:24:58",
+        "areaSolicitante": "Otra",
+        "nombreUsuarioNormalizado": "Prueba",
+        "nombreUsuarioAnonimizado": "Prueba",
+        "rutUsuarioNormalizado": "",
+        "rutUsuarioAnonimizado": "",
+        "ubicacionNormalizada": "",
+        "solicitudPersonalizada": "",
+        "destinoTipo": "Usuario",
+        "contextoAtencion": "Ambulatorio",
+        "categoriaFuncional": "Ayuda técnica AVD",
+        "confianzaClasificacion": 0.92,
+        "prioridadIA": "Media",
+        "motivoPrioridad": "Usuario ambulatorio en plan de rehabilitación funcional (AVD / apoyo motor).",
+        "confianzaPrioridad": 0.88,
+        "resumenIA": "Usuario (Prueba) | Contexto: Ambulatorio | Categoría: Ayuda técnica AVD | Prioridad: Media",
+        "alertaSeguimiento": false,
+        "accionSugerida": "En flujo normal de producción.",
+        "diasCalculados": 0,
+        "requiereRevisionManual": false,
+        "timestampProcesado": "2026-11-06T18:18:28.967062"
       }
     }
   ]
