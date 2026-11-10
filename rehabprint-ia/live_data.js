@@ -1,5 +1,5 @@
 const liveData = {
-  "last_sync": "2026-11-10T04:01:27.563561",
+  "last_sync": "2026-11-10T12:54:14.476924",
   "sheet_id": "1Gd-M3J_kRd0M6aXBTi4LivVAXWrLMZ9JWluWxkX6Gcg",
   "total_records": 39,
   "records": [
@@ -42,7 +42,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -89,7 +88,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 477 días. Asignar moderador urgente.",
         "diasCalculados": 477,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.559540"
+        "timestampProcesado": "2026-11-10T12:54:14.472618"
       }
     },
     {
@@ -131,7 +130,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "13-03-2026",
@@ -177,7 +175,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 244 días. Asignar moderador urgente.",
         "diasCalculados": 244,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.559685"
+        "timestampProcesado": "2026-11-10T12:54:14.472834"
       }
     },
     {
@@ -219,7 +217,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "22-06-2026",
@@ -265,7 +262,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 223 días. Asignar moderador urgente.",
         "diasCalculados": 223,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.559795"
+        "timestampProcesado": "2026-11-10T12:54:14.472986"
       }
     },
     {
@@ -307,7 +304,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "22-06-2026",
@@ -353,7 +349,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 179 días. Asignar moderador urgente.",
         "diasCalculados": 179,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.559908"
+        "timestampProcesado": "2026-11-10T12:54:14.473123"
       }
     },
     {
@@ -395,7 +391,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "30-07-2026",
@@ -445,7 +440,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 112 días. Asignar moderador urgente.",
         "diasCalculados": 112,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560006"
+        "timestampProcesado": "2026-11-10T12:54:14.473257"
       }
     },
     {
@@ -487,7 +482,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "22-07-2026",
@@ -537,7 +531,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 111 días. Asignar moderador urgente.",
         "diasCalculados": 111,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560094"
+        "timestampProcesado": "2026-11-10T12:54:14.473372"
       }
     },
     {
@@ -579,7 +573,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "13-08-2026",
@@ -625,7 +618,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 90 días. Asignar moderador urgente.",
         "diasCalculados": 90,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560177"
+        "timestampProcesado": "2026-11-10T12:54:14.473479"
       }
     },
     {
@@ -667,7 +660,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "17/08/2026",
@@ -717,7 +709,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 85 días. Asignar moderador urgente.",
         "diasCalculados": 85,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560284"
+        "timestampProcesado": "2026-11-10T12:54:14.473628"
       }
     },
     {
@@ -759,7 +751,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "18/08/2026",
@@ -805,7 +796,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 84 días. Asignar moderador urgente.",
         "diasCalculados": 84,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560373"
+        "timestampProcesado": "2026-11-10T12:54:14.473743"
       }
     },
     {
@@ -847,7 +838,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "31-08-2026",
@@ -893,7 +883,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 71 días. Asignar moderador urgente.",
         "diasCalculados": 71,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560449"
+        "timestampProcesado": "2026-11-10T12:54:14.473841"
       }
     },
     {
@@ -935,7 +925,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "08-09-2026",
@@ -981,7 +970,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 70 días. Asignar moderador urgente.",
         "diasCalculados": 70,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560531"
+        "timestampProcesado": "2026-11-10T12:54:14.473944"
       }
     },
     {
@@ -1023,7 +1012,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "08-09-2026",
@@ -1070,7 +1058,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 63 días. Asignar moderador urgente.",
         "diasCalculados": 63,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560607"
+        "timestampProcesado": "2026-11-10T12:54:14.474059"
       }
     },
     {
@@ -1112,7 +1100,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "10-09-2026",
@@ -1158,7 +1145,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 62 días. Asignar moderador urgente.",
         "diasCalculados": 62,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560682"
+        "timestampProcesado": "2026-11-10T12:54:14.474176"
       }
     },
     {
@@ -1200,7 +1187,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -1246,7 +1232,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 62 días. Asignar moderador urgente.",
         "diasCalculados": 62,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560772"
+        "timestampProcesado": "2026-11-10T12:54:14.474283"
       }
     },
     {
@@ -1288,7 +1274,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "10-09-2026",
@@ -1335,7 +1320,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 62 días. Asignar moderador urgente.",
         "diasCalculados": 62,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560858"
+        "timestampProcesado": "2026-11-10T12:54:14.474393"
       }
     },
     {
@@ -1377,7 +1362,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "10-09-2026",
@@ -1423,7 +1407,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 62 días. Asignar moderador urgente.",
         "diasCalculados": 62,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.560947"
+        "timestampProcesado": "2026-11-10T12:54:14.474495"
       }
     },
     {
@@ -1465,7 +1449,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "15-09-2026",
@@ -1511,7 +1494,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 57 días. Asignar moderador urgente.",
         "diasCalculados": 57,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561024"
+        "timestampProcesado": "2026-11-10T12:54:14.474594"
       }
     },
     {
@@ -1553,7 +1536,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "17-09",
@@ -1599,7 +1581,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 55 días. Asignar moderador urgente.",
         "diasCalculados": 55,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561103"
+        "timestampProcesado": "2026-11-10T12:54:14.474698"
       }
     },
     {
@@ -1641,7 +1623,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "29-09",
@@ -1687,7 +1668,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 55 días. Asignar moderador urgente.",
         "diasCalculados": 55,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561171"
+        "timestampProcesado": "2026-11-10T12:54:14.474788"
       }
     },
     {
@@ -1729,7 +1710,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "17-09",
@@ -1776,7 +1756,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 50 días. Asignar moderador urgente.",
         "diasCalculados": 50,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561249"
+        "timestampProcesado": "2026-11-10T12:54:14.474895"
       }
     },
     {
@@ -1818,7 +1798,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "23-09-2026",
@@ -1865,7 +1844,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 49 días. Asignar moderador urgente.",
         "diasCalculados": 49,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561326"
+        "timestampProcesado": "2026-11-10T12:54:14.474999"
       }
     },
     {
@@ -1907,7 +1886,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "23-09-2026",
@@ -1957,7 +1935,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 48 días. Asignar moderador urgente.",
         "diasCalculados": 48,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561405"
+        "timestampProcesado": "2026-11-10T12:54:14.475105"
       }
     },
     {
@@ -1999,7 +1977,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "13-10-2026",
@@ -2052,7 +2029,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 42 días. Asignar moderador urgente.",
         "diasCalculados": 42,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561483"
+        "timestampProcesado": "2026-11-10T12:54:14.475226"
       }
     },
     {
@@ -2094,7 +2071,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "29-09-2026",
@@ -2140,7 +2116,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 42 días. Asignar moderador urgente.",
         "diasCalculados": 42,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561557"
+        "timestampProcesado": "2026-11-10T12:54:14.475324"
       }
     },
     {
@@ -2182,7 +2158,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "29-09-2026",
@@ -2228,7 +2203,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 42 días. Asignar moderador urgente.",
         "diasCalculados": 42,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561641"
+        "timestampProcesado": "2026-11-10T12:54:14.475424"
       }
     },
     {
@@ -2270,7 +2245,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -2316,7 +2290,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 35 días. Asignar moderador urgente.",
         "diasCalculados": 35,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561712"
+        "timestampProcesado": "2026-11-10T12:54:14.475521"
       }
     },
     {
@@ -2358,7 +2332,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "16-10-2026",
@@ -2404,7 +2377,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 34 días. Asignar moderador urgente.",
         "diasCalculados": 34,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561833"
+        "timestampProcesado": "2026-11-10T12:54:14.475627"
       }
     },
     {
@@ -2446,7 +2419,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "16-10-2029",
@@ -2492,7 +2464,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 34 días. Asignar moderador urgente.",
         "diasCalculados": 34,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.561984"
+        "timestampProcesado": "2026-11-10T12:54:14.475730"
       }
     },
     {
@@ -2534,7 +2506,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "20-10-2026",
@@ -2583,7 +2554,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 34 días. Asignar moderador urgente.",
         "diasCalculados": 34,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.562127"
+        "timestampProcesado": "2026-11-10T12:54:14.475825"
       }
     },
     {
@@ -2625,7 +2596,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "27-10-2026",
@@ -2671,7 +2641,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 14 días. Asignar moderador urgente.",
         "diasCalculados": 14,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.562248"
+        "timestampProcesado": "2026-11-10T12:54:14.475913"
       }
     },
     {
@@ -2713,7 +2683,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "29-10-2026",
@@ -2759,7 +2728,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 12 días. Asignar moderador urgente.",
         "diasCalculados": 12,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.562365"
+        "timestampProcesado": "2026-11-10T12:54:14.476000"
       }
     },
     {
@@ -2801,7 +2770,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -2847,7 +2815,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 8 días. Asignar moderador urgente.",
         "diasCalculados": 8,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.562494"
+        "timestampProcesado": "2026-11-10T12:54:14.476098"
       }
     },
     {
@@ -2889,7 +2857,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -2935,7 +2902,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 8 días. Asignar moderador urgente.",
         "diasCalculados": 8,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.562622"
+        "timestampProcesado": "2026-11-10T12:54:14.476214"
       }
     },
     {
@@ -2977,7 +2944,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -3023,7 +2989,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 7 días. Asignar moderador urgente.",
         "diasCalculados": 7,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.562745"
+        "timestampProcesado": "2026-11-10T12:54:14.476312"
       }
     },
     {
@@ -3065,7 +3031,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "06/11/2026",
@@ -3111,7 +3076,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 5 días. Asignar moderador urgente.",
         "diasCalculados": 5,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.562896"
+        "timestampProcesado": "2026-11-10T12:54:14.476418"
       }
     },
     {
@@ -3153,7 +3118,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "06/11/2026",
@@ -3199,7 +3163,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 5 días. Asignar moderador urgente.",
         "diasCalculados": 5,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.563031"
+        "timestampProcesado": "2026-11-10T12:54:14.476523"
       }
     },
     {
@@ -3241,7 +3205,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -3287,7 +3250,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 4 días. Asignar moderador urgente.",
         "diasCalculados": 4,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.563151"
+        "timestampProcesado": "2026-11-10T12:54:14.476625"
       }
     },
     {
@@ -3329,7 +3292,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "Lo Requiero",
       "Abridor de tapas de botella ": "Lo requiero",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "",
@@ -3376,7 +3338,7 @@ const liveData = {
         "accionSugerida": "⚠️ Solicitud sin revisar durante 4 días. Asignar moderador urgente.",
         "diasCalculados": 4,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.563263"
+        "timestampProcesado": "2026-11-10T12:54:14.476716"
       }
     },
     {
@@ -3418,7 +3380,6 @@ const liveData = {
       "Gancho triple para pared": "",
       "Calzador de zapato": "",
       "Abridor de tapas de botella ": "",
-      "Columna 37": "",
       "Encaje de figuras geométricas  (implemento rh)": "",
       "Tablero de monedas ": "",
       "1° FECHA DE ENTREGA": "09/11/2026",
@@ -3465,7 +3426,7 @@ const liveData = {
         "accionSugerida": "En flujo normal de producción.",
         "diasCalculados": 1,
         "requiereRevisionManual": false,
-        "timestampProcesado": "2026-11-10T04:01:27.563393"
+        "timestampProcesado": "2026-11-10T12:54:14.476809"
       }
     }
   ]
